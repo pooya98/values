@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- MainActivity 레이아웃 파일 [메인화면] -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +8,7 @@
     tools:context=".Activity.MainActivity"
     android:orientation="vertical">
 
+    <!-- 최상단 부분(로고 & 로그인 버튼) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,6 +21,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
 
+            <!-- 로고 이미지 -->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -34,6 +37,7 @@
             android:layout_weight="5"
             android:gravity="right">
 
+            <!-- 로그인 버튼 -->
             <Button
                 android:layout_width="70dp"
                 android:text="로그인"
@@ -48,11 +52,13 @@
 
     </LinearLayout>
 
+    <!-- 중앙 부분(프레임레이아웃) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="14">
 
+        <!-- MainActivity 프레임레이아웃 -->
         <FrameLayout
             android:id="@+id/Main_FrameLayout"
             android:layout_width="match_parent"
