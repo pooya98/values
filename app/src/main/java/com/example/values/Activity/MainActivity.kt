@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         // <------ 레이아웃 뷰 선언 ------> //
 
         // 하단 네비게이션 바
-        val bottomMenu = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val bottomMenu = findViewById<BottomNavigationView>(R.id.mainactivity_bottom_navigation)
 
 
 
@@ -28,24 +28,23 @@ class MainActivity : AppCompatActivity() {
         bottomMenu.run { setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home -> {
-                    val homeFragment = Fragment_01()
                     supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_01()).commit()
                 }
                 R.id.display -> {
-                    val homeFragment = Fragment_02()
                     supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_02()).commit()
                 }
                 R.id.ticketing -> {
-                    val homeFragment = Fragment_03()
                     supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_03()).commit()
                 }
                 R.id.menu -> {
-                    val homeFragment = Fragment_04()
                     supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_04()).commit()
                 }
             }
             true
         } }
+
+        // <------ 초기 실행해야할 부분 ------> //
+        supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_01()).commit()
 
     }
 }

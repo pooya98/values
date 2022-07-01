@@ -21,7 +21,7 @@
 
             <!-- 상단 네비게이션 바 -->
             <RadioGroup
-                android:id="@+id/radioGroup_home"
+                android:id="@+id/fragment01_radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -30,7 +30,7 @@
 
                 <!-- 네이게이션 1번째 버튼(전시 작품) -->
                 <RadioButton
-                    android:id="@+id/radio1"
+                    android:id="@+id/fragment01_radio1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:gravity="center"
@@ -48,7 +48,7 @@
 
                 <!-- 네이게이션 2번째 버튼(전시 굿즈) -->
                 <RadioButton
-                    android:id="@+id/radio2"
+                    android:id="@+id/fragment01_radio2"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -65,7 +65,7 @@
 
                 <!-- 네이게이션 3번째 버튼(카페 이용) -->
                 <RadioButton
-                    android:id="@+id/radio3"
+                    android:id="@+id/fragment01_radio3"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -82,7 +82,7 @@
 
                 <!-- 네이게이션 4번째 버튼(기타 컨텐츠) -->
                 <RadioButton
-                    android:id="@+id/radio4"
+                    android:id="@+id/fragment01_radio4"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -111,7 +111,7 @@
 
             <!-- Fragment_01 프레임레이아웃 -->
             <FrameLayout
-                android:id="@+id/HomeFragment_FrameLayout"
+                android:id="@+id/fragment01_FrameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
