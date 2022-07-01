@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fragment_04 [프래그먼트04. '전체' 화면]-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.Fragment_04">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- 상단 부분 (상단 네비게이션 바) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- 상단 네비게이션 바 -->
+            <RadioGroup
+                android:id="@+id/fragment04_radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <!-- 네이게이션 1번째 버튼(나의 인지도) -->
+                <RadioButton
+                    android:id="@+id/fragment04_radio1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_radiobutton_background"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="나의 인지도"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/selector_radiobutton_text" />
+
+                <!-- 네이게이션 2번째 버튼(뱃지 현황) -->
+                <RadioButton
+                    android:id="@+id/fragment04_radio2"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_radiobutton_background"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="뱃지 현황"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/selector_radiobutton_text" />
+
+                <!-- 네이게이션 3번째 버튼(나의 전시) -->
+                <RadioButton
+                    android:id="@+id/fragment04_radio3"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_radiobutton_background"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="나의 전시"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/selector_radiobutton_text" />
+
+                <!-- 네이게이션 4번째 버튼(포트폴리오) -->
+                <RadioButton
+                    android:id="@+id/fragment04_radio4"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_radiobutton_background"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="포트폴리오"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/selector_radiobutton_text" />
+
+            </RadioGroup>
+
+
+
+        </LinearLayout>
+
+        <!-- 중하단부 (프레임레이아웃) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15">
+
+            <!-- Fragment_01 프레임레이아웃 -->
+            <FrameLayout
+                android:id="@+id/fragment02_FrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
