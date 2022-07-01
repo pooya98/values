@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
     android:orientation="vertical"
+    android:visibility="visible"
+    android:weightSum="10"
     tools:context=".Fragment.Fragment_03">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,13 +19,14 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="67dp"
-            android:layout_height="65dp"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
             android:layout_marginStart="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.644"
+            app:srcCompat="@android:drawable/ic_menu_myplaces"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -146,9 +148,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8.5"
-        android:weightSum="8.3"
         android:orientation="vertical"
-        >
+        android:weightSum="8.3">
 
         <Button
             android:layout_width="match_parent"
@@ -166,7 +167,7 @@
             android:textSize="45px"
             android:textStyle="bold"
 
-            />
+            android:visibility="visible" />
 
         <Button
             android:layout_width="match_parent"
@@ -254,16 +255,16 @@
             android:textSize="45px"
             android:textStyle="bold"
 
-             />
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.27"
+            android:background="@color/dh_white"
             android:gravity="center"
             android:text="문의 및 상담은 평일 22:00/ 주말 18:00 까지 가능합니다."
             android:textColor="@color/dh_gray"
-            android:background="@color/dh_white"
 
 
             android:textSize="13dp" />
