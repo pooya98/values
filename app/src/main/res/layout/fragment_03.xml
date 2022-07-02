@@ -1,15 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Fragment_03 [프래그먼트03. '결제현황' 화면]-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="#CDFFFFFF"
+    android:backgroundTint="@color/dh_purple"
+    android:foregroundTint="@color/dh_purple"
     tools:context=".Fragment.Fragment_03">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment_03" />
+        android:background="#7735FF">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="413dp"
+            android:layout_height="585dp"
+            android:layout_marginTop="4dp"
+            android:background="#7735FF"
+            android:contentDescription="@null"
+            android:src="@drawable/temporaryfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="318dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/dh_white"
+            android:text="내역 상세 보기"
+            android:textColor="#7735FF"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.858" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="318dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#7735FF"
+            android:text="예약 취소하기"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.958"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="0.7dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
