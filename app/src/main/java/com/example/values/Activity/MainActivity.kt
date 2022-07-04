@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import com.example.values.Fragment.Fragment_01
 import com.example.values.Fragment.Fragment_02
@@ -24,16 +25,21 @@ class MainActivity : AppCompatActivity() {
 
         // 하단 네비게이션 바
         val bottomMenu = findViewById<BottomNavigationView>(R.id.mainactivity_bottom_navigation)
+        val mainLayout = findViewById<LinearLayout>(R.id.activity_main_layout)
 
-         fun bottomColor(i:Int){
+
+         fun bottomColor(i:Int){    //결제현황 페이지 클릭시 바텀네비게이션 색상 변환을 위한 함수.
              if(i==3){
                  bottomMenu.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
                  bottomMenu.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
-                 bottomMenu.setBackgroundColor(Color.parseColor("#7735FF"))
+                 bottomMenu.setBackgroundColor(Color.parseColor("#FF6200EE"))//대희 purpleColor
+                 mainLayout.setBackgroundColor(Color.parseColor("#FF6200ee"))
              }else{
                  bottomMenu.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
                  bottomMenu.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
                  bottomMenu.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                 mainLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
+
              }
         }
 
