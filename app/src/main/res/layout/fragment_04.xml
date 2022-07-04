@@ -1,125 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Fragment_04 [프래그먼트04. '전체' 화면]-->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Fragment_03 [프래그먼트03. '결제현황' 화면]-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.Fragment_04">
+    android:orientation="vertical"
+    android:visibility="visible"
+    android:weightSum="10"
+    tools:context=".Fragment.Fragment_03">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!-- 상단 부분 (상단 네비게이션 바) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="fill_vertical"
+
+        android:layout_weight="1.5">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.644"
+            app:srcCompat="@android:drawable/ic_menu_myplaces"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:text="Umzzi"
+            android:textColor="@color/dh_black"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.494" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0.5dp"
+            android:text="님"
+
+            android:textSize="21dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:text="예술가"
+            android:textColor="@color/dh_black"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toStartOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="등급/베스트작가"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.426"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.766" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="5회"
+            android:textColor="@color/dh_black"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="팔로워"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.702"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="267"
+            android:textColor="@color/dh_black"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="팔로잉"
+            android:textColor="@color/dh_black"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.865"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="330"
+            android:textColor="@color/dh_black"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/textView8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="8.5"
+        android:orientation="vertical"
+        android:weightSum="8.3">
 
-        <LinearLayout
+        <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/dh_white"
+            android:gravity="center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="1.2dp"
+            android:paddingLeft="30dp"
+            android:text="MY VALUES"
+            android:textColor="@color/fragment_04_text"
+            android:textSize="45px"
+            android:textStyle="bold"
+            android:visibility="visible" />
 
-            <!-- 상단 네비게이션 바 -->
-            <RadioGroup
-                android:id="@+id/fragment04_radioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:background="@drawable/radiogroup_stroke">
-
-                <!-- 네이게이션 1번째 버튼(나의 인지도) -->
-                <RadioButton
-                    android:id="@+id/fragment04_radio1"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/selector_radiobutton_background"
-                    android:button="@android:color/transparent"
-                    android:checked="true"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
-                    android:text="나의 인지도"
-                    android:textSize="12dp"
-                    android:textColor="@drawable/selector_radiobutton_text" />
-
-                <!-- 네이게이션 2번째 버튼(뱃지 현황) -->
-                <RadioButton
-                    android:id="@+id/fragment04_radio2"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/selector_radiobutton_background"
-                    android:button="@android:color/transparent"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
-                    android:text="뱃지 현황"
-                    android:textSize="12dp"
-                    android:textColor="@drawable/selector_radiobutton_text" />
-
-                <!-- 네이게이션 3번째 버튼(나의 전시) -->
-                <RadioButton
-                    android:id="@+id/fragment04_radio3"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/selector_radiobutton_background"
-                    android:button="@android:color/transparent"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
-                    android:text="나의 전시"
-                    android:textSize="12dp"
-                    android:textColor="@drawable/selector_radiobutton_text" />
-
-                <!-- 네이게이션 4번째 버튼(포트폴리오) -->
-                <RadioButton
-                    android:id="@+id/fragment04_radio4"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/selector_radiobutton_background"
-                    android:button="@android:color/transparent"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
-                    android:text="포트폴리오"
-                    android:textSize="12dp"
-                    android:textColor="@drawable/selector_radiobutton_text" />
-
-            </RadioGroup>
-
-
-
-        </LinearLayout>
-
-        <!-- 중하단부 (프레임레이아웃) -->
-        <LinearLayout
+        <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="15">
+            android:layout_weight="1"
+            android:backgroundTint="@color/dh_white"
+            android:gravity="center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="1.2dp"
+            android:paddingLeft="30dp"
+            android:text="참여형 이벤트"
+            android:textColor="@color/fragment_04_text"
+            android:textSize="45px"
+            android:textStyle="bold" />
 
-            <!-- Fragment_01 프레임레이아웃 -->
-            <FrameLayout
-                android:id="@+id/fragment02_FrameLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/dh_white"
+            android:gravity="center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="1.2dp"
+            android:paddingLeft="30dp"
+            android:text="계정"
+            android:textColor="@color/fragment_04_text"
+            android:textSize="45px"
+            android:textStyle="bold" />
 
-            </FrameLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/dh_white"
+            android:gravity="center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="1.2dp"
+            android:paddingLeft="30dp"
+            android:text="설정"
+            android:textColor="@color/fragment_04_text"
+            android:textSize="45px"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/dh_white"
+            android:gravity="center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="1.2dp"
+            android:paddingLeft="30dp"
+            android:text="도움말"
+            android:textColor="@color/fragment_04_text"
+            android:textSize="45px"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/dh_white"
+            android:gravity="center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="1.2dp"
+            android:paddingLeft="30dp"
+            android:text="고객센터"
+            android:textColor="@color/fragment_04_text"
+            android:textSize="45px"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/dh_white"
+            android:gravity="center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingLeft="30dp"
+            android:text="탈퇴하기"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="45px"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.27"
+            android:background="@color/dh_white"
+            android:gravity="center"
+            android:text="문의 및 상담은 평일 22:00/ 주말 18:00 까지 가능합니다."
+            android:textColor="@color/dh_gray"
 
 
-        </LinearLayout>
+            android:textSize="13dp" />
+
 
     </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>
