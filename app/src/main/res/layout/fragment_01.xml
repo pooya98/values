@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/radiogroup_stroke">
 
                 <!-- 네이게이션 1번째 버튼(전시 작품) -->
                 <RadioButton
