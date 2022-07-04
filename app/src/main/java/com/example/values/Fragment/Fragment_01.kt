@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
 import com.example.values.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,8 +35,34 @@ class Fragment_01 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val view = inflater.inflate(R.layout.fragment_01, container, false)
+
+        val topMenuButtons = view.findViewById<RadioGroup>(R.id.fragment01_radioGroup)
+
+        topMenuButtons.setOnCheckedChangeListener{ radioGroup, checkedId ->
+            when(checkedId){
+                R.id.fragment01_radio1 -> {
+                    childFragmentManager.beginTransaction().replace(R.id.fragment01_FrameLayout, Fragment_01_01()).commit()
+                }
+
+                R.id.fragment01_radio2 -> {
+
+                }
+
+                R.id.fragment01_radio3 -> {
+
+                }
+
+                R.id.fragment01_radio4 -> {
+
+                }
+            }
+        }
+
+        childFragmentManager.beginTransaction().replace(R.id.fragment01_FrameLayout, Fragment_01_01()).commit()
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_01, container, false)
+        return view
     }
 
     companion object {
