@@ -26,7 +26,7 @@
                 android:layout_marginBottom="8dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:background="@drawable/radiogroup_stroke">
+                android:background="@drawable/stroke_top_navi">
 
                 <!-- 네이게이션 1번째 버튼(전시+굿즈) -->
                 <RadioButton
@@ -35,7 +35,7 @@
                     android:layout_width="0dp"
                     android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/selector_radiobutton_background"
+                    android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:checked="true"
                     android:paddingLeft="16dp"
@@ -44,7 +44,7 @@
                     android:paddingBottom="3dp"
                     android:text="전시+굿즈"
                     android:textSize="12dp"
-                    android:textColor="@drawable/selector_radiobutton_text" />
+                    android:textColor="@drawable/selector_top_navi_button_text" />
 
                 <!-- 네이게이션 2번째 버튼(굿즈만) -->
                 <RadioButton
@@ -53,7 +53,7 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/selector_radiobutton_background"
+                    android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:paddingLeft="16dp"
                     android:paddingTop="3dp"
@@ -61,7 +61,7 @@
                     android:paddingBottom="3dp"
                     android:text="굿즈만"
                     android:textSize="12dp"
-                    android:textColor="@drawable/selector_radiobutton_text" />
+                    android:textColor="@drawable/selector_top_navi_button_text" />
 
                 <!-- 네이게이션 3번째 버튼(기타 컨텐츠) -->
                 <RadioButton
@@ -70,7 +70,7 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/selector_radiobutton_background"
+                    android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:paddingLeft="16dp"
                     android:paddingTop="3dp"
@@ -78,7 +78,7 @@
                     android:paddingBottom="3dp"
                     android:text="기타 컨텐츠"
                     android:textSize="12dp"
-                    android:textColor="@drawable/selector_radiobutton_text" />
+                    android:textColor="@drawable/selector_top_navi_button_text" />
 
             </RadioGroup>
 
