@@ -41,7 +41,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="55dp"
                 android:layout_height="22dp"
-                android:background="@drawable/button_purple_stroke"
+                android:background="@drawable/stroke_button_purple_stroke"
                 android:text="로그인"
                 android:textColor="@color/dh_purple"
                 android:layout_marginVertical="5dp"
@@ -62,26 +62,24 @@
         android:layout_weight="14">
 
         <!-- MainActivity 프레임레이아웃 -->
-        <FrameLayout
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/Main_FrameLayout"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></FrameLayout>
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph_main"
+            ></androidx.fragment.app.FragmentContainerView>
 
     </LinearLayout>
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/mainactivity_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom">
-
-        <!-- MainActivity 하단 네비게이션 바 -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/mainactivity_bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            app:menu="@menu/mainactivity_menu" />
-
-    </LinearLayout>
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/mainactivity_menu" />
 
 </LinearLayout>

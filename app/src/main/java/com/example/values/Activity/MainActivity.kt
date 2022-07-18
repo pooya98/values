@@ -4,73 +4,74 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
+import android.view.Menu
+import android.view.MenuItem
 import androidx.core.content.ContextCompat
-import com.example.values.Fragment.Fragment_01
-import com.example.values.Fragment.Fragment_02
-import com.example.values.Fragment.Fragment_03
-import com.example.values.Fragment.Fragment_04
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
 import com.example.values.R
-import com.example.values.R.drawable.selector_bottom_navi_color
+import com.example.values.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mBinding : ActivityMainBinding
+
     @SuppressLint("ResourceType") // 아래 getColorStateList를 쓸 때 값을 int형으로 받아와야하는데 바로 drawable에서 파일로 받아올수 있게해줌.(하단navigation bar 색 변경시에 사용)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
 
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment? ?: return
+        val navController = host.navController
 
-        // <------ 레이아웃 뷰 선언 ------> //
+        setupBottomNavMenu(navController)
+    }
 
-        // 하단 네비게이션 바
-        val bottomMenu = findViewById<BottomNavigationView>(R.id.mainactivity_bottom_navigation)
-        val mainLayout = findViewById<LinearLayout>(R.id.activity_main_layout)
-
-
-         fun bottomColor(i:Int){    //결제현황 페이지 클릭시 바텀네비게이션 색상 변환을 위한 함수.
-             if(i==3){
-                 bottomMenu.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
-                 bottomMenu.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
-                 bottomMenu.setBackgroundColor(Color.parseColor("#FF6200EE"))//대희 purpleColor
-                 mainLayout.setBackgroundColor(Color.parseColor("#FF6200ee"))
-             }else{
-                 bottomMenu.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
-                 bottomMenu.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
-                 bottomMenu.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                 mainLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
-
-             }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val retValue = super.onCreateOptionsMenu(menu)
+        val navigationView = findViewById<NavigationView>(R.id.main_navigation)
+        if (navigationView == null) {
+            menuInflater.inflate(R.menu.mainactivity_menu, menu)
+            return true
         }
+        return retValue
+    }
 
+    @SuppressLint("ResourceType")
+    private fun setupBottomNavMenu(navController: NavController) {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.mainactivity_bottom_navigation)
+        bottomNav?.setupWithNavController(navController)
 
-        // <------ 뷰 이벤트 리스너 선언 ------> //
+        navController.addOnDestinationChangedListener {_,destination,_->
 
-        // 하단 네비게이션 바 클릭 리스너
-        bottomMenu.run { setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.home -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_01()).commit()
-                    bottomColor(1)
-                }
-                R.id.display -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_02()).commit()
-                    bottomColor(2)
-                }
-                R.id.ticketing -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_03()).commit()
-                    bottomColor(3)
-                }
-                R.id.menu -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_04()).commit()
-                    bottomColor(4)
-                }
+            if(destination.id == R.id.fragment_03){
+                mBinding.mainactivityBottomNavigation.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
+                mBinding.mainactivityBottomNavigation.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
+                mBinding.mainactivityBottomNavigation.setBackgroundColor(Color.parseColor("#FF6200EE"))//대희 purple color
+                mBinding.activityMainLayout.setBackgroundColor(Color.parseColor("#FF6200ee"))
+                window.statusBarColor = Color.parseColor("#FF6200EE")
+
+            }else{
+                mBinding.mainactivityBottomNavigation.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
+                mBinding.mainactivityBottomNavigation.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
+                mBinding.mainactivityBottomNavigation.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                mBinding.activityMainLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                window.statusBarColor = Color.parseColor("#FFFFFF")
             }
-            true
-        } }
+        }
+    }
 
-        // <------ 초기 실행해야할 부분 ------> //
-        supportFragmentManager.beginTransaction().replace(R.id.Main_FrameLayout, Fragment_01()).commit()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
 
+        return item.onNavDestinationSelected(findNavController(R.id.Main_FrameLayout))
+                || super.onOptionsItemSelected(item)
     }
 }
