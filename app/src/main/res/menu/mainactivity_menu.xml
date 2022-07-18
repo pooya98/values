@@ -3,26 +3,22 @@
 <!-- MainActivity 하단 네비게이션 바 -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
-        android:enabled="true"
+        android:id="@id/fragment_01"
         android:icon="@drawable/icon_home"
-        android:title="홈"/>
+        android:title="@string/title_01"/>
 
     <item
-        android:id="@+id/display"
-        android:enabled="true"
+        android:id="@id/fragment_02"
         android:icon="@drawable/icon_displaying"
-        android:title="전시하기"/>
+        android:title="@string/title_02"/>
 
     <item
-        android:id="@+id/ticketing"
-        android:enabled="true"
+        android:id="@id/fragment_03"
         android:icon="@drawable/icon_ticketing"
-        android:title="결제 현황"/>
+        android:title="@string/title_03"/>
 
     <item
-        android:id="@+id/menu"
-        android:enabled="true"
+        android:id="@id/fragment_04"
         android:icon="@drawable/icon_menu"
-        android:title="전체"/>
+        android:title="@string/title_04"/>
 </menu>
