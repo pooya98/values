@@ -11,6 +11,7 @@
     <!-- 윤수가 임의로 정한 컬러-->
     <color name="fragment_04_text">#535353</color>
     <color name="transparance">#00000000</color>
+
     <!-- 대희가 정해주는 컬러 -->
     <color name="dh_purple">#FF6200EE</color>
     <color name="dh_white">#FFFFFFFF</color>

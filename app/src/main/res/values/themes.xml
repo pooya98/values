@@ -16,5 +16,7 @@
         <!-- 앱 상단의 상태바 안보이기 하기 위함. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>
