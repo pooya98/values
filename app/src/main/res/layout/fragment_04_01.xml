@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/dh_purple"
-    tools:context=".Fragment.Fragment_04">
+    tools:context=".Fragment.Fragment_04_01">
 
     <!-- TODO: Update blank fragment layout -->
     <!-- 상단 부분 (상단 네비게이션 바) -->
@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/stroke_top_navi">
 
                 <!-- 네이게이션 1번째 버튼(나의 인지도) -->
                 <RadioButton
@@ -35,8 +37,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/selector_radiobutton_background"
-                    android:backgroundTint="@color/dh_purple"
+                    android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:checked="true"
                     android:gravity="center"
@@ -45,7 +46,7 @@
                     android:paddingRight="16dp"
                     android:paddingBottom="3dp"
                     android:text="나의 인지도"
-                    android:textColor="@drawable/selector_radiobutton_text"
+                    android:textColor="@drawable/selector_top_navi_button_text"
                     android:textSize="12dp" />
 
                 <!-- 네이게이션 2번째 버튼(뱃지 현황) -->
@@ -54,7 +55,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/selector_radiobutton_background"
+                    android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:paddingLeft="16dp"
@@ -62,7 +63,7 @@
                     android:paddingRight="16dp"
                     android:paddingBottom="3dp"
                     android:text="뱃지 현황"
-                    android:textColor="@drawable/selector_radiobutton_text"
+                    android:textColor="@drawable/selector_top_navi_button_text"
                     android:textSize="12dp" />
 
                 <!-- 네이게이션 3번째 버튼(나의 전시) -->
@@ -71,7 +72,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/selector_radiobutton_background"
+                    android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:paddingLeft="16dp"
@@ -79,7 +80,7 @@
                     android:paddingRight="16dp"
                     android:paddingBottom="3dp"
                     android:text="나의 전시"
-                    android:textColor="@drawable/selector_radiobutton_text"
+                    android:textColor="@drawable/selector_top_navi_button_text"
                     android:textSize="12dp" />
 
                 <!-- 네이게이션 4번째 버튼(포트폴리오) -->
@@ -88,7 +89,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/selector_radiobutton_background"
+                    android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:paddingLeft="16dp"
@@ -96,7 +97,7 @@
                     android:paddingRight="16dp"
                     android:paddingBottom="3dp"
                     android:text="포트폴리오"
-                    android:textColor="@drawable/selector_radiobutton_text"
+                    android:textColor="@drawable/selector_top_navi_button_text"
                     android:textSize="12dp" />
 
             </RadioGroup>
@@ -105,31 +106,27 @@
         </LinearLayout>
 
         <!-- 중하단부 (프레임레이아웃) -->
-        <LinearLayout
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment_04_01"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="15">
+            android:layout_weight="15"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph_04_01" />
+
 
             <!-- Fragment_01 프레임레이아웃 -->
-            <FrameLayout
-                android:id="@+id/fragment02_FrameLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical" />
-                </ScrollView>
-            </FrameLayout>
 
 
         </LinearLayout>
 
-    </LinearLayout>
+
 
 </FrameLayout>
