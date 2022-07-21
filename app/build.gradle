@@ -56,4 +56,7 @@ dependencies {
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // viewpager indicator 추가
+    implementation "com.tbuonomo:dotsindicator:4.3"
 }
