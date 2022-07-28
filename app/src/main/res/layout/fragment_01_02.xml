@@ -25,9 +25,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -42,7 +42,7 @@
                             android:gravity="center"
                             android:text="판매중인 굿즈"
                             android:textColor="@color/dh_black"
-                            android:textSize="20dp"
+                            android:textSize="18dp"
                             android:textStyle="bold"></TextView>
 
                         <ImageView
@@ -72,9 +72,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="bottom"
-                        android:paddingTop="10dp"
+                        android:paddingTop="5dp"
                         android:paddingBottom="5dp">
-
 
                         <View
                             android:layout_width="0dp"
@@ -87,7 +86,7 @@
                             android:layout_gravity="right|center_vertical"
                             android:text="최신순"
                             android:textColor="@color/dh_purple"
-                            android:textSize="12dp"
+                            android:textSize="9dp"
                             android:textStyle="bold"></TextView>
 
                         <ImageView
@@ -102,7 +101,7 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="250dp">
+                    android:layout_height="230dp">
 
 
                     <ImageView

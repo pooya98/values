@@ -17,13 +17,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp">
+            android:layout_height="36dp">
 
             <!-- 상단 네비게이션 바 -->
             <RadioGroup
                 android:id="@+id/fragment01_radioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:background="@drawable/stroke_top_navi">
@@ -34,7 +34,7 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:gravity="center"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:checked="true"
@@ -52,7 +52,7 @@
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:paddingLeft="16dp"
@@ -69,7 +69,7 @@
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:paddingLeft="16dp"
@@ -86,7 +86,7 @@
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/selector_top_navi_button_background"
                     android:button="@android:color/transparent"
                     android:paddingLeft="16dp"

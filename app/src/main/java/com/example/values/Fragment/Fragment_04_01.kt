@@ -19,13 +19,11 @@ import com.example.values.R
 import com.example.values.databinding.Fragment0401Binding
 import com.google.android.material.navigation.NavigationView
 
-
 class Fragment_04_01 : Fragment() ,View.OnClickListener{
-
-
 
     private var mBinding : Fragment0401Binding? = null
     lateinit var navController : NavController// 하위프래그먼트 다루기위해 나중에 초기화.
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
