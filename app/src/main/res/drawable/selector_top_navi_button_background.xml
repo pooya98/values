@@ -15,14 +15,14 @@
         </shape>
     </item>
 
-    
-    <!-- 버튼 배경 디자인(선택 되지않은 경우)-->
     <item
         android:top="2dp"
-        android:bottom="2dp">
+        android:bottom="2dp"
+        android:state_checked="false"
+        android:state_pressed="true">
 
         <shape android:shape="rectangle">
-            <stroke android:color="@color/dh_gray" android:width="0dp"/>
+            <solid android:color="#D3D3D3" />
         </shape>
 
     </item>
