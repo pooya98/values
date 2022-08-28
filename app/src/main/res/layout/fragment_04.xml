@@ -15,11 +15,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="93dp"
         android:layout_gravity="fill_vertical"
         android:layout_marginTop="1dp"
         android:layout_weight="1.45"
         android:background="@color/dh_white">
+
         <View
             android:id="@+id/divider2"
             android:layout_width="match_parent"
@@ -154,6 +155,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintStart_toEndOf="@+id/textView8" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -162,22 +164,18 @@
         android:layout_height="1.9dp"
         android:background="#E0E0E0" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9.2"
-        android:background="#F8F8F8"
-        android:backgroundTint="#F8F8F8"
-        android:gravity="top"
-        android:orientation="vertical"
-        android:weightSum="8.0">
+        android:layout_height="560dp">
+
 
         <Button
             android:id="@+id/myValuesButton"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="1dp"
             android:layout_weight="0.89"
-            android:backgroundTint="#F8F8F8"
+            android:background="#F8F8F8"
             android:gravity="center_vertical"
             android:insetTop="2.4dp"
             android:insetBottom="1.2dp"
@@ -186,109 +184,236 @@
             android:textColor="@color/fragment_04_text"
             android:textSize="45px"
             android:textStyle="bold"
-            android:visibility="visible" />
+            android:translationZ="0dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/eventButton"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.89"
-            android:backgroundTint="#F8F8F8"
+            android:layout_height="64dp"
+            android:background="#F8F8F8"
             android:gravity="center_vertical"
             android:insetTop="0dp"
             android:insetBottom="1.2dp"
+            android:layout_marginTop="1dp"
             android:paddingLeft="30dp"
             android:text="참여형 이벤트"
             android:textColor="@color/fragment_04_text"
             android:textSize="45px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myValuesButton" />
 
         <Button
+            android:id="@+id/button3"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.89"
-            android:backgroundTint="#F8F8F8"
+            android:layout_height="64dp"
+            android:background="#F8F8F8"
             android:gravity="center_vertical"
             android:insetTop="0dp"
             android:insetBottom="1.2dp"
             android:paddingLeft="30dp"
+            android:layout_marginTop="1dp"
             android:text="계정"
             android:textColor="@color/fragment_04_text"
             android:textSize="45px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eventButton" />
 
         <Button
+            android:id="@+id/button4"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.89"
-            android:backgroundTint="#F8F8F8"
+            android:layout_height="64dp"
+            android:background="#F8F8F8"
             android:gravity="center_vertical"
             android:insetTop="0dp"
             android:insetBottom="1.2dp"
+            android:layout_marginTop="1dp"
             android:paddingLeft="30dp"
             android:text="설정"
             android:textColor="@color/fragment_04_text"
             android:textSize="45px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
 
         <Button
+            android:id="@+id/button2"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="64dp"
             android:layout_weight="0.89"
-            android:backgroundTint="#F8F8F8"
+            android:background="#F8F8F8"
             android:gravity="center_vertical"
+            android:layout_marginTop="1dp"
             android:insetTop="0dp"
             android:insetBottom="1.2dp"
             android:paddingLeft="30dp"
             android:text="도움말"
+
             android:textColor="@color/fragment_04_text"
             android:textSize="45px"
             android:textStyle="bold"
-
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
 
         <Button
+            android:id="@+id/button5"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="64dp"
             android:layout_weight="0.89"
-            android:backgroundTint="#F8F8F8"
+            android:background="#F8F8F8"
             android:gravity="center_vertical"
             android:insetTop="0dp"
+            android:layout_marginTop="1dp"
             android:insetBottom="1.2dp"
             android:paddingLeft="30dp"
             android:text="고객센터"
             android:textColor="@color/fragment_04_text"
             android:textSize="45px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
 
         <Button
+            android:id="@+id/button6"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.89"
 
-            android:backgroundTint="#F8F8F8"
+            android:layout_height="64dp"
+            android:layout_weight="0.89"
+            android:background="#F8F8F8"
             android:gravity="center_vertical"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:layout_marginTop="1dp"
             android:paddingLeft="30dp"
             android:text="탈퇴하기"
             android:textColor="@color/design_default_color_error"
             android:textSize="45px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/button5"
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
+            android:id="@+id/textView23"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.3"
+            android:layout_height="112dp"
             android:background="#F8F8F8"
             android:breakStrategy="high_quality"
             android:gravity="center"
-
+            android:paddingBottom="17dp"
             android:text="문의 및 상담은 평일 22:00/ 주말 18:00 까지 가능합니다."
             android:textColor="@color/dh_gray"
+            android:textSize="11dp"
             android:textStyle="bold"
-            android:textSize="11dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="77dp"
+            android:layout_height="45dp"
+            android:paddingLeft="30dp"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/fragment_04_arrow"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/myValuesButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/myValuesButton" />
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="77dp"
+            android:layout_height="45dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="30dp"
+            android:scaleType="center"
+            android:src="@drawable/fragment_04_arrow"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/eventButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myValuesButton" />
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="77dp"
+            android:layout_height="45dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="30dp"
+            android:scaleType="center"
+            android:src="@drawable/fragment_04_arrow"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eventButton" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="77dp"
+            android:layout_height="45dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="30dp"
+            android:scaleType="center"
+            android:src="@drawable/fragment_04_arrow"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="77dp"
+            android:layout_height="45dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="30dp"
+            android:scaleType="center"
+            android:src="@drawable/fragment_04_arrow"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="77dp"
+            android:layout_height="45dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="30dp"
+            android:scaleType="center"
+            android:src="@drawable/fragment_04_arrow"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="77dp"
+            android:layout_height="45dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="30dp"
+            android:scaleType="center"
+            android:src="@drawable/fragment_04_arrow"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView23"
+            app:layout_constraintEnd_toEndOf="@+id/button6"
+            app:layout_constraintTop_toBottomOf="@+id/button5"
+            app:layout_constraintVertical_bias="0.789" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>
