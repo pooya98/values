@@ -81,23 +81,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.mainactivity_bottom_navigation)
         bottomNav?.setupWithNavController(navController)
 
-//        navController.addOnDestinationChangedListener {_,destination,_->
-//
-//            if(destination.id == R.id.fragment_03){
-//                mBinding.mainactivityBottomNavigation.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
-//                mBinding.mainactivityBottomNavigation.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color)
-//                mBinding.mainactivityBottomNavigation.setBackgroundColor(Color.parseColor("#FF6200EE"))//대희 purple color
-//                mBinding.activityMainLayout.setBackgroundColor(Color.parseColor("#FF6200ee"))
-//                window.statusBarColor = Color.parseColor("#FF6200EE")
-//
-//            }else{
-//                mBinding.mainactivityBottomNavigation.itemTextColor = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
-//                mBinding.mainactivityBottomNavigation.itemIconTintList = ContextCompat.getColorStateList(this,R.drawable.selector_bottom_navi_color_origin)
-//                mBinding.mainactivityBottomNavigation.setBackgroundColor(Color.parseColor("#FFFFFF"))
-//                mBinding.activityMainLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
-//                window.statusBarColor = Color.parseColor("#FFFFFF")
-//            }
-//        }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
