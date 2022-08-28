@@ -9,6 +9,7 @@
     android:orientation="vertical"
     tools:context=".Activity.MainActivity">
 
+
     <!-- 최상단 부분(로고 & 로그인 버튼) -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,43 +19,95 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <!-- 로고 이미지 -->
-            <ImageView
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="left">
+
+                    <!-- 로고 이미지 -->
+                    <ImageView
+                        android:id="@+id/mainactivity_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:scaleType="center"
+                        android:src="@drawable/image_logo_vector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="right|center_vertical">
+
+                    <!-- 로그인 버튼 -->
+                    <Button
+                        android:layout_width="55dp"
+                        android:layout_height="22dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="5dp"
+                        android:background="@drawable/button_background_ripple_purple_stroke"
+                        android:text="로그인"
+                        android:textColor="@color/dh_purple"
+                        android:textSize="10dp"
+                        android:textStyle="bold">
+
+                    </Button>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mainactivity_linearlayout_back"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:padding="5dp"
-                android:src="@drawable/image_logo"></ImageView>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="center_vertical"
+                android:visibility="invisible"
+                android:clickable="true">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_left_black_arrow"></ImageView>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:gravity="right|center_vertical">
+                <TextView
+                    android:id="@+id/mainactivity_backname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="진행중인 전시"
+                    android:textSize="22dp"
+                    android:textColor="@color/dh_black"
+                    android:gravity="center_vertical">
 
-            <!-- 로그인 버튼 -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="55dp"
-                android:layout_height="22dp"
-                android:background="@drawable/stroke_button_purple_stroke"
-                android:text="로그인"
-                android:textColor="@color/dh_purple"
-                android:layout_marginVertical="5dp"
-                android:layout_marginHorizontal="15dp"
-                android:textSize="10dp"
-                android:textStyle="bold">
+                </TextView>
+            </LinearLayout>
 
-            </androidx.appcompat.widget.AppCompatButton>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
@@ -83,6 +136,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/mainactivity_menu" />
+        app:menu="@menu/mainactivity_menu"
+        app:labelVisibilityMode="labeled"/>
 
 </LinearLayout>

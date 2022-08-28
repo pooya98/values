@@ -47,7 +47,6 @@ class Fragment_01 : Fragment(), View.OnClickListener {
         when(v?.id){
             R.id.fragment01_radio1 -> {
                 navController.navigate(R.id.fragment_01_01)
-
             }
             R.id.fragment01_radio2 -> {
                 navController.navigate(R.id.fragment_01_02)

@@ -42,11 +42,11 @@ class Fragment_01_02 : Fragment() {
         branding_viewpager.offscreenPageLimit = 2
 
         branding_viewpager.adapter = Fragment_01_02_branding_Adapter(arrayListOf<Int>(
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background))
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item))
 
 
         branding_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -61,11 +61,11 @@ class Fragment_01_02 : Fragment() {
         illustration_viewpager.offscreenPageLimit = 2
 
         illustration_viewpager.adapter = Fragment_01_02_illustration_Adapter(arrayListOf<Int>(
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background))
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item))
 
         illustration_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         illustration_viewpager.setCurrentItem(2)

@@ -185,21 +185,81 @@
                             android:layout_weight="1"
                             android:layout_height="140dp"
                             android:layout_margin="5dp"
-                            android:background="@color/dh_gray"></LinearLayout>
+                            android:background="@drawable/background_fragment_01_03_button"
+                            android:elevation="5dp"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/icon_purple_coffee">
+
+                            </ImageView>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="주문하기"
+                                android:textStyle="bold"
+                                android:textColor="@color/dh_purple"
+                                android:textSize="13dp"></TextView>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="140dp"
                             android:layout_margin="5dp"
-                            android:background="@color/dh_gray"></LinearLayout>
+                            android:background="@drawable/background_fragment_01_03_button"
+                            android:elevation="5dp"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/icon_gray_card">
+
+                            </ImageView>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="주문내역"
+                                android:textStyle="bold"
+                                android:textColor="@color/dh_gray"
+                                android:textSize="13dp"></TextView>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="140dp"
                             android:layout_margin="5dp"
-                            android:background="@color/dh_gray"></LinearLayout>
+                            android:background="@drawable/background_fragment_01_03_button"
+                            android:elevation="5dp"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/icon_purple_check">
+
+                            </ImageView>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="자리예약"
+                                android:textStyle="bold"
+                                android:textColor="@color/dh_purple"
+                                android:textSize="13dp"></TextView>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -212,21 +272,81 @@
                             android:layout_weight="1"
                             android:layout_height="140dp"
                             android:layout_margin="5dp"
-                            android:background="@color/dh_gray"></LinearLayout>
+                            android:background="@drawable/background_fragment_01_03_button"
+                            android:elevation="5dp"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/icon_gray_point">
+
+                            </ImageView>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="포인트"
+                                android:textStyle="bold"
+                                android:textColor="@color/dh_gray"
+                                android:textSize="13dp"></TextView>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="140dp"
                             android:layout_margin="5dp"
-                            android:background="@color/dh_gray"></LinearLayout>
+                            android:background="@drawable/background_fragment_01_03_button"
+                            android:elevation="5dp"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/icon_gray_stamp">
+
+                            </ImageView>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="스탬프"
+                                android:textStyle="bold"
+                                android:textColor="@color/dh_gray"
+                                android:textSize="13dp"></TextView>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="140dp"
                             android:layout_margin="5dp"
-                            android:background="@color/dh_gray"></LinearLayout>
+                            android:background="@drawable/background_fragment_01_03_button"
+                            android:elevation="5dp"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/icon_gray_bell">
+
+                            </ImageView>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="이벤트"
+                                android:textStyle="bold"
+                                android:textColor="@color/dh_gray"
+                                android:textSize="13dp"></TextView>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
