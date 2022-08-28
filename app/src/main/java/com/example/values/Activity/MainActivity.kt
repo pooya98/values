@@ -4,17 +4,24 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Button
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.example.values.R
+import com.example.values.R.id.*
 import com.example.values.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -35,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         val navController = host.navController
 //        val mButton = findViewById<Button>(R.id.detailButton)
 //        mButton?.setOnClickListener { view->view.findNavController().navigate(R.id.action_fragment_03_to_fragment_03_01_ticket)  }
+
+        val backbutton = findViewById<LinearLayout>(R.id.mainactivity_linearlayout_back)
+        backbutton.setOnClickListener{
+            navController.navigateUp()
+        }
 
         setupBottomNavMenu(navController)
     }
@@ -81,7 +93,6 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.mainactivity_bottom_navigation)
         bottomNav?.setupWithNavController(navController)
 
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -89,5 +100,42 @@ class MainActivity : AppCompatActivity() {
 
         return item.onNavDestinationSelected(findNavController(R.id.Main_FrameLayout))
                 || super.onOptionsItemSelected(item)
+    }
+
+    fun navigateToFragment_01_01_ExhibitionDetail(){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+        navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail)
+    }
+
+    fun navigateToFragment_01_01_Subscribe(){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+        navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
+    }
+
+    fun navigateToFragment_01_01_Purchase(){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+        navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
+    }
+
+    fun hideLogoAndShowBackButton(backButtonName: String){
+        val logo = findViewById<ImageView>(R.id.mainactivity_logo)
+        logo.visibility = View.INVISIBLE
+
+        val backButtonText = findViewById<TextView>(R.id.mainactivity_backname)
+        backButtonText.text = backButtonName
+
+        val backButton = findViewById<LinearLayout>(R.id.mainactivity_linearlayout_back)
+        backButton.visibility = View.VISIBLE
+    }
+
+    fun hideBackButtonAndShowLogo(){
+        val backButton = findViewById<LinearLayout>(R.id.mainactivity_linearlayout_back)
+        backButton.visibility = View.INVISIBLE
+
+        val logo = findViewById<ImageView>(R.id.mainactivity_logo)
+        logo.visibility = View.VISIBLE
     }
 }

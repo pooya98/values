@@ -1,13 +1,22 @@
 package com.example.values.Fragment
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.Spinner
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.example.values.Activity.MainActivity
 import com.example.values.Adapter.Fragment_01_01_branding_Adapter
 import com.example.values.Adapter.Fragment_01_01_illustration_Adapter
 import com.example.values.R
@@ -26,7 +35,8 @@ class Fragment_01_01 : Fragment() {
         val illustration_viewpager = view.findViewById<ViewPager2>(R.id.fragment01_01_illustration_viewpager)
         val branding_indicator = view.findViewById<SpringDotsIndicator>(R.id.fragment01_01_branding_indicator)
         val illustration_indicator = view.findViewById<SpringDotsIndicator>(R.id.fragment01_01_illustration_indicator)
-        val main_spinner = view.findViewById<Spinner>(R.id.fragment_01_01_main_spinner)
+        //val main_spinner = view.findViewById<Spinner>(R.id.fragment_01_01_main_spinner)
+        val linear_lagout_main_thumbnail = view.findViewById<LinearLayout>(R.id.LinearLayout_main_thumbnail)
 
 
         // viewPager 설정
@@ -35,9 +45,27 @@ class Fragment_01_01 : Fragment() {
         set_illustration_viewPager(illustration_viewpager)
         set_illustration_viewPager_indicator(illustration_viewpager, illustration_indicator)
 
-        set_main_spinner(main_spinner)
+        //set_main_spinner(main_spinner)
+
+        // 메인 썸네일 클릭 이벤트 리스터
+        linear_lagout_main_thumbnail.setOnClickListener{
+            (activity as MainActivity).navigateToFragment_01_01_ExhibitionDetail()
+        }
 
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
     }
 
 
@@ -54,11 +82,11 @@ class Fragment_01_01 : Fragment() {
         branding_viewpager.offscreenPageLimit = 2
 
         branding_viewpager.adapter = Fragment_01_01_branding_Adapter(arrayListOf<Int>(
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background))
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item))
 
 
         branding_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -82,11 +110,11 @@ class Fragment_01_01 : Fragment() {
         illustration_viewpager.offscreenPageLimit = 2
 
         illustration_viewpager.adapter = Fragment_01_01_branding_Adapter(arrayListOf<Int>(
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background))
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item,
+            R.drawable.background_fragment_01_01_pg_item))
 
 
         illustration_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL

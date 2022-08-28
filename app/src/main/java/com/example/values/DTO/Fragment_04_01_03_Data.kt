@@ -5,5 +5,4 @@ package com.example.values.DTO
     val exhibitPeriod : String,
     val exhibitPayOrFree : String,
     val exhibitPlace : String,
-
     )

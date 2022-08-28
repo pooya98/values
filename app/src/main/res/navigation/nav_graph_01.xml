@@ -9,7 +9,8 @@
         android:id="@+id/fragment_01_01"
         android:name="com.example.values.Fragment.Fragment_01_01"
         android:label="fragment_01_01"
-        tools:layout="@layout/fragment_01_01" />
+        tools:layout="@layout/fragment_01_01" >
+    </fragment>
     <fragment
         android:id="@+id/fragment_01_02"
         android:name="com.example.values.Fragment.Fragment_01_02"

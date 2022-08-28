@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#272727">
+
+    <item>
+        <shape android:shape="rectangle">
+
+            <solid android:color="#00FFFFFF" /> //배경색
+
+            <stroke
+                android:width="1dp"
+                android:color="@color/dh_white" /> //선색
+
+            <corners
+                android:topLeftRadius="20dp"
+                android:topRightRadius="20dp"
+                android:bottomLeftRadius="20dp"
+                android:bottomRightRadius="20dp"  /> // 선 휘는각도
+
+        </shape>
+    </item>
+
+
+</ripple>

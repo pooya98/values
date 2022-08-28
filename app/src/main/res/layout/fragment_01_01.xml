@@ -43,34 +43,37 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:id="@+id/clickable_linear_top"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:gravity="center"
+                                android:text="진행중인 전시"
+                                android:textColor="@color/dh_black"
+                                android:textSize="18dp"
+                                android:textStyle="bold"></TextView>
+
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:layout_gravity="left"
+                                android:src="@drawable/icon_down">
 
-                                <Spinner
-                                    android:id="@+id/fragment_01_01_main_spinner"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:overlapAnchor="false"></Spinner>
-
-
-
-                            </LinearLayout>
+                            </ImageView>
 
                             <View
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 android:layout_weight="1" />
 
-                            <ImageView
+                            <ImageButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="right"
-                                android:src="@drawable/icon_search">
+                                android:src="@drawable/icon_search"
+                                android:background="@drawable/ripple_unbounded">
 
-                            </ImageView>
+                            </ImageButton>
 
                         </LinearLayout>
 
@@ -101,11 +104,12 @@
                                 <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/stroke_button_purple_stroke"
+                                    android:background="@drawable/button_background_ripple_purple_stroke"
                                     android:gravity="center"
                                     android:orientation="horizontal"
                                     android:padding="2dp"
-                                    android:paddingHorizontal="4dp">
+                                    android:paddingHorizontal="4dp"
+                                    android:clickable="true">
 
                                     <ImageView
                                         android:layout_width="15dp"
@@ -168,15 +172,17 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:scaleType="center"
-                        android:src="@drawable/image_noje"></ImageView>
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_main_thumbnail"></ImageView>
 
 
                     <LinearLayout
+                        android:id="@+id/LinearLayout_main_thumbnail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#80000000"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:clickable="true">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -262,12 +268,13 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/stroke_button_white_round"
+                                android:background="@drawable/button_background_ripple_white_stroke"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
                                 android:paddingVertical="4dp"
                                 android:paddingLeft="5dp"
-                                android:paddingRight="15dp">
+                                android:paddingRight="15dp"
+                                android:clickable="true">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
