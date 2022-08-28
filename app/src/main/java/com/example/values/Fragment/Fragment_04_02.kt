@@ -62,19 +62,25 @@ class Fragment_04_02 : Fragment() {
         })
 
     }
+
+    fun fillList(){
+        eventList.add(Fragment_04_02_Data("QR코드로 관람인증하고 커피도 받자","22.01.01-22.12.31","294","37"))
+        eventList.add(Fragment_04_02_Data("무료강연 소감 작성하고 선물까지!","22.05.01-22.05.31","134","22"))
+        eventList.add(Fragment_04_02_Data("전시 리뷰 작성하고 굳즈도 받고!","22.05.01-22.05.31","97","18"))
+        eventList.add(Fragment_04_02_Data("전시 리뷰 작성하고 굳즈도 받고!","22.05.01-22.05.31","97","18"))
+        eventList.add(Fragment_04_02_Data("전시 리뷰 작성하고 굳즈도 받고!","22.05.01-22.05.31","97","18"))
+
+
+    }
+
+
+
+
     override fun onDestroyView() {
         mBinding = null   //메모리에서 다시 날려주기위함
         super.onDestroyView()
     }
 
-       fun fillList(){
-       eventList.add(Fragment_04_02_Data("QR코드로 관람인증하고 커피도 받자","22.01.01-22.12.31","294","37"))
-       eventList.add(Fragment_04_02_Data("무료강연 소감 작성하고 선물까지!","22.05.01-22.05.31","134","22"))
-       eventList.add(Fragment_04_02_Data("전시 리뷰 작성하고 굳즈도 받고!","22.05.01-22.05.31","97","18"))
-       eventList.add(Fragment_04_02_Data("전시 리뷰 작성하고 굳즈도 받고!","22.05.01-22.05.31","97","18"))
-       eventList.add(Fragment_04_02_Data("전시 리뷰 작성하고 굳즈도 받고!","22.05.01-22.05.31","97","18"))
 
-
-    }
 
 }

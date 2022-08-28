@@ -68,18 +68,19 @@
                 android:src="@drawable/fragment_04_01_02"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.385" />
+                app:layout_constraintVertical_bias="0.382" />
 
             <Button
                 android:id="@+id/myBadgeButton"
                 android:layout_width="328dp"
-                android:layout_height="57dp"
-                android:layout_marginBottom="20dp"
+                android:layout_height="53dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/fragment_04_03_exhibits_edge"
                 android:text="나의 뱃지 현황"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
