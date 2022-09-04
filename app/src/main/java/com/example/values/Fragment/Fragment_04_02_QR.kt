@@ -7,18 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.values.Activity.MainActivity
 import com.example.values.R
-import com.example.values.databinding.Fragment0301TicketBinding
+import com.example.values.databinding.Fragment0402QrBinding
 
 
-class Fragment_03_01_ticket : Fragment() {
+class Fragment_04_02_QR : Fragment() {
 
-    private var mBinding : Fragment0301TicketBinding? = null
+    private var mBinding : Fragment0402QrBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = Fragment0301TicketBinding.inflate(inflater, container,false)
+        val binding = Fragment0402QrBinding.inflate(inflater, container,false)
 
 
         mBinding = binding
@@ -37,14 +37,14 @@ class Fragment_03_01_ticket : Fragment() {
     override fun onStart() {
         super.onStart()
         super.onResume()
-
-        (activity as MainActivity).hideLogoAndShowBackButton("최근 예매 확인")
+        (activity as MainActivity).callTicket()
+        (activity as MainActivity).hideLogoAndShowBackButton("참여형 이벤트")
     }
 
     override fun onResume() {
         super.onResume()
 
-        (activity as MainActivity).hideLogoAndShowBackButton("최근 예매 확인")
+        (activity as MainActivity).hideLogoAndShowBackButton("참여형 이벤트")
     }
 
 }

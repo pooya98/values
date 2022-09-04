@@ -19,7 +19,7 @@ import com.example.values.databinding.Fragment040103Binding
 
 class Fragment_04_01_03 : Fragment() ,View.OnClickListener{
 
-    lateinit var recyclerView: RecyclerView
+//    lateinit var recyclerView: RecyclerView
     private val myExhibitList = ArrayList<Fragment_04_01_03_Data>()
     private var mBinding : Fragment040103Binding? = null
 
@@ -30,6 +30,13 @@ class Fragment_04_01_03 : Fragment() ,View.OnClickListener{
         val binding = Fragment040103Binding.inflate(inflater, container,false)
 
         mBinding = binding
+
+        var recyclerView = mBinding?.myExhibitRecyclerView
+
+        fillList()
+        val f040103Adapter = Fragment_04_01_03_Adapter(myExhibitList)
+        recyclerView?.adapter = f040103Adapter
+        recyclerView?.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
 
 
 
@@ -42,20 +49,7 @@ class Fragment_04_01_03 : Fragment() ,View.OnClickListener{
         mBinding = null   //메모리에서 다시 날려주기위함
         super.onDestroyView()
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        recyclerView = view?.findViewById(R.id.myExhibitRecyclerView)!!
 
-        fillList()
-        val f040103Adapter = Fragment_04_01_03_Adapter(myExhibitList)
-        recyclerView.adapter = f040103Adapter
-        recyclerView.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
-
-
-
-
-
-    }
 
     override fun onClick(v: View?) {
 

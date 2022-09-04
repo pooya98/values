@@ -80,16 +80,17 @@
 
             <LinearLayout
                 android:id="@+id/mainactivity_linearlayout_back"
-                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
                 android:gravity="center_vertical"
                 android:visibility="invisible"
-                android:clickable="true">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/backArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/icon_left_black_arrow"></ImageView>
@@ -98,10 +99,10 @@
                     android:id="@+id/mainactivity_backname"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:text="진행중인 전시"
-                    android:textSize="22dp"
                     android:textColor="@color/dh_black"
-                    android:gravity="center_vertical">
+                    android:textSize="22dp">
 
                 </TextView>
             </LinearLayout>
@@ -118,6 +119,7 @@
         android:layout_weight="14">
 
         <!-- MainActivity 프레임레이아웃 -->
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/Main_FrameLayout"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -129,14 +131,23 @@
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.02"
+        android:background="#A0A0A0" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/mainactivity_bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/mainactivity_menu"
-        app:labelVisibilityMode="labeled"/>
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/mainactivity_menu" />
 
 </LinearLayout>

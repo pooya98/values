@@ -64,9 +64,6 @@ class Fragment_03_01_Adapter (private var datas:ArrayList<Fragment_03_01_Data>):
                 }
 
 
-
-
-
                 detailButton.setOnClickListener{
                     view->view.findNavController().navigate(R.id.action_fragment_03_01_to_fragment_03_01_ticket)
 
