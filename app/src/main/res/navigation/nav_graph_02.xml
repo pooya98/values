@@ -9,7 +9,11 @@
         android:id="@+id/fragment_02_01"
         android:name="com.example.values.Fragment.Fragment_02_01"
         android:label="fragment_02_01"
-        tools:layout="@layout/fragment_02_01" />
+        tools:layout="@layout/fragment_02_01" >
+        <action
+            android:id="@+id/action_fragment_02_01_to_fragment_02_01_ExhibitionAvailable"
+            app:destination="@id/fragment_02_01_ExhibitionAvailable" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_02_02"
         android:name="com.example.values.Fragment.Fragment_02_02"
@@ -20,4 +24,9 @@
         android:name="com.example.values.Fragment.Fragment_02_03"
         android:label="fragment_02_03"
         tools:layout="@layout/fragment_02_03" />
+    <fragment
+        android:id="@+id/fragment_02_01_ExhibitionAvailable"
+        android:name="com.example.values.Fragment.Fragment_02_01_ExhibitionAvailable"
+        android:label="fragment_02_01__exhibition_available"
+        tools:layout="@layout/fragment_02_01__exhibition_available" />
 </navigation>

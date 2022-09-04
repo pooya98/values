@@ -112,6 +112,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/fragment_01_02_LinearLayout_main_thumbnail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#80000000"

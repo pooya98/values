@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.Fragment_02_01_ExhibitionAvailable">
+
+    <LinearLayout
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="'UMZZI' 님의"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:textColor="@color/dh_black"></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="전시 선택지는"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:textColor="@color/dh_black"></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="총 5개가 있어요"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:textColor="@color/dh_black"></TextView>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_02_01_ExhibitionAvailable_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</FrameLayout>

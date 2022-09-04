@@ -1,22 +1,21 @@
 package com.example.values.Adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.DTO.Fragment_01_04_Data
 import com.example.values.Fragment.Fragment_01_04
+import com.example.values.Fragment.Fragment_02_01
+import com.example.values.Fragment.Fragment_02_01_SpacePick
 import com.example.values.R
 
-class Fragment_01_04_Adapter(private val context: Fragment_01_04) : RecyclerView.Adapter<Fragment_01_04_Adapter.ViewHolder>() {
-
-    var datas = mutableListOf<Fragment_01_04_Data>()
+class Fragment_02_01_Cities_Adapter(private val context: Fragment_02_01_SpacePick) : RecyclerView.Adapter<Fragment_02_01_Cities_Adapter.ViewHolder>(){
+    var datas = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_01_04_contents_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_02_01_city_item,parent,false)
         return ViewHolder(view)
     }
 
@@ -24,16 +23,15 @@ class Fragment_01_04_Adapter(private val context: Fragment_01_04) : RecyclerView
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(datas[position])
+
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val title: TextView = itemView.findViewById(R.id.fragment_01_04_item_title)
-        private val description: TextView = itemView.findViewById(R.id.fragment_01_04_item_description)
+        private val city_name: TextView = itemView.findViewById(R.id.TextView_city_name)
 
-        fun bind(item: Fragment_01_04_Data) {
-            title.text = item.title
-            description.text = item.description
+        fun bind(item: String) {
+            city_name.text = item
         }
     }
 }

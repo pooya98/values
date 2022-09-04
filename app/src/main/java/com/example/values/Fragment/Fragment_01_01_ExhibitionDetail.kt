@@ -27,10 +27,10 @@ class Fragment_01_01_ExhibitionDetail : Fragment() {
         val purchase_button = view.findViewById<Button>(R.id.fragment_01_01_ExhibitionDetail_button_purchase)
 
         subscribe_button.setOnClickListener{
-            (activity as MainActivity).navigateToFragment_01_01_Subscribe()
+            (activity as MainActivity).navigateToFragment("fragment_01_01_Subscribe")
         }
         purchase_button.setOnClickListener{
-            (activity as MainActivity).navigateToFragment_01_01_Purchase()
+            (activity as MainActivity).navigateToFragment("fragment_01_01_Purchase")
         }
 
         return view

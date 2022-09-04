@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/image_space"
+            android:scaleType="centerCrop"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/space_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VALUES경산 [A홀]"
+                android:textColor="@color/dh_black"
+                android:textSize="16dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/space_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="경상북도 경산시"
+                android:textColor="@color/dh_gray"
+                android:textSize="13dp">
+            </TextView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

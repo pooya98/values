@@ -61,12 +61,20 @@
 
                             </ImageView>
 
+                            <Spinner
+                                android:id="@+id/fragment_01_01_main_spinner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:overlapAnchor="false"
+                                ></Spinner>
+
                             <View
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 android:layout_weight="1" />
 
                             <ImageButton
+                                android:id="@+id/fragment_01_01_search_button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="right"
@@ -102,6 +110,7 @@
                                 app:layout_constraintTop_toTopOf="parent">
 
                                 <LinearLayout
+                                    android:id="@+id/fragment_01_01_filter_button"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/button_background_ripple_purple_stroke"

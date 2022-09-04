@@ -102,22 +102,17 @@ class MainActivity : AppCompatActivity() {
                 || super.onOptionsItemSelected(item)
     }
 
-    fun navigateToFragment_01_01_ExhibitionDetail(){
+    fun navigateToFragment(destination: String){
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
         val navController = host.navController
-        navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail)
-    }
 
-    fun navigateToFragment_01_01_Subscribe(){
-        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
-        val navController = host.navController
-        navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
-    }
-
-    fun navigateToFragment_01_01_Purchase(){
-        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
-        val navController = host.navController
-        navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
+        when(destination){
+            "fragment_01_01_ExhibitionDetail" -> navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail)
+            "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
+            "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
+            "fragment_02_01_SpacePick" -> navController.navigate(action_fragment_02_to_fragment_02_01_SpacePick)
+            "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
+        }
     }
 
     fun hideLogoAndShowBackButton(backButtonName: String){

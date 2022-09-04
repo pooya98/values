@@ -13,12 +13,19 @@
         <action
             android:id="@+id/action_fragment_01_to_fragment_01_01_ExhibitionDetail"
             app:destination="@id/fragment_01_01_ExhibitionDetail" />
+        <action
+            android:id="@+id/action_fragment_01_to_fragment_01_02_Shop"
+            app:destination="@id/fragment_01_02_Shop" />
     </fragment>
     <fragment
         android:id="@+id/fragment_02"
         android:name="com.example.values.Fragment.Fragment_02"
         android:label="fragment_02"
-        tools:layout="@layout/fragment_02" />
+        tools:layout="@layout/fragment_02" >
+        <action
+            android:id="@+id/action_fragment_02_to_fragment_02_01_SpacePick"
+            app:destination="@id/fragment_02_01_SpacePick" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_03"
         android:name="com.example.values.Fragment.Fragment_03"
@@ -67,4 +74,14 @@
         android:id="@+id/fragment_01_01_Purchase"
         android:name="com.example.values.Fragment.Fragment_01_01_Purchase"
         android:label="Fragment_01_01_Purchase" />
+    <fragment
+        android:id="@+id/fragment_02_01_SpacePick"
+        android:name="com.example.values.Fragment.Fragment_02_01_SpacePick"
+        android:label="fragment_02_01__space_pick"
+        tools:layout="@layout/fragment_02_01__space_pick" />
+    <fragment
+        android:id="@+id/fragment_01_02_Shop"
+        android:name="com.example.values.Fragment.Fragment_01_02_Shop"
+        android:label="fragment_01_02__shop"
+        tools:layout="@layout/fragment_01_02__shop" />
 </navigation>
