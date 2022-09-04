@@ -104,17 +104,8 @@ class MainActivity : AppCompatActivity() {
                 || super.onOptionsItemSelected(item)
     }
 
-<<<<<<< HEAD
-    fun navigateToFragment(destination: String){
-=======
-    fun navigateToFragment_portFolioDetail(){
-        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
-        val navController = host.navController
-        navController.navigate(fragment_04_01_04_Portfolio_Detail)
-    }
 
-    fun navigateToFragment_01_01_ExhibitionDetail(){
->>>>>>> develop
+    fun navigateToFragment(destination: String){
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
         val navController = host.navController
 
@@ -124,6 +115,7 @@ class MainActivity : AppCompatActivity() {
             "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
             "fragment_02_01_SpacePick" -> navController.navigate(action_fragment_02_to_fragment_02_01_SpacePick)
             "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
+            "fragment_04_01_04_Portfolio_Detail" -> navController.navigate(fragment_04_01_04_Portfolio_Detail)
         }
     }
 
