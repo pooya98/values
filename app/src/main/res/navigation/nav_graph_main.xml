@@ -88,6 +88,8 @@
         android:name="com.example.values.Fragment.Fragment_04_02_QR"
         android:label="fragment_04_02_qr"
         tools:layout="@layout/fragment_04_02_qr" />
+
+    <fragment
         android:id="@+id/fragment_02_01_SpacePick"
         android:name="com.example.values.Fragment.Fragment_02_01_SpacePick"
         android:label="fragment_02_01__space_pick"
