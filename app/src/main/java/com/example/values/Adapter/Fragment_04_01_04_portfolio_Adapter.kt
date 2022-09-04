@@ -40,7 +40,7 @@ class Fragment_04_01_04_portfolio_Adapter (private var datas:ArrayList<Fragment_
                 pictureView.setOnClickListener{
 
 
-                    (mContext as MainActivity).navigateToFragment_portFolioDetail()
+                    (mContext as MainActivity).navigateToFragment("fragment_04_01_04_Portfolio_Detail")
                 }
             }
         }
