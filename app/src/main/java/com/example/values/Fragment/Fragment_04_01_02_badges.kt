@@ -68,18 +68,19 @@ class Fragment_04_01_02_badges : Fragment() ,View.OnClickListener{
     }
 
     fun fillList(){
-        badgesList.add(Fragment_04_01_02_badges_Data("'유명세의 시작'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'죽겠다'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'살려줄사람'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'이잉 기모링'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'에이비씨디'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'자두과자'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'대구대17학번'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'금윤수입니다'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'꼬부꼬부기기기'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'하루종일종일'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'바탱탱탱볼볼'"))
-        badgesList.add(Fragment_04_01_02_badges_Data("'공일공팔이이'"))
+
+        badgesList.add(Fragment_04_01_02_badges_Data("'유명세의 시작'",1))
+        badgesList.add(Fragment_04_01_02_badges_Data("'리뷰의 왕'",2))
+        badgesList.add(Fragment_04_01_02_badges_Data("'베스트 작가'",3))
+        badgesList.add(Fragment_04_01_02_badges_Data("'의뢰자'",4))
+        badgesList.add(Fragment_04_01_02_badges_Data("'강연의 신'",5))
+        badgesList.add(Fragment_04_01_02_badges_Data("'어필의 신'",6))
+        badgesList.add(Fragment_04_01_02_badges_Data("'소통의 시작'",7))
+        badgesList.add(Fragment_04_01_02_badges_Data("'전시의 달인'",8))
+        badgesList.add(Fragment_04_01_02_badges_Data("'포트폴리오 달인'",9))
+        badgesList.add(Fragment_04_01_02_badges_Data("'VIP'",10))
+        badgesList.add(Fragment_04_01_02_badges_Data("'비싼 몸'",11))
+        badgesList.add(Fragment_04_01_02_badges_Data("'관람객'",12))
 
 
 

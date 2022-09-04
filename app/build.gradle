@@ -59,6 +59,8 @@ dependencies {
 
     // viewpager indicator 추가
     implementation "com.tbuonomo:dotsindicator:4.3"
+    // circleImageview 추가. fragment_04
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // daterangepicker 추가
     implementation 'com.andrewjapar.rangedatepicker:rangedatepicker:0.2.1'

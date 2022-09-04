@@ -2,6 +2,7 @@ package com.example.values.Activity
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
+
         val host: NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment?
                 ?: return
@@ -68,9 +70,9 @@ class MainActivity : AppCompatActivity() {
             ContextCompat.getColorStateList(this, R.drawable.selector_bottom_navi_color)
         mBinding.mainactivityBottomNavigation.itemIconTintList =
             ContextCompat.getColorStateList(this, R.drawable.selector_bottom_navi_color)
-        mBinding.mainactivityBottomNavigation.setBackgroundColor(Color.parseColor("#FF6200EE"))//대희 purple color
-        mBinding.activityMainLayout.setBackgroundColor(Color.parseColor("#FF6200ee"))
-        window.statusBarColor = Color.parseColor("#FF6200EE")
+        mBinding.mainactivityBottomNavigation.setBackgroundColor(Color.parseColor("#7600FF"))//대희 purple color
+        mBinding.activityMainLayout.setBackgroundColor(Color.parseColor("#7600FF"))
+        window.statusBarColor = Color.parseColor("#7600FF")
 
     }
 
@@ -92,7 +94,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNavMenu(navController: NavController) {
         val bottomNav = findViewById<BottomNavigationView>(R.id.mainactivity_bottom_navigation)
         bottomNav?.setupWithNavController(navController)
-        
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -102,7 +104,17 @@ class MainActivity : AppCompatActivity() {
                 || super.onOptionsItemSelected(item)
     }
 
+<<<<<<< HEAD
     fun navigateToFragment(destination: String){
+=======
+    fun navigateToFragment_portFolioDetail(){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+        navController.navigate(fragment_04_01_04_Portfolio_Detail)
+    }
+
+    fun navigateToFragment_01_01_ExhibitionDetail(){
+>>>>>>> develop
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
         val navController = host.navController
 
@@ -115,7 +127,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     fun hideLogoAndShowBackButton(backButtonName: String){
+
         val logo = findViewById<ImageView>(R.id.mainactivity_logo)
         logo.visibility = View.INVISIBLE
 
@@ -124,6 +138,16 @@ class MainActivity : AppCompatActivity() {
 
         val backButton = findViewById<LinearLayout>(R.id.mainactivity_linearlayout_back)
         backButton.visibility = View.VISIBLE
+        val backButtonArrow = findViewById<ImageView>(R.id.backArrow)
+
+        if(backButtonName=="최근 예매 확인"||backButtonName=="참여형 이벤트"){
+            backButtonArrow.setImageResource(R.drawable.icon_left_white_arrow)
+            backButtonText.setTextColor(Color.WHITE)
+        }else{
+            backButtonArrow.setImageResource(R.drawable.icon_left_black_arrow)
+            backButtonText.setTextColor(Color.parseColor("#282828"))
+        }
+
     }
 
     fun hideBackButtonAndShowLogo(){

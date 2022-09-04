@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.values.Activity.MainActivity
 import com.example.values.R
 import com.example.values.databinding.Fragment0401Binding
 import com.google.android.material.navigation.NavigationView
@@ -42,11 +43,23 @@ class Fragment_04_01 : Fragment() ,View.OnClickListener{
 
         return mBinding?.root
     }
+    override fun onStart() {
+        super.onStart()
+        super.onResume()
 
+        (activity as MainActivity).hideLogoAndShowBackButton("MY VALUES")
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        (activity as MainActivity).hideLogoAndShowBackButton("MY VALUES")
+    }
 
 
     override fun onDestroyView() {
         mBinding = null   //메모리에서 다시 날려주기위함
+        (activity as MainActivity).hideBackButtonAndShowLogo()
         super.onDestroyView()
     }
 

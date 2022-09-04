@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.DTO.Fragment_04_02_Data
 import com.example.values.R
@@ -37,6 +38,12 @@ class Fragment_04_02_Adapter (private var datas:ArrayList<Fragment_04_02_Data>):
                 period.text = item.period
                 views.text = item.views
                 comments.text = item.comments
+
+
+                itemView.setOnClickListener{
+                        view->view.findNavController().navigate(R.id.action_fragment_04_02_to_fragment_04_02_QR)
+
+                }
 
 
             }
