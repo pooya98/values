@@ -2,4 +2,8 @@
 <resources>
     <dimen name="pageMargin">20dp</dimen>
     <dimen name="pageWidth">100dp</dimen>
+
+
+    <dimen name = "calendar_day_height">29dp</dimen>
+
 </resources>

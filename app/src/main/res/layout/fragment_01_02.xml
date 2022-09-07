@@ -341,9 +341,9 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp">
+                        android:layout_height="150dp"
+                        android:layout_marginTop="5dp">
 
                         <androidx.viewpager2.widget.ViewPager2
                             android:id="@+id/fragment01_02_branding_viewpager"
