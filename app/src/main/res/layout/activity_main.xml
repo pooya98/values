@@ -60,18 +60,32 @@
                     android:gravity="right|center_vertical">
 
                     <!-- 로그인 버튼 -->
-                    <Button
-                        android:layout_width="55dp"
-                        android:layout_height="22dp"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginVertical="5dp"
-                        android:background="@drawable/button_background_ripple_purple_stroke"
-                        android:text="로그인"
-                        android:textColor="@color/dh_purple"
-                        android:textSize="10dp"
-                        android:textStyle="bold">
 
-                    </Button>
+                    <ImageView
+                        android:id="@+id/imageView28"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/icon_message" />
+
+                    <ImageView
+                        android:id="@+id/imageView29"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/icon_notification" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/main_userProfile"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/image_noje"
+                        app:civ_border_color="#FF000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.651" />
 
                 </LinearLayout>
 

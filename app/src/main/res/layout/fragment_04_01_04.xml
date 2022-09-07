@@ -238,7 +238,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_weight="1.45"
                 android:scrollbarAlwaysDrawHorizontalTrack="false"
-                android:scrollbars="vertical" >
+                android:scrollbars="horizontal|vertical">
 
             </androidx.recyclerview.widget.RecyclerView>
 

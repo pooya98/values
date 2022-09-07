@@ -98,6 +98,13 @@
         android:id="@+id/fragment_01_02_Shop"
         android:name="com.example.values.Fragment.Fragment_01_02_Shop"
         android:label="fragment_01_02__shop"
-        tools:layout="@layout/fragment_01_02__shop" />
+        tools:layout="@layout/fragment_01_02__shop" >
+        <action
+            android:id="@+id/action_fragment_01_02_Shop_self"
+            app:destination="@id/fragment_01_02_Shop" />
+        <action
+            android:id="@+id/action_fragment_01_02_Shop_self2"
+            app:destination="@id/fragment_01_02_Shop" />
+    </fragment>
 
 </navigation>
