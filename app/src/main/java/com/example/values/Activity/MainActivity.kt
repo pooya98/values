@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
 //        초기 유저 , 굿즈 더미 삽입.
-//          initUsers()
-//          initGoods()
+          initUsers()
+          initGoods()
 
         val user = helper.selectUser(USER_ID)
         val mainUserProfile = findViewById<ImageView>(R.id.main_userProfile)
@@ -143,6 +143,7 @@ class MainActivity : AppCompatActivity() {
             "fragment_02_01_SpacePick" -> navController.navigate(action_fragment_02_to_fragment_02_01_SpacePick)
             "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
             "fragment_04_01_04_Portfolio_Detail" -> navController.navigate(fragment_04_01_04_Portfolio_Detail)
+            "fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post" -> navController.navigate(action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post)
         }
     }
 
@@ -248,7 +249,4 @@ class MainActivity : AppCompatActivity() {
         helper.insertUser(9,"UMZZI",drawable3)
 
     }
-
-
-
 }

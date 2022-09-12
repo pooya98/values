@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.widget.Spinner
 import androidx.appcompat.widget.AppCompatSpinner
 
-class Spinner_Main : AppCompatSpinner() {
+class Spinner_Main(context: Context) : AppCompatSpinner(context) {
     interface OnSpinnerEventsListener {
         fun onPopupWindowOpened(spinner: Spinner?)
         fun onPopupWindowClosed(spinner: Spinner?)
@@ -15,36 +15,6 @@ class Spinner_Main : AppCompatSpinner() {
     private var mListener: OnSpinnerEventsListener? = null
     private var mOpenInitiated = false
 
-    fun CustomSpinner(context: Context?) {
-        super(context)
-        super.getContext()
-    }
-
-    fun CustomSpinner(context: Context, mode: Int) {
-        super(context, mode)
-    }
-
-    fun CustomSpinner(context: Context, attrs: AttributeSet?) {
-        super(context, attrs)
-    }
-
-    fun CustomSpinner(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        super(context, attrs, defStyleAttr)
-    }
-
-    fun CustomSpinner(context: Context, attrs: AttributeSet?, defStyleAttr: Int, mode: Int) {
-        super(context, attrs, defStyleAttr, mode)
-    }
-
-    fun CustomSpinner(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        mode: Int,
-        popupTheme: Theme?
-    ) {
-        super(context, attrs, defStyleAttr, mode, popupTheme)
-    }
 
     override fun performClick(): Boolean {
         mOpenInitiated = true

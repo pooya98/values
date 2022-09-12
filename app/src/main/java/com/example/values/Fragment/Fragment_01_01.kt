@@ -95,6 +95,24 @@ class Fragment_01_01 : Fragment() {
 
         branding_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         branding_viewpager.setCurrentItem(2)
+
+        branding_viewpager.setPageTransformer { page, position ->
+
+
+
+            var v = 1-Math.abs(position)
+
+//            if(v.equals(1)){
+//                 여기서 함수작성하면 될듯.
+//            }
+
+            page.translationX = position * -offsetPx//앞으로 나오게하는 코드 맞냐 승우야?
+
+            page.scaleY = 0.85f + v * 0.15f   //페이지들 사이즈 조정 뷰.
+            page.scaleX = 0.85f + v * 0.15f
+
+            page.alpha = 0.6f + v * 0.4f   //흐리게 만들기.
+        }
     }
 
     private fun set_branding_viewPager_indicator(branding_viewpager: ViewPager2, branding_indicator: SpringDotsIndicator){
@@ -123,6 +141,24 @@ class Fragment_01_01 : Fragment() {
 
         illustration_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         illustration_viewpager.setCurrentItem(2)
+
+        illustration_viewpager.setPageTransformer { page, position ->
+
+
+
+            var v = 1-Math.abs(position)
+
+//            if(v.equals(1)){
+//                 여기서 함수작성하면 될듯.
+//            }
+
+            page.translationX = position * -offsetPx//앞으로 나오게하는 코드 맞냐 승우야?
+
+            page.scaleY = 0.85f + v * 0.15f   //페이지들 사이즈 조정 뷰.
+            page.scaleX = 0.85f + v * 0.15f
+
+            page.alpha = 0.6f + v * 0.4f   //흐리게 만들기.
+        }
     }
 
     private fun set_illustration_viewPager_indicator(illustration_viewpager: ViewPager2, illustration_indicator: SpringDotsIndicator){

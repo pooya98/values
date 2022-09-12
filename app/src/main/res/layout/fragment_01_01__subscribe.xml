@@ -18,27 +18,56 @@
         android:layout_marginHorizontal="20dp">
 
         <LinearLayout
+            android:layout_marginVertical="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <TextView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/main_userProfile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginHorizontal="5dp"
+                android:src="@drawable/image_noje" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="'UMZZI'"
-                android:textColor="@color/dh_purple"
-                android:textSize="20dp"
-                android:textStyle="bold"></TextView>
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="정기 구독하기"
-                android:textColor="@color/dh_black"
-                android:textSize="15dp"
-                android:textStyle="bold"></TextView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="'UMZZI'"
+                        android:textColor="@color/dh_purple"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 님을"
+                        android:textColor="@color/dh_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="구독하여 마음껏\n작품을 관람하세요"
+                    android:textColor="@color/dh_black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -48,386 +77,213 @@
             android:layout_marginTop="10dp">
 
             <LinearLayout
-                android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/background_fragment_01_01_pg_item"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="5dp">
+                android:background="@drawable/selector_checkbox_gray_to_purple"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                android:clickable="true">
 
-                <LinearLayout
-                    android:layout_weight="4"
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="1개월(30일)"
+                    android:textStyle="bold">
+                </TextView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="정기구독권 1개월(30일)"
-                        android:textColor="@color/dh_black">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₩5,000"
-                        android:textStyle="bold"
-                        android:textColor="@color/dh_black">
-                    </TextView>
-
-                </LinearLayout>
-
-                <Button
-                    android:layout_width="80dp"
-                    android:layout_height="30dp"
-                    android:text="구독하기"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    android:background="#B686E6"></Button>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10,000₩"
+                    android:gravity="right"
+                    android:textStyle="bold">
+                </TextView>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/selector_checkbox_gray_to_purple"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3개월(90일)"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="25,000₩"
+                    android:gravity="right"
+                    android:textStyle="bold">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/selector_checkbox_gray_to_purple"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6개월(180일)"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="50,000₩"
+                    android:gravity="right"
+                    android:textStyle="bold">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/selector_checkbox_gray_to_purple"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12개월(1년)"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100,000₩"
+                    android:gravity="right"
+                    android:textStyle="bold">
+                </TextView>
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/background_fragment_01_01_pg_item"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
 
-            <LinearLayout
-                android:layout_weight="4"
-                android:layout_width="0dp"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_alertsign_purple"></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:textSize="9.5dp"
+                android:textColor="@color/dh_purple"
+                android:text="구독 시 뱃지획득 / 구독자 이벤트 / 각종 할인 이벤트 등 혜택을 받을 수 있습니다"
+                android:textStyle="bold">
+            </TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="정기구독권 3개월(90일)"
-                    android:textColor="@color/dh_black">
-                </TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₩14,000"
-                    android:textStyle="bold"
-                    android:textColor="@color/dh_black">
-                </TextView>
-
-            </LinearLayout>
-
-            <Button
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:text="구독하기"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:background="#B686E6"></Button>
         </LinearLayout>
 
         <LinearLayout
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/background_fragment_01_01_pg_item"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp">
+            android:layout_marginLeft="8dp">
 
-            <LinearLayout
-                android:layout_weight="4"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="●"
+                android:textSize="6dp"></TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="정기구독권 6개월(180일)"
-                    android:textColor="@color/dh_black">
-                </TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₩27,000"
-                    android:textStyle="bold"
-                    android:textColor="@color/dh_black">
-                </TextView>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정기 구독권을 구매하면 해당 기간동안 별도의 관람권 구매없이 자유로운 작품 관라믈 할 수 있으며, 작가의 구독자 목록에 등록됩니다."
+                android:textSize="9dp"
+                android:lineSpacingExtra="5dp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
 
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="●"
+                android:textSize="6dp"></TextView>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="구독 기간동안 구독자에게만 제공되는 다양한 이벤트와 혜택의 대상이 됩니다"
+                android:textSize="9dp"
+                android:lineSpacingExtra="5dp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="●"
+                android:textSize="6dp"></TextView>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="구독료는 기간별 수수료를 제외한 금액으로 작가에게 지급됩니다"
+                android:textSize="9dp"
+                android:lineSpacingExtra="5dp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:text="구독하기"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:background="#B686E6"></Button>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background_purple"
+                android:paddingVertical="15dp"
+                android:text="10,000원 결제하기"
+                android:textColor="@color/dh_white"
+                android:textSize="16dp"
+                android:textStyle="bold"></Button>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="구독이란?"
-                android:textSize="13dp"
-                android:textColor="@color/dh_black"
-                android:textStyle="bold">
-            </TextView>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="정기 구독권을 구매하면 해당 기간 동안 작가를 정기 후원하는 구독자가 됩니다."
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="구독 기간 동안 오직 구독자만 이용가능한 특별한 혜택을 제공 받습니다."
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="구독료는 현금으로 정산되어 작가에게 전달됩니다."
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="구독 혜택"
-                android:textSize="13dp"
-                android:textColor="@color/dh_black"
-                android:textStyle="bold">
-            </TextView>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="구독자 혜택 A"
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="구독자 혜택 B"
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="구독자 혜택 C"
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="유의 사항"
-                android:textSize="13dp"
-                android:textColor="@color/dh_black"
-                android:textStyle="bold">
-            </TextView>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="유의사항 A"
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="유의사항 B"
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="•  "
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray"></TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="유의사항 C"
-                    android:textSize="12dp"
-                    android:textColor="@color/dh_gray">
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-
 
 
     </LinearLayout>

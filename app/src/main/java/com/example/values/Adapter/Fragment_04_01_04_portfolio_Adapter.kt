@@ -14,7 +14,7 @@ import com.example.values.DTO.Fragment_04_01_02_badges_Data
 import com.example.values.DTO.Fragment_04_01_04_portfolio_Data
 import com.example.values.R
 
-class Fragment_04_01_04_portfolio_Adapter (private var datas:ArrayList<Fragment_04_01_04_portfolio_Data>,private val mContext: Context):
+class Fragment_04_01_04_portfolio_Adapter (private var datas : ArrayList<Fragment_04_01_04_portfolio_Data>, private val mContext: Context):
     RecyclerView.Adapter<Fragment_04_01_04_portfolio_Adapter.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder{

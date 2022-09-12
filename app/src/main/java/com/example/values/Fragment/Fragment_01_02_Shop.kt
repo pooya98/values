@@ -52,9 +52,7 @@ class Fragment_01_02_Shop : Fragment() {
         val title = arguments?.getString("title")
         val mainView = arguments?.getByteArray("mainview")
 
-
         val author = (activity as MainActivity).helper.selectUser(author_id!!)
-
 
         authorProfile.setImageBitmap(BitmapFactory.decodeByteArray(author.user_Image,0,author.user_Image!!.size))
         authorName.setText(author.user_name)
