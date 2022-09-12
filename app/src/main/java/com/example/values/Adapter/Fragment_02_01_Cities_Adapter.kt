@@ -1,10 +1,12 @@
 package com.example.values.Adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.values.Activity.MainActivity
 import com.example.values.DTO.Fragment_01_04_Data
 import com.example.values.Fragment.Fragment_01_04
 import com.example.values.Fragment.Fragment_02_01
@@ -13,6 +15,9 @@ import com.example.values.R
 
 class Fragment_02_01_Cities_Adapter(private val context: Fragment_02_01_SpacePick) : RecyclerView.Adapter<Fragment_02_01_Cities_Adapter.ViewHolder>(){
     var datas = mutableListOf<String>()
+
+    var selectPos = -1 //클릭 효과를 위해서 저장할 position
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_02_01_city_item,parent,false)
@@ -24,6 +29,28 @@ class Fragment_02_01_Cities_Adapter(private val context: Fragment_02_01_SpacePic
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(datas[position])
 
+        if(selectPos == position){
+
+            holder.itemView.setBackgroundColor(Color.parseColor("#7600FF"))
+
+        }else{
+            holder.itemView.setBackgroundColor((Color.WHITE))
+        }
+
+
+        holder.itemView.setOnClickListener{
+
+            var beforePos = selectPos
+            selectPos = position
+
+            context.changeAddressList(datas[position])
+
+            notifyItemChanged(beforePos)
+            notifyItemChanged(selectPos)
+
+
+        }
+
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -32,6 +59,8 @@ class Fragment_02_01_Cities_Adapter(private val context: Fragment_02_01_SpacePic
 
         fun bind(item: String) {
             city_name.text = item
+
+
         }
     }
 }

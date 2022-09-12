@@ -22,14 +22,52 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp">
 
-            <TextView
-                android:id="@+id/available_name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="6/15 - 7/15 중 자유롭게 (최대 7일)"
-                android:textColor="@color/dh_white"
-                android:textSize="18dp"
-                android:textStyle="bold"></TextView>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/available_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Values경산"
+                    android:textColor="@color/dh_white"
+                    android:textSize="18dp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/startDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="start_date"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/weeksText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="-"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/endDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="end_date"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,13 +86,14 @@
                     android:textColor="#CCFFFFFF"></TextView>
 
                 <TextView
+                    android:id="@+id/textView55"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textSize="12dp"
                     android:text="마감까지 8명"
-                    android:textColor="#CCFFFFFF"></TextView>
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="12dp"></TextView>
 
                 <TextView
                     android:layout_width="0dp"

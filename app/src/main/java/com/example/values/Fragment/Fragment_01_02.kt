@@ -1,6 +1,7 @@
 package com.example.values.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,8 @@ class Fragment_01_02 : Fragment() {
         val illustration_indicator = view.findViewById<SpringDotsIndicator>(R.id.fragment01_02_illustration_indicator)
         val linear_lagout_main_thumbnail = view.findViewById<LinearLayout>(R.id.fragment_01_02_LinearLayout_main_thumbnail)
 
+
+
         set_branding_viewPager(branding_viewpager)
         set_branding_viewPager_indicator(branding_viewpager, branding_indicator)
         set_illustration_viewPager(illustration_viewpager)
@@ -48,17 +51,20 @@ class Fragment_01_02 : Fragment() {
     override fun onStart() {
         super.onStart()
         super.onResume()
-
+        Log.d("Fragment_01_02","onStartTest")
         (activity as MainActivity).hideBackButtonAndShowLogo()
     }
 
     override fun onResume() {
         super.onResume()
-
+        Log.d("Fragment_01_02","onResumeTest")
         (activity as MainActivity).hideBackButtonAndShowLogo()
     }
 
+
+
     private fun set_branding_viewPager(branding_viewpager: ViewPager2){
+
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
 
         val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimen 파일이 없으면 생성해야함
@@ -67,6 +73,7 @@ class Fragment_01_02 : Fragment() {
 
         val brandinglist : ArrayList<Goods_Data> = (activity as MainActivity).helper.selectGoods(1)
 
+        Log.d("Fragment_01_02","listSize: "+brandinglist.size)
 //        var transform = CompositePageTransformer()
 //        transform.addTransformer
 
@@ -77,10 +84,10 @@ class Fragment_01_02 : Fragment() {
             var v = 1-Math.abs(position)
 
 //            if(v.equals(1)){
-//                 여기서 함수작성하면 될듯.
+//
 //            }
 
-            page.translationX = position * -offsetPx//앞으로 나오게하는 코드 맞냐 승우야?
+            page.translationX = position * -offsetPx
 
             page.scaleY = 0.85f + v * 0.15f   //페이지들 사이즈 조정 뷰.
             page.scaleX = 0.85f + v * 0.15f
@@ -99,6 +106,7 @@ class Fragment_01_02 : Fragment() {
 
     private fun set_branding_viewPager_indicator(branding_viewpager: ViewPager2, branding_indicator: SpringDotsIndicator){
         branding_indicator.attachTo(branding_viewpager)
+
     }
 
     private fun set_illustration_viewPager(illustration_viewpager: ViewPager2){
