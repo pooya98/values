@@ -23,6 +23,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.example.values.DTO.Fragment_01_02_shop_goods_data
+import com.example.values.DTO.Fragment_02_01_Address_Data
 import com.example.values.DTO.Goods_Data
 import com.example.values.Fragment.Fragment_01_02
 import com.example.values.Fragment.Fragment_01_02_Shop
@@ -33,7 +34,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 val DB_NAME = "sqlite.sql"
-val DB_VERSION = 4
+val DB_VERSION = 10
 
 //UMZZI
 val USER_ID = 9
@@ -52,8 +53,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
 //        초기 유저 , 굿즈 더미 삽입.
-//          initUsers()
-//          initGoods()
+          initUsers()
+          initGoods()
+          initSpaces()
+          initPositions()
+          initExhibitions()
 
         val user = helper.selectUser(USER_ID)
         val mainUserProfile = findViewById<ImageView>(R.id.main_userProfile)
@@ -75,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         val backbutton = findViewById<LinearLayout>(R.id.mainactivity_linearlayout_back)
         backbutton.setOnClickListener{
             navController.navigateUp()
+
         }
 
         setupBottomNavMenu(navController)
@@ -93,6 +98,8 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("ResourceType")
     fun callTicket() {
+        mBinding.imageNotification.setImageResource(R.drawable.icon_notification2)
+        mBinding.imageMessage.setImageResource(R.drawable.icon_message2)
         mBinding.mainactivityBottomNavigation.itemTextColor =
             ContextCompat.getColorStateList(this, R.drawable.selector_bottom_navi_color)
         mBinding.mainactivityBottomNavigation.itemIconTintList =
@@ -105,6 +112,9 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("ResourceType")
     fun callElse() {
+
+        mBinding.imageNotification.setImageResource(R.drawable.icon_notification)
+        mBinding.imageMessage.setImageResource(R.drawable.icon_message)
         mBinding.mainactivityBottomNavigation.itemTextColor =
             ContextCompat.getColorStateList(this, R.drawable.selector_bottom_navi_color_origin)
         mBinding.mainactivityBottomNavigation.itemIconTintList =
@@ -140,9 +150,12 @@ class MainActivity : AppCompatActivity() {
             "fragment_01_01_ExhibitionDetail" -> navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail)
             "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
             "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
-            "fragment_02_01_SpacePick" -> navController.navigate(action_fragment_02_to_fragment_02_01_SpacePick)
+            "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
+            "fragment_02_01_ExhibitionAvailable" -> navController.navigate(
+                fragment_02_01_ExhibitionAvailable)
             "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
             "fragment_04_01_04_Portfolio_Detail" -> navController.navigate(fragment_04_01_04_Portfolio_Detail)
+
         }
     }
 
@@ -175,6 +188,39 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun navigateToFragment(destination: String,spaceData: Fragment_02_01_Address_Data){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+        when(destination){
+            "fragment_02_01" ->{
+                val bundle = Bundle()
+
+                bundle.putInt("spaceId",spaceData.space_id)
+                bundle.putString("address",spaceData.address)
+
+                navController.navigate(fragment_02_01, bundle)
+
+            }
+        }
+    }
+
+    fun navigateToFragment(destination: String,address: String,startDate:String,endDate:String){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+        when(destination){
+            "fragment_02_01_ExhibitionAvailable" ->{
+                val bundle = Bundle()
+
+                bundle.putString("address",address)
+                bundle.putString("startDate",startDate)
+                bundle.putString("endDate",endDate)
+                navController.navigate(fragment_02_01_ExhibitionAvailable, bundle)
+
+            }
+        }
+    }
+
 
 
 
@@ -248,6 +294,40 @@ class MainActivity : AppCompatActivity() {
         helper.insertUser(9,"UMZZI",drawable3)
 
     }
+
+    fun initSpaces(){
+
+        val drawable1 = getDrawable(R.drawable.user1_profile)
+
+        helper.insertSpace(1,"경북","경산",drawable1)
+        helper.insertSpace(2,"대전","안동",drawable1)
+        helper.insertSpace(3,"경북","포항",drawable1)
+        helper.insertSpace(4,"경북","경주",drawable1)
+
+
+    }
+
+    fun initPositions(){
+
+        helper.insertPositions(1,"2층 A홀",1)
+        helper.insertPositions(2,"1층 C홀",1)
+        helper.insertPositions(3,"3층 B홀",1)
+        helper.insertPositions(4,"1층 B홀",1)
+
+
+    }
+
+    fun initExhibitions(){
+
+        helper.insertExhibitions(1,1,"09/19/2022","09/23/2022","branding")
+        helper.insertExhibitions(2,1,"09/19/2022","09/23/2022","illutration")
+        helper.insertExhibitions(3,1,"09/26/2022","10/03/2022","branding")
+        helper.insertExhibitions(4,1,"10/06/2022","10/12/2022","branding")
+
+
+    }
+
+
 
 
 

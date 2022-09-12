@@ -29,8 +29,19 @@ class Fragment_02_01_ExhibitionAvailable : Fragment() {
 
         initRecycler_available(recyclerview_available)
 
+        val address = arguments?.getString("address")
+        val startDate = arguments?.getString("startDate")
+        val endDate = arguments?.getString("endDate")
+
+
+
+
+
         return view
     }
+
+
+
 
     private fun initRecycler_available(rv_list: RecyclerView) {
         fragment_02_01_Available_Adapter = Fragment_02_01_Available_Adapter(this)

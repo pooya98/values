@@ -57,7 +57,7 @@ class Fragment_01_02_Shop : Fragment() {
 
 
         authorProfile.setImageBitmap(BitmapFactory.decodeByteArray(author.user_Image,0,author.user_Image!!.size))
-        authorName.setText(author.user_name)
+        authorName.setText("'"+author.user_name+"'")
         authorName2.setText(author.user_name)
 
         goodsMainView.setImageBitmap(BitmapFactory.decodeByteArray(mainView,0,mainView!!.size))

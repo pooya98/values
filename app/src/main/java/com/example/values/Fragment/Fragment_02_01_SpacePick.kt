@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.Activity.MainActivity
@@ -12,6 +14,7 @@ import com.example.values.Adapter.Fragment_01_04_Adapter
 import com.example.values.Adapter.Fragment_02_01_Cities_Adapter
 import com.example.values.Adapter.Fragment_02_01_Space_Adapter
 import com.example.values.DTO.Fragment_01_04_Data
+import com.example.values.DTO.Fragment_02_01_Address_Data
 import com.example.values.R
 
 class Fragment_02_01_SpacePick : Fragment() {
@@ -19,8 +22,10 @@ class Fragment_02_01_SpacePick : Fragment() {
     lateinit var fragment_02_01_CityAdapter: Fragment_02_01_Cities_Adapter
     lateinit var fragment_02_01_SpaceAdapter: Fragment_02_01_Space_Adapter
 
+    lateinit var spaceRecycler : RecyclerView
+
     val datas = mutableListOf<String>()
-    val datas_space = mutableListOf<String>()
+    var datas_space = mutableListOf<Fragment_02_01_Address_Data>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +34,34 @@ class Fragment_02_01_SpacePick : Fragment() {
         val view = inflater.inflate(R.layout.fragment_02_01__space_pick, container, false)
         // Inflate the layout for this fragment
         val recyclerview_city = view.findViewById<RecyclerView>(R.id.fragment_02_01_spacepick_city_list)
-        val recyclerview_space = view.findViewById<RecyclerView>(R.id.fragment_02_01_spacepick_space_list)
+        val spaceRecycler = view.findViewById<RecyclerView>(R.id.fragment_02_01_spacepick_space_list)
 
+        val selectButton = view.findViewById<Button>(R.id.fragment_02_01_Search_Button)
+
+
+        spaceRecycler.layoutManager = LinearLayoutManager(activity)
+        fragment_02_01_SpaceAdapter = Fragment_02_01_Space_Adapter(this)
+        spaceRecycler.adapter = fragment_02_01_SpaceAdapter
+
+//        recyclerview_space?.adapter = fragment
         initRecycler_city(recyclerview_city)
-        initRecycler_space(recyclerview_space)
+//        initRecycler_space(recyclerview_space)
+
+
+        selectButton.setOnClickListener {
+
+            if(fragment_02_01_SpaceAdapter.selectSpace!=null) {  //Null이 아닐시에만 선택완료버튼 처리.
+                (activity as MainActivity).navigateToFragment(
+                    "fragment_02_01",
+                    fragment_02_01_SpaceAdapter.selectSpace!!
+                )
+            }
+
+        }
+
+
+
+
 
         return view
     }
@@ -81,21 +110,31 @@ class Fragment_02_01_SpacePick : Fragment() {
         }
     }
 
-    private fun initRecycler_space(rv_list: RecyclerView) {
-        fragment_02_01_SpaceAdapter = Fragment_02_01_Space_Adapter(this)
-        rv_list.layoutManager = LinearLayoutManager(activity)
-        rv_list.adapter = fragment_02_01_SpaceAdapter
+//    private fun initRecycler_space(rv_list: RecyclerView) {//datas:MutableList<String>
+//        fragment_02_01_SpaceAdapter = Fragment_02_01_Space_Adapter(this)
+//        rv_list.layoutManager = LinearLayoutManager(activity)
+//        rv_list.adapter = fragment_02_01_SpaceAdapter
+//
+//
+//        datas_space.apply {
+//            add("VALUES경산 [A홀]")
+//            add("VALUES경산 [B홀]")
+//            add("VALUES경산 [C홀]")
+//
+//            fragment_02_01_SpaceAdapter.datas = datas_space
+//            fragment_02_01_SpaceAdapter.notifyDataSetChanged()
+//
+//        }
+//    }
+
+    fun changeAddressList(region : String){
+
+        val addressList : MutableList<Fragment_02_01_Address_Data> = (activity as MainActivity).helper.selectAddressByRegion(region)
+
+        fragment_02_01_SpaceAdapter.datas = addressList
+        fragment_02_01_SpaceAdapter.notifyDataSetChanged()
 
 
-        datas_space.apply {
-            add("VALUES경산 [A홀]")
-            add("VALUES경산 [B홀]")
-            add("VALUES경산 [C홀]")
-
-            fragment_02_01_SpaceAdapter.datas = datas_space
-            fragment_02_01_SpaceAdapter.notifyDataSetChanged()
-
-        }
     }
 
 }

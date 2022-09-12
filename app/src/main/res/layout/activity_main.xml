@@ -62,15 +62,17 @@
                     <!-- 로그인 버튼 -->
 
                     <ImageView
-                        android:id="@+id/imageView28"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:id="@+id/image_message"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:paddingLeft="5dp"
                         app:srcCompat="@drawable/icon_message" />
 
                     <ImageView
-                        android:id="@+id/imageView29"
+                        android:id="@+id/image_notification"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:paddingRight="4dp"
                         app:srcCompat="@drawable/icon_notification" />
 
                     <de.hdodenhof.circleimageview.CircleImageView

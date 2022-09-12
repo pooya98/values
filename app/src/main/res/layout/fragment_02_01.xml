@@ -220,12 +220,13 @@
                     </ImageView>
 
                     <TextView
+                        android:id="@+id/pickedSpaceText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
                         android:gravity="center"
-                        android:textSize="15dp"
                         android:text="전시공간 선택"
-                        android:layout_marginHorizontal="2dp"></TextView>
+                        android:textSize="15dp"></TextView>
 
 
                 </LinearLayout>

@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.util.Log
+import com.example.values.DTO.Exhibition_Data
+import com.example.values.DTO.Fragment_02_01_Address_Data
 import com.example.values.DTO.Goods_Data
 import com.example.values.DTO.User_Data
 import java.io.ByteArrayOutputStream
@@ -17,9 +20,10 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
     override fun onCreate(db: SQLiteDatabase?) {
 
         db?.execSQL("create table user (u_id integer primary key, name text, image blob)")
-        db?.execSQL("create table space (s_id integer primary key, name text, address text, image text)")
+        db?.execSQL("create table space (s_id integer primary key, region text, s_name text, image blob)")
+        db?.execSQL("create table position (p_id integer primary key,p_name text,space_id integer, constraint space_id_fk foreign key(space_id) references space(s_id))")
         db?.execSQL("create table goods (g_id integer primary key, author_id integer, name text, detail text, price text, image blob,type integer, constraint author_id_fk foreign key(author_id) references user(u_id))")
-        db?.execSQL("create table exhibition (e_id integer primary key, space_id integer, name text, start_date datetime, end_date datetime, s_id integer, constraint space_id_fk foreign key(space_id) references space(s_id))")
+        db?.execSQL("create table exhibition (e_id integer primary key, position_id integer, start_date text, end_date text,type text, constraint position_id_fk foreign key(position_id) references position(p_id))")
         db?.execSQL("create table picture (p_id integer primary key, author_id integer, exhibition_id integer, name text, detail text, image text, constraint author_id_fk foreign key(author_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
         db?.execSQL("create table reservation (r_id integer primary key, user_id integer, exhibition_id integer, constraint user_id_fk foreign key(user_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
 
@@ -33,10 +37,6 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 //        val n : Int = R.drawable.irene
 //        db?.execSQL("insert into user (u_id, name, image) values (4, 'UMZZI', n)")
 
-
-
-
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -46,10 +46,9 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         db?.execSQL("DROP TABLE IF EXISTS reservation")
 
 
-        db?.execSQL("DROP TABLE IF EXISTS good")
         db?.execSQL("DROP TABLE IF EXISTS goods")
         db?.execSQL("DROP TABLE IF EXISTS user")
-        onCreate(db);
+        onCreate(db)
         //테이블에 변경사항이 있을 경우 호출됨.
         //SqliteHelper()의 생성자를 호출할 때 기존 데이터베이스와 version을 비교해서 더 높으면
         //호출된다.
@@ -66,6 +65,161 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
         super.onConfigure(db)
     }
+
+    fun insertPositions(id:Int,name:String,space_id:Int){
+
+        val values = ContentValues()
+        values.put("p_id",id)
+        values.put("p_name",name)
+        values.put("space_id",space_id)
+        val wd = writableDatabase
+        wd.insert("position",null,values)
+        wd.close()
+
+
+    }
+
+
+
+
+    @SuppressLint("Range")   //Frgment_02_01_SpacePick
+    fun selectExhibtions(spaceId:Int, type: String,startDate:String,endDate:String): MutableList<Exhibition_Data> {
+
+        val list = mutableListOf<Exhibition_Data>()
+        // db 가져오기
+        val select = "select * from exhibition, space, position where (space.s_id = position.space_id) and (space.s_id ="+spaceId+") and (position.p_id = exhibition.position_id)"
+        val select2 = "select * from position inner join space on position.space_id = space.s_id inner join exhibition on position.p_id = exhibition.position_id"
+
+
+
+        val rd = readableDatabase
+
+
+        val cursor = rd.rawQuery(select2,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+        Log.d("HI", "????????????????")
+
+        while(cursor.moveToNext()){
+            val exhibitionId:Int = cursor.getInt(cursor.getColumnIndex("e_id"))
+            val startDate:String = cursor.getString(cursor.getColumnIndex("start_date"))
+            val endDate:String = cursor.getString(cursor.getColumnIndex("start_date"))
+            val positionName:String = cursor.getString(cursor.getColumnIndex("p_name"))
+            val spaceName:String = cursor.getString(cursor.getColumnIndex("s_name"))
+
+
+            Log.d("HI", exhibitionId.toString())
+
+
+
+
+            list.add(Exhibition_Data(exhibitionId, startDate, endDate,positionName,spaceName ))
+
+        }
+
+        cursor.close()
+        rd.close()
+
+        return list
+    }
+
+
+    fun insertExhibitions(id:Int,positionId:Int,start_date:String,end_date:String,type:String){
+
+        val values = ContentValues()
+        values.put("e_id",id)
+        values.put("position_Id",positionId)
+        values.put("start_date",start_date)
+        values.put("end_date",end_date)
+        values.put("type",type)
+        val wd = writableDatabase
+        wd.insert("exhibition",null,values)
+        wd.close()
+
+
+    }
+
+
+
+
+//    @SuppressLint("Range")
+//    fun selectAddressBySpaceId(spaceId:Int): Fragment_02_01_Address_Data {
+//
+//        val list = mutableListOf<Fragment_02_01_Address_Data>()
+//        // db 가져오기
+//        val select = "select * from space where s_id="+spaceId
+//
+//        val rd = readableDatabase
+//
+//
+//        val cursor = rd.rawQuery(select,null)
+//        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+//
+//        while(cursor.moveToNext()){
+//            val position = cursor.getString(cursor.getColumnIndex("position"))
+//            val image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image")) ?:null
+//            val address:String = cursor.getString(cursor.getColumnIndex("address"))
+//            val space_id:Int = cursor.getInt(cursor.getColumnIndex("s_id"))
+//
+//
+//
+////            list.add(Fragment_02_01_Address_Data(address,position,image,space_id))
+//        }
+//
+//        cursor.close()
+//        rd.close()
+//
+//        return list[0]
+//    }
+
+
+
+
+    @SuppressLint("Range")   //Frgment_02_01_SpacePick
+    fun selectAddressByRegion(spaceRegion:String): MutableList<Fragment_02_01_Address_Data> {
+
+        val list = mutableListOf<Fragment_02_01_Address_Data>()
+        // db 가져오기
+        val select = "select s_name,image,s_id from space where region=\'${spaceRegion}\'"
+
+        val rd = readableDatabase
+
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+        while(cursor.moveToNext()){
+            val image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image")) ?:null
+            val address:String = cursor.getString(cursor.getColumnIndex("s_name"))
+            val space_id:Int = cursor.getInt(cursor.getColumnIndex("s_id"))
+
+
+
+            list.add(Fragment_02_01_Address_Data(address,image,space_id))
+        }
+
+        cursor.close()
+        rd.close()
+
+        return list
+    }
+
+
+    fun insertSpace(id:Int,spaceRegion:String,name:String,drawable:Drawable?){
+
+        val values = ContentValues()
+        values.put("s_id",id)
+        values.put("region",spaceRegion)
+        values.put("s_name",name)
+        values.put("image",drawableToByteArray(drawable!!))
+        val wd = writableDatabase
+        wd.insert("space",null,values)
+        wd.close()
+
+
+    }
+
+
 
     fun insertGoods(id:Int,author_id:Int,goods_name:String,goods_price:String,goodstype: Int,drawable:Drawable?){
 
@@ -274,6 +428,11 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val byteArray = stream.toByteArray()
 
         return byteArray
+
+    }
+
+
+    fun compareDates(startDate:String,endDate:String,currentDate:String){
 
     }
 

@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.PagerAdapter
 import com.example.values.Activity.MainActivity
 import com.example.values.DTO.Fragment_01_02_shop_goods_data
 import com.example.values.DTO.Goods_Data
@@ -22,6 +23,7 @@ class Fragment_01_02_shop_goods_Adapter (private var datas:ArrayList<Goods_Data>
             val view: View = LayoutInflater.from(parent.context).inflate(R.layout.fragment_01_02_shop_goods_item,parent,false)
             return ViewHolder(view)
         }
+
 
         override fun getItemCount() =  datas.size
 

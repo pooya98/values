@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.PagerAdapter.POSITION_NONE
 import com.example.values.Activity.MainActivity
 import com.example.values.DTO.Goods_Data
 import com.example.values.R
@@ -16,7 +17,10 @@ class Fragment_01_02_goods_Adapter(brading_list: ArrayList<Goods_Data>, private 
 
     var itemLIst: List<Goods_Data> = listOf(item.last()) + item + listOf(item.first())
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PagerViewHolder((parent))
+
+
 
     override fun getItemCount(): Int = itemLIst.size
 
