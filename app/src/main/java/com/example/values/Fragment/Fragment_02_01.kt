@@ -14,10 +14,12 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.andrewjapar.rangedatepicker.CalendarPicker
 import com.example.values.Activity.MainActivity
+import com.example.values.DTO.Exhibition_Data
 import com.example.values.R
 import com.example.values.databinding.Fragment0201Binding
 import com.example.values.databinding.Fragment02Binding
 import java.text.SimpleDateFormat
+import java.util.*
 
 class Fragment_02_01 : Fragment() {
 
@@ -39,7 +41,7 @@ class Fragment_02_01 : Fragment() {
         val pickedSpaceText = view.findViewById<TextView>(R.id.pickedSpaceText)
 
         val address = arguments?.getString("address")   //VALUES NAME:  ex)경산, 대전
-
+        val spaceId = arguments?.getInt("spaceId")
 
         val sdf = SimpleDateFormat("MM/dd/yyyy")
         var selectStart : String? = null
@@ -57,6 +59,8 @@ class Fragment_02_01 : Fragment() {
             selectStart = sdf.format(startDate.time)
             selectEnd = sdf.format(endDate.time)
 
+
+
             Log.d("Fragment_02_01","start:"+sdf.format(startDate.time))
             Log.d("Fragment_02_01","end:"+sdf.format(endDate.time))
 
@@ -73,10 +77,16 @@ class Fragment_02_01 : Fragment() {
 
         search_button.setOnClickListener {
             if(address != null){
-//            (activity as MainActivity).navigateToFragment("fragment_02_01_ExhibitionAvailable",address!!,selectStart!!,selectEnd!!)
 
-              val test = (activity as MainActivity).helper.selectExhibtions(1,"branding","2011", "2022").size
-                Log.d("test",test.toString())
+              val exhibitionList = (activity as MainActivity).helper.selectExhibtions(1,"branding")
+
+               Log.d("checkList:" ,compareDatetime(exhibitionList,selectStart!!,selectEnd!!).size.toString())
+
+
+                (activity as MainActivity).navigateToFragment("fragment_02_01_ExhibitionAvailable",selectStart!!,selectEnd!!,spaceId!!,"branding")
+
+
+
             }
 
         }
@@ -84,6 +94,53 @@ class Fragment_02_01 : Fragment() {
 
 
         return view
+    }
+
+
+    fun compareDatetime(list:MutableList<Exhibition_Data>, c_startDate:String,c_endDate:String):MutableList<Exhibition_Data>
+    {
+
+        val sdf = SimpleDateFormat("MM/dd/yyyy")
+
+
+
+        val check_startDate: Date = sdf.parse(c_startDate)
+        val check_endDate : Date = sdf.parse(c_endDate)
+        var size = list.size
+
+        Log.d(" size: ",size.toString() )
+        var count = 0
+        var tempList : MutableList<Exhibition_Data>
+        while(count<size)
+        {
+            Log.d("count: ",count.toString())
+
+            val ex_startDate: Date = sdf.parse(list[count].exhibition_startDate)
+            val ex_endDate: Date = sdf.parse(list[count].exhibition_endDate)
+
+            Log.d("exStart:",ex_startDate.toString())
+            Log.d("exEnd:",ex_endDate.toString())
+
+
+            when {
+
+            ex_endDate.before(check_startDate) || ex_startDate.after(check_endDate) -> {
+
+                list.removeAt(count)
+                count--
+                size--
+
+              }
+
+            }
+            count++
+        }
+
+
+        return list
+
+
+
     }
 
     override fun onStart() {

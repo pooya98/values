@@ -8,6 +8,6 @@ data class Exhibition_Data(
     var exhibition_endDate: String,
     var position_name:String,
     var space_name:String,
-
+    var exhibition_type:String
 
 )

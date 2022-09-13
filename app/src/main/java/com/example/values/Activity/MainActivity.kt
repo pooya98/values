@@ -22,6 +22,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
+import com.example.values.DTO.Exhibition_Data
 import com.example.values.DTO.Fragment_01_02_shop_goods_data
 import com.example.values.DTO.Fragment_02_01_Address_Data
 import com.example.values.DTO.Goods_Data
@@ -207,16 +208,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun navigateToFragment(destination: String,address: String,startDate:String,endDate:String){
+    fun navigateToFragment(destination: String,selectStart:String,selectEnd:String,spaceId:Int,brand:String){
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
         val navController = host.navController
         when(destination){
             "fragment_02_01_ExhibitionAvailable" ->{
                 val bundle = Bundle()
-
-                bundle.putString("address",address)
-                bundle.putString("startDate",startDate)
-                bundle.putString("endDate",endDate)
+                bundle.putString("selectStart",selectStart)
+                bundle.putString("selectEnd",selectEnd)
+                bundle.putString("brand",brand)
+                bundle.putInt("space_id",spaceId)
                 navController.navigate(fragment_02_01_ExhibitionAvailable, bundle)
 
             }
@@ -311,6 +312,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initPositions(){
+
 
         helper.insertPositions(1,"2층 A홀",1)
         helper.insertPositions(2,"1층 C홀",1)

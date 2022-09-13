@@ -83,11 +83,11 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
 
     @SuppressLint("Range")   //Frgment_02_01_SpacePick
-    fun selectExhibtions(spaceId:Int, type: String,startDate:String,endDate:String): MutableList<Exhibition_Data> {
+    fun selectExhibtions(spaceId:Int, type: String): MutableList<Exhibition_Data> {
 
         val list = mutableListOf<Exhibition_Data>()
         // db 가져오기
-        val select = "select * from exhibition, space, position where (space.s_id = position.space_id) and (space.s_id ="+spaceId+") and (position.p_id = exhibition.position_id)"
+        val select = "select * from exhibition, space, position where (space.s_id = position.space_id) and (space.s_id ="+spaceId+") and (position.p_id = exhibition.position_id) and (exhibition.type=\""+type+"\")"
         val select2 = "select * from position inner join space on position.space_id = space.s_id inner join exhibition on position.p_id = exhibition.position_id"
 
 
@@ -95,10 +95,9 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val rd = readableDatabase
 
 
-        val cursor = rd.rawQuery(select2,null)
+        val cursor = rd.rawQuery(select,null)
         DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
 
-        Log.d("HI", "????????????????")
 
         while(cursor.moveToNext()){
             val exhibitionId:Int = cursor.getInt(cursor.getColumnIndex("e_id"))
@@ -106,14 +105,14 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
             val endDate:String = cursor.getString(cursor.getColumnIndex("start_date"))
             val positionName:String = cursor.getString(cursor.getColumnIndex("p_name"))
             val spaceName:String = cursor.getString(cursor.getColumnIndex("s_name"))
-
-
-            Log.d("HI", exhibitionId.toString())
-
+            val exhibitionType:String = cursor.getString(cursor.getColumnIndex("type"))
 
 
 
-            list.add(Exhibition_Data(exhibitionId, startDate, endDate,positionName,spaceName ))
+
+
+
+            list.add(Exhibition_Data(exhibitionId, startDate, endDate,positionName,spaceName,exhibitionType ))
 
         }
 

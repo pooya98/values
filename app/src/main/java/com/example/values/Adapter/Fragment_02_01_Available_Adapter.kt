@@ -9,13 +9,15 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.Activity.MainActivity
+import com.example.values.DTO.Exhibition_Data
 import com.example.values.Fragment.Fragment_02
 import com.example.values.Fragment.Fragment_02_01_ExhibitionAvailable
 import com.example.values.Fragment.Fragment_02_01_SpacePick
 import com.example.values.R
+import org.w3c.dom.Text
 
 class Fragment_02_01_Available_Adapter(private val context: Fragment_02_01_ExhibitionAvailable) : RecyclerView.Adapter<Fragment_02_01_Available_Adapter.ViewHolder>(){
-    var datas = mutableListOf<String>()
+    var datas = mutableListOf<Exhibition_Data>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,11 +34,17 @@ class Fragment_02_01_Available_Adapter(private val context: Fragment_02_01_Exhib
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val available_name: TextView = itemView.findViewById(R.id.available_name)
+        private val start_date:TextView = itemView.findViewById(R.id.startDateText)
+        private val end_date:TextView = itemView.findViewById(R.id.endDateText)
+        private val position_brand:TextView = itemView.findViewById(R.id.positionBrandText)
 
 
+        fun bind(item: Exhibition_Data) {
+            available_name.text = "VALUES"+item.space_name
+            start_date.text =item.exhibition_startDate
+            end_date.text = item.exhibition_endDate
+            position_brand.text = item.position_name+" - "+"["+item.exhibition_type+"]"
 
-        fun bind(item: String) {
-            available_name.text = item
 
             itemView.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post)
