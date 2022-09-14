@@ -25,7 +25,6 @@ class Fragment_02_01 : Fragment() {
 
     private var mBinding : Fragment0201Binding? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

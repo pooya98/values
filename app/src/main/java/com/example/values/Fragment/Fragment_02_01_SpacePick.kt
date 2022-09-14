@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.Activity.MainActivity
@@ -49,14 +50,7 @@ class Fragment_02_01_SpacePick : Fragment() {
 
 
         selectButton.setOnClickListener {
-
-            if(fragment_02_01_SpaceAdapter.selectSpace!=null) {  //Null이 아닐시에만 선택완료버튼 처리.
-                (activity as MainActivity).navigateToFragment(
-                    "fragment_02_01",
-                    fragment_02_01_SpaceAdapter.selectSpace!!
-                )
-            }
-
+            view.findNavController().navigateUp()
         }
 
 
