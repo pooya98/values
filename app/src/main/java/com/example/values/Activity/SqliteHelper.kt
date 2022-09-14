@@ -388,7 +388,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         return space_data
     }
 
-    fun insertPicture(id: Int, exhibition_id: Int, author_id: Int, pic_name: String, pic_image: Drawable, pic_detail: String){
+    fun insertPicture(id: Int, exhibition_id: Int, author_id: Int, pic_name: String, pic_image: Drawable?, pic_detail: String){
 
         val values = ContentValues()
         values.put("p_id",id)
@@ -396,10 +396,12 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         values.put("exhibition_id",exhibition_id)
         values.put("name",pic_name)
         values.put("detail",pic_detail)
-        values.put("image", drawableToByteArray(pic_image))
+        values.put("image", drawableToByteArray(pic_image!!))
         val wd = writableDatabase
         wd.insert("picture",null,values)
         wd.close()
+
+        Log.d("이미지 저장 테스트", "저장 완료")
     }
 
     //type에 따른 굿즈 조회 함수.

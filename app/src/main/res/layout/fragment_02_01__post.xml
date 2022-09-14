@@ -183,7 +183,6 @@
                 android:id="@+id/post_picture_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/image_noje"
                 android:adjustViewBounds="true"
                 ></ImageView>
 
