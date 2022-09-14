@@ -32,9 +32,12 @@ class Fragment_02_01_Cities_Adapter(private val context: Fragment_02_01_SpacePic
         if(selectPos == position){
 
             holder.itemView.setBackgroundColor(Color.parseColor("#7600FF"))
+            holder.itemView.findViewById<TextView>(R.id.TextView_city_name).setTextColor(Color.WHITE)
 
         }else{
-            holder.itemView.setBackgroundColor((Color.WHITE))
+            holder.itemView.setBackgroundColor((Color.parseColor("#00FFFFFF")))
+            holder.itemView.findViewById<TextView>(R.id.TextView_city_name).setTextColor(Color.parseColor("#8A8A8A"))//dh_gray
+
         }
 
 
@@ -59,6 +62,7 @@ class Fragment_02_01_Cities_Adapter(private val context: Fragment_02_01_SpacePic
 
         fun bind(item: String) {
             city_name.text = item
+
 
 
         }

@@ -32,7 +32,7 @@ class Fragment_02_01_Space_Adapter(private val context: Fragment_02_01_SpacePick
             holder.itemView.setBackgroundColor((Color.parseColor("#aaaaaa")))
 
         }else{
-            holder.itemView.setBackgroundColor((Color.WHITE))
+            holder.itemView.setBackgroundColor((Color.parseColor("#00FFFFFF")))
         }
 
         holder.itemView.setOnClickListener{

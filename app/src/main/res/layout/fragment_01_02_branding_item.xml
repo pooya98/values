@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/fragment_01_02_branding_image"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_launcher_background" />
         </androidx.cardview.widget.CardView>

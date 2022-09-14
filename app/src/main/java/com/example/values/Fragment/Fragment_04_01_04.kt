@@ -1,16 +1,20 @@
 package com.example.values.Fragment
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.Activity.MainActivity
+import com.example.values.Activity.USER_ID
 import com.example.values.Adapter.Fragment_04_01_02_badges_Adapter
 import com.example.values.Adapter.Fragment_04_01_04_portfolio2_Adapter
 import com.example.values.Adapter.Fragment_04_01_04_portfolio_Adapter
@@ -32,15 +36,28 @@ class Fragment_04_01_04 : Fragment() ,View.OnClickListener{
         savedInstanceState: Bundle?
     ): View? {
         val binding = Fragment040104Binding.inflate(inflater, container,false)
-
         mBinding = binding
         var recyclerView = mBinding?.portfolioRecycler
         var recyclerView2 = mBinding?.portfolioRecycler2
 
-        fillList2()
-        fillList()
+        var profileImage = mBinding?.portfolioProfileImage
+        var profileUserName = mBinding?.portfolioUserName
 
-        val pictureAdapter = Fragment_04_01_04_portfolio_Adapter(pictureList,(activity as MainActivity))
+
+        var user = (activity as MainActivity).helper.selectUser(USER_ID)
+        var user_image = user.user_Image
+        var user_name = user.user_name
+
+        var userGoodsList = (activity as MainActivity).helper.selectGoodsByAuthor(USER_ID)
+
+        profileImage?.setImageBitmap(BitmapFactory.decodeByteArray(user_image,0,user_image!!.size))
+        profileUserName?.setText("'"+user_name+"'")
+
+
+        fillList2()
+
+
+        val pictureAdapter = Fragment_04_01_04_portfolio_Adapter(userGoodsList,(activity as MainActivity))
         val pictureAdapter2 = Fragment_04_01_04_portfolio2_Adapter(pictureList2)
         recyclerView?.adapter = pictureAdapter
         recyclerView?.layoutManager = LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false)
