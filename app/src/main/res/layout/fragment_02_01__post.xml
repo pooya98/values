@@ -23,32 +23,239 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginBottom="30dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="전시작품을 등록하여\n예약을 완료하세요"
+                    android:text="전시작품을 등록하여\n예약신청을 완료하세요"
                     android:textStyle="bold"
                     android:textSize="24dp"
                     android:textColor="@color/dh_black"></TextView>
 
             </LinearLayout>
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_post"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/getImage"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="작가명">
+
+                    </TextView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                    </View>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_check_circle_gray">
+                    </ImageView>
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/post_author_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    android:background="@drawable/stroke_gray_rounded_square"
+                    android:padding="10dp"></EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="작품명">
+
+                    </TextView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                    </View>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_check_circle_gray">
+                    </ImageView>
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/post_picture_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    android:background="@drawable/stroke_gray_rounded_square"
+                    android:padding="10dp"></EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="작품 이미지">
+
+                    </TextView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                    </View>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_check_circle_gray">
+                    </ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fragment_02_01_post_button_upload_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:background="@drawable/stroke_gray_rounded_square"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:id="@+id/test_image"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_picture_gray"
+                        ></ImageView>
+
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:textSize="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이곳을 눌러 작품 이미지를 업로드 해주세요"></TextView>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/post_picture_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="36dp"
-                android:text="GET IMAGE" />
+                android:adjustViewBounds="true"
+                ></ImageView>
+
+
+
+            <!-- 이미지 여러개 일 경우-->
+            <!--            <androidx.recyclerview.widget.RecyclerView-->
+            <!--                android:id="@+id/recyclerView_post"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="24dp"-->
+            <!--                android:orientation="horizontal" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="작품 설명">
+
+                    </TextView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                    </View>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_check_circle_gray">
+                    </ImageView>
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/post_picture_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="8"
+                    android:minLines="6"
+                    android:maxLines="10"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    android:background="@drawable/stroke_gray_rounded_square"
+                    android:padding="10dp"
+                    android:hint="작품에 대한 설명을 500자 이내로 설명해주세요. 자신의 작품을 효과적으로 알릴 중요한 부분입니다."
+                    android:gravity="top|left"></EditText>
+            </LinearLayout>
+
+
+            <Button
+                android:layout_marginVertical="30dp"
+                android:id="@+id/post_button_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="전시 신청하기"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/dh_white"
+                android:background="@drawable/button_background_gray"></Button>
+
+
 
 
         </LinearLayout>

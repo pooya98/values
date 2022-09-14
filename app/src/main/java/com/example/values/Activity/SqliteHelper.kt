@@ -9,10 +9,8 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.Log
-import com.example.values.DTO.Exhibition_Data
-import com.example.values.DTO.Fragment_02_01_Address_Data
-import com.example.values.DTO.Goods_Data
-import com.example.values.DTO.User_Data
+import android.widget.Space
+import com.example.values.DTO.*
 import java.io.ByteArrayOutputStream
 
 
@@ -40,10 +38,14 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS space")
-        db?.execSQL("DROP TABLE IF EXISTS exhibition")
-        db?.execSQL("DROP TABLE IF EXISTS picture")
+
         db?.execSQL("DROP TABLE IF EXISTS reservation")
+
+        db?.execSQL("DROP TABLE IF EXISTS picture")
+        db?.execSQL("DROP TABLE IF EXISTS exhibition")
+        db?.execSQL("DROP TABLE IF EXISTS position")
+        db?.execSQL("DROP TABLE IF EXISTS space")
+        db?.execSQL("DROP TABLE IF EXISTS picture")
 
 
         db?.execSQL("DROP TABLE IF EXISTS goods")
@@ -365,6 +367,80 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
 
     // 데이터 조회함수
+
+    @SuppressLint("Range")
+    fun selectSingleSpace(space_id: Int): Space_Data? {
+
+        var space_data: Space_Data? = null
+
+        val select = "select * from space where s_id = " + space_id
+
+        val rd = readableDatabase
+        val cursor = rd.rawQuery(select,null)  //execSQL처럼 쿼리문을 실행하나 rawQuery는 cursor타입의 반환값을 가짐. cursor는 일종의 리스트.
+        while(cursor.moveToNext()){
+            val s_id = cursor.getInt(cursor.getColumnIndex("s_id"))
+            val space_name = cursor.getString(cursor.getColumnIndex("s_name"))
+            val space_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image")) ?:null
+            val region_name = cursor.getString(cursor.getColumnIndex("region"))
+
+           space_data = Space_Data(s_id, space_name, region_name, space_image)
+        }
+
+        cursor.close()
+        rd.close()
+
+        return space_data
+    }
+
+    fun insertPicture(id: Int, exhibition_id: Int, author_id: Int, pic_name: String, pic_image: Drawable?, pic_detail: String){
+
+        val values = ContentValues()
+        values.put("p_id",id)
+        values.put("author_id",author_id)
+        values.put("exhibition_id",exhibition_id)
+        values.put("name",pic_name)
+        values.put("detail",pic_detail)
+        values.put("image", drawableToByteArray(pic_image!!))
+        val wd = writableDatabase
+        wd.insert("picture",null,values)
+        wd.close()
+
+        Log.d("이미지 저장 테스트", "저장 완료")
+    }
+
+    //type에 따른 굿즈 조회 함수.
+    @SuppressLint("Range")
+    fun selectPicture(picture_id:Int): Picture_Data? {
+
+        val list = arrayListOf<Goods_Data>()
+        // db 가져오기
+        val select = "select * from picture where p_id="+picture_id
+
+        val rd = readableDatabase
+
+        var picture : Picture_Data? = null
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+        while(cursor.moveToNext()){
+
+            val p_id:Int = cursor.getInt(cursor.getColumnIndex("p_id"))
+            val picture_name:String = cursor.getString(cursor.getColumnIndex("name"))
+            val picture_detail:String = cursor.getString(cursor.getColumnIndex("detail"))
+            val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
+            val author_id:Int = cursor.getInt(cursor.getColumnIndex("author_id"))
+
+
+            picture = Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id)
+        }
+
+        cursor.close()
+        rd.close()
+
+        return picture
+    }
+
 
 
 

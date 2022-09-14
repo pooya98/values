@@ -1,5 +1,6 @@
 package com.example.values.Adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,9 +46,13 @@ class Fragment_02_01_Available_Adapter(private val context: Fragment_02_01_Exhib
             end_date.text = item.exhibition_endDate
             position_brand.text = item.position_name+" - "+"["+item.exhibition_type+"]"
 
+            val bundle = Bundle()
+            bundle.putInt("exhibition_id", item.exhibition_id)
+
 
             itemView.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post)
+
+                view->view.findNavController().navigate(R.id.action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post, bundle)
             }
         }
     }

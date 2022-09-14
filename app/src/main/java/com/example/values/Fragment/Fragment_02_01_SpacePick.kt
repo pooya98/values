@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.Activity.MainActivity
@@ -27,6 +28,8 @@ class Fragment_02_01_SpacePick : Fragment() {
     val datas = mutableListOf<String>()
     var datas_space = mutableListOf<Fragment_02_01_Address_Data>()
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,32 +39,23 @@ class Fragment_02_01_SpacePick : Fragment() {
         val recyclerview_city = view.findViewById<RecyclerView>(R.id.fragment_02_01_spacepick_city_list)
         val spaceRecycler = view.findViewById<RecyclerView>(R.id.fragment_02_01_spacepick_space_list)
 
-        val selectButton = view.findViewById<Button>(R.id.fragment_02_01_Search_Button)
+        val selectButton = view.findViewById<Button>(R.id.fragment_02_01_Select_Button)
 
 
         spaceRecycler.layoutManager = LinearLayoutManager(activity)
         fragment_02_01_SpaceAdapter = Fragment_02_01_Space_Adapter(this)
         spaceRecycler.adapter = fragment_02_01_SpaceAdapter
 
-//        recyclerview_space?.adapter = fragment
         initRecycler_city(recyclerview_city)
-//        initRecycler_space(recyclerview_space)
-
 
         selectButton.setOnClickListener {
 
             if(fragment_02_01_SpaceAdapter.selectSpace!=null) {  //Null이 아닐시에만 선택완료버튼 처리.
-                (activity as MainActivity).navigateToFragment(
-                    "fragment_02_01",
-                    fragment_02_01_SpaceAdapter.selectSpace!!
-                )
+                set_space_num(fragment_02_01_SpaceAdapter.selectSpace!!.space_id)
             }
 
+            view.findNavController().navigateUp()
         }
-
-
-
-
 
         return view
     }
@@ -133,8 +127,13 @@ class Fragment_02_01_SpacePick : Fragment() {
 
         fragment_02_01_SpaceAdapter.datas = addressList
         fragment_02_01_SpaceAdapter.notifyDataSetChanged()
+    }
 
-
+    private fun set_space_num(space_id: Int) {
+        val sharedPreference = context?.getSharedPreferences("space_pick", 0)
+        val editor = sharedPreference?.edit()
+        editor?.putString("space_id", space_id.toString())
+        editor?.apply()
     }
 
 }

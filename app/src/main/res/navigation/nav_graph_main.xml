@@ -106,15 +106,5 @@
             android:id="@+id/action_fragment_01_02_Shop_self2"
             app:destination="@id/fragment_01_02_Shop" />
     </fragment>
-    <fragment
-        android:id="@+id/fragment_02_01"
-        android:name="com.example.values.Fragment.Fragment_02_01"
-        android:label="fragment_02_01"
-        tools:layout="@layout/fragment_02_01" />
-    <fragment
-        android:id="@+id/fragment_02_01_ExhibitionAvailable"
-        android:name="com.example.values.Fragment.Fragment_02_01_ExhibitionAvailable"
-        android:label="fragment_02_01__exhibition_available"
-        tools:layout="@layout/fragment_02_01__exhibition_available" />
 
 </navigation>

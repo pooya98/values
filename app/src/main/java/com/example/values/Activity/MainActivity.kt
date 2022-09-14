@@ -35,7 +35,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 val DB_NAME = "sqlite.sql"
-val DB_VERSION = 10
+val DB_VERSION = 13
 
 //UMZZI
 val USER_ID = 9
@@ -153,8 +153,6 @@ class MainActivity : AppCompatActivity() {
             "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
             "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
             "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
-            "fragment_02_01_ExhibitionAvailable" -> navController.navigate(
-                fragment_02_01_ExhibitionAvailable)
             "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
             "fragment_04_01_04_Portfolio_Detail" -> navController.navigate(fragment_04_01_04_Portfolio_Detail)
             "fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post" -> navController.navigate(action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post)
@@ -202,7 +200,7 @@ class MainActivity : AppCompatActivity() {
                 bundle.putInt("spaceId",spaceData.space_id)
                 bundle.putString("address",spaceData.address)
 
-                navController.navigate(fragment_02_01, bundle)
+                //navController.navigate(fragment_02_01, bundle)
 
             }
         }
@@ -218,14 +216,11 @@ class MainActivity : AppCompatActivity() {
                 bundle.putString("selectEnd",selectEnd)
                 bundle.putString("brand",brand)
                 bundle.putInt("space_id",spaceId)
-                navController.navigate(fragment_02_01_ExhibitionAvailable, bundle)
+                //navController.navigate(fragment_02_01_ExhibitionAvailable, bundle)
 
             }
         }
     }
-
-
-
 
     fun hideLogoAndShowBackButton(backButtonName: String){
 

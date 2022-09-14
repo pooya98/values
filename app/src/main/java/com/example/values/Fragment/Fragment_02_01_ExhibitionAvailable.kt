@@ -32,14 +32,10 @@ class Fragment_02_01_ExhibitionAvailable : Fragment() {
 
         val recyclerview_available = view.findViewById<RecyclerView>(R.id.fragment_02_01_ExhibitionAvailable_list)
 
-
-
         val selectStartDate = arguments?.getString("selectStart")
         val selectEndDate = arguments?.getString("selectEnd")
         val space_id = arguments?.getInt("space_id")
         val brand = arguments?.getString("brand")
-
-
 
 
         val exhibitionList = (activity as MainActivity).helper.selectExhibtions(space_id!!,"branding")
