@@ -25,6 +25,14 @@ import java.util.*
 class Fragment_02_01 : Fragment() {
 
     private var mBinding : Fragment0201Binding? = null
+    private var space_num : Int = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        space_num_init()
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -134,9 +142,6 @@ class Fragment_02_01 : Fragment() {
 
 
         return list
-
-
-
     }
 
     override fun onStart() {
@@ -156,6 +161,18 @@ class Fragment_02_01 : Fragment() {
     override fun onDestroyView() {
         mBinding = null   //메모리에서 다시 날려주기위함
         super.onDestroyView()
+    }
+
+
+    private fun space_num_init() {
+        val sharedPreference = context?.getSharedPreferences("space_pick", 0)
+        val editor = sharedPreference?.edit()
+        editor?.putString("space_id", 0.toString())
+        editor?.apply()
+    }
+
+    private fun get_space_num(){
+        val sharedPreference = context?.getSharedPreferences("space_pick", 0)
     }
 
 }
