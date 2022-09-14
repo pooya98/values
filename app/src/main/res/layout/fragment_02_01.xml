@@ -200,36 +200,118 @@
                     android:textSize="22dp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout_pick_space"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/selector_checkbox_gray_to_purple"
-                    android:paddingVertical="20dp"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="30dp"
-                    android:clickable="true">
+                    android:layout_marginBottom="20dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_add_circle">
-
-                    </ImageView>
-
-                    <TextView
-                        android:id="@+id/pickedSpaceText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="2dp"
+                    <LinearLayout
+                        android:id="@+id/fragment_02_01_space_pick"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:background="@drawable/selector_checkbox_gray_to_purple"
+                        android:clickable="true"
                         android:gravity="center"
-                        android:text="전시공간 선택"
-                        android:textSize="15dp"></TextView>
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_add_circle">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/pickedSpaceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="2dp"
+                            android:gravity="center"
+                            android:text="전시공간 선택"
+                            android:textSize="15dp"></TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_02_01_space_selected"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="5dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="5dp"
+                        android:background="@drawable/selector_checkbox_gray_to_purple"
+                        android:visibility="invisible">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/image_exhibition"
+                                android:scaleType="centerCrop"></ImageView>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="VALUES경산"
+                                android:textSize="18dp"
+                                android:textColor="@color/dh_black"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="경상북도 경산시 "
+                                android:textSize="14dp"
+                                android:textColor="@color/dh_gray"
+                                android:textStyle="bold">
+
+                            </TextView>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"></View>
+
+                        <ImageButton
+                            android:id="@+id/fragment_02_01_button_cancel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_cancel_gray"
+                            android:background="@color/transparance"></ImageButton>
+
+                    </LinearLayout>
 
 
-                </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 
@@ -261,56 +343,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="6/20"
-                        android:textSize="18dp"
-                        android:textColor="@color/dh_purple"
-                        android:textStyle="bold"></TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" 부터 "
-                        android:textSize="18dp"
-                        android:textColor="@color/dh_black"
-                        android:textStyle="bold"></TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="6/24"
-                        android:textSize="18dp"
-                        android:textColor="@color/dh_purple"
-                        android:textStyle="bold"></TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" 기간동안 전시가 "
-                        android:textSize="18dp"
-                        android:textColor="@color/dh_black"
-                        android:textStyle="bold"></TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="가능해요!"
-                        android:textSize="18dp"
-                        android:textColor="@color/dh_purple"
-                        android:textStyle="bold"></TextView>
-
-
-                </LinearLayout>
 
                 <View
                     android:id="@+id/view3"
