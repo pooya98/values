@@ -388,6 +388,53 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         return space_data
     }
 
+    fun insertPicture(id: Int, exhibition_id: Int, author_id: Int, pic_name: String, pic_image: Drawable, pic_detail: String){
+
+        val values = ContentValues()
+        values.put("p_id",id)
+        values.put("author_id",author_id)
+        values.put("exhibition_id",exhibition_id)
+        values.put("name",pic_name)
+        values.put("detail",pic_detail)
+        values.put("image", drawableToByteArray(pic_image))
+        val wd = writableDatabase
+        wd.insert("picture",null,values)
+        wd.close()
+    }
+
+    //type에 따른 굿즈 조회 함수.
+    @SuppressLint("Range")
+    fun selectPicture(picture_id:Int): Picture_Data? {
+
+        val list = arrayListOf<Goods_Data>()
+        // db 가져오기
+        val select = "select * from picture where p_id="+picture_id
+
+        val rd = readableDatabase
+
+        var picture : Picture_Data? = null
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+        while(cursor.moveToNext()){
+
+            val p_id:Int = cursor.getInt(cursor.getColumnIndex("p_id"))
+            val picture_name:String = cursor.getString(cursor.getColumnIndex("name"))
+            val picture_detail:String = cursor.getString(cursor.getColumnIndex("detail"))
+            val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
+            val author_id:Int = cursor.getInt(cursor.getColumnIndex("author_id"))
+
+
+            picture = Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id)
+        }
+
+        cursor.close()
+        rd.close()
+
+        return picture
+    }
+
 
 
 
