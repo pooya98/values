@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.andrewjapar.rangedatepicker.CalendarPicker
 import com.example.values.Activity.MainActivity
@@ -32,12 +33,11 @@ class Fragment_02_01 : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_02_01, container, false)
 
-        val linearLayout_pick_space = view.findViewById<LinearLayout>(R.id.LinearLayout_pick_space)
+        val linearLayout_pick_space = view.findViewById<LinearLayout>(R.id.fragment_02_01_space_pick)
+        val linearLayout_space_selected = view.findViewById<LinearLayout>(R.id.fragment_02_01_space_selected)
         val search_button = view.findViewById<Button>(R.id.fragment_02_01_Search_Button)
 
         val cal : CalendarPicker = view.findViewById(R.id.calendar_view)
-
-        val pickedSpaceText = view.findViewById<TextView>(R.id.pickedSpaceText)
 
         val address = arguments?.getString("address")   //VALUES NAME:  ex)경산, 대전
         val spaceId = arguments?.getInt("spaceId")
@@ -45,12 +45,6 @@ class Fragment_02_01 : Fragment() {
         val sdf = SimpleDateFormat("MM/dd/yyyy")
         var selectStart : String? = null
         var selectEnd : String? = null
-
-        if(address!=null){
-            pickedSpaceText.setText("Values"+address)
-
-        }
-
 
 
         cal.setOnRangeSelectedListener { startDate, endDate, startLabel, endLabel ->
@@ -66,31 +60,34 @@ class Fragment_02_01 : Fragment() {
 
         }
 
-
-
-
-
         linearLayout_pick_space.setOnClickListener{
-            (activity as MainActivity).navigateToFragment("fragment_02_01_SpacePick")
+            view.findNavController().navigate(R.id.action_fragment_02_to_fragment_02_01_SpacePick)
         }
 
         search_button.setOnClickListener {
-            if(address != null){
+            if (address != null) {
 
-              val exhibitionList = (activity as MainActivity).helper.selectExhibtions(1,"branding")
+                val exhibitionList =
+                    (activity as MainActivity).helper.selectExhibtions(1, "branding")
 
-               Log.d("checkList:" ,compareDatetime(exhibitionList,selectStart!!,selectEnd!!).size.toString())
+                Log.d(
+                    "checkList:",
+                    compareDatetime(exhibitionList, selectStart!!, selectEnd!!).size.toString()
+                )
 
 
-                (activity as MainActivity).navigateToFragment("fragment_02_01_ExhibitionAvailable",selectStart!!,selectEnd!!,spaceId!!,"branding")
-
+                (activity as MainActivity).navigateToFragment(
+                    "fragment_02_01_ExhibitionAvailable",
+                    selectStart!!,
+                    selectEnd!!,
+                    spaceId!!,
+                    "branding"
+                )
 
 
             }
 
         }
-
-
 
         return view
     }
