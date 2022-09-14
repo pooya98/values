@@ -50,7 +50,7 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/fragment_02_01_Search_Button"
+                android:id="@+id/fragment_02_01_Select_Button"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"

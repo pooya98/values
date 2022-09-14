@@ -9,10 +9,8 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.Log
-import com.example.values.DTO.Exhibition_Data
-import com.example.values.DTO.Fragment_02_01_Address_Data
-import com.example.values.DTO.Goods_Data
-import com.example.values.DTO.User_Data
+import android.widget.Space
+import com.example.values.DTO.*
 import java.io.ByteArrayOutputStream
 
 
@@ -365,6 +363,31 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
 
     // 데이터 조회함수
+
+    @SuppressLint("Range")
+    fun selectSingleSpace(space_id: Int): Space_Data? {
+
+        var space_data: Space_Data? = null
+
+        val select = "select * from space where s_id = " + space_id
+
+        val rd = readableDatabase
+        val cursor = rd.rawQuery(select,null)  //execSQL처럼 쿼리문을 실행하나 rawQuery는 cursor타입의 반환값을 가짐. cursor는 일종의 리스트.
+        while(cursor.moveToNext()){
+            val s_id = cursor.getInt(cursor.getColumnIndex("s_id"))
+            val space_name = cursor.getString(cursor.getColumnIndex("s_name"))
+            val space_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image")) ?:null
+            val region_name = cursor.getString(cursor.getColumnIndex("region"))
+
+           space_data = Space_Data(s_id, space_name, region_name, space_image)
+        }
+
+        cursor.close()
+        rd.close()
+
+        return space_data
+    }
+
 
 
 

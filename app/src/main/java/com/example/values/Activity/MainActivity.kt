@@ -54,11 +54,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
 //        초기 유저 , 굿즈 더미 삽입.
-        initUsers()
-        initGoods()
-        initSpaces()
-        initPositions()
-        initExhibitions()
+//        initUsers()
+//        initGoods()
+//        initSpaces()
+//        initPositions()
+//        initExhibitions()
 
 
         val user = helper.selectUser(USER_ID)

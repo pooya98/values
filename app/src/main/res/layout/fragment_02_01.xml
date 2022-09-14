@@ -258,6 +258,7 @@
                             android:layout_gravity="center_vertical">
 
                             <ImageView
+                                android:id="@+id/fragment_02_01_imageview_space_image"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/image_exhibition"
@@ -274,6 +275,7 @@
                             android:gravity="center_vertical">
 
                             <TextView
+                                android:id="@+id/fragment_02_01_textview_space_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="VALUES경산"
@@ -284,6 +286,7 @@
                             </TextView>
 
                             <TextView
+                                android:id="@+id/fragment_02_01_textview_address"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="경상북도 경산시 "
