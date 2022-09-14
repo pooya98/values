@@ -33,6 +33,12 @@ class Fragment_02_01_Post : Fragment() {
         val view = inflater.inflate(R.layout.fragment_02_01__post, container, false)
         // Inflate the layout for this fragment
 
+        val id = arguments?.getInt("exhibition_id")
+
+        Log.d("번들 체크",id.toString())
+
+
+
         return view
     }
 }

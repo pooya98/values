@@ -25,7 +25,7 @@ import java.util.*
 class Fragment_02_01 : Fragment() {
 
     private var mBinding : Fragment0201Binding? = null
-    private var space_num : Int = 0
+    private var selected_space_id : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,9 +53,9 @@ class Fragment_02_01 : Fragment() {
 
         val cal : CalendarPicker = view.findViewById(R.id.calendar_view)
 
-        space_num = get_space_num()
+        selected_space_id = get_space_num()
 
-        if(space_num == 0){
+        if(selected_space_id == 0){
             // 공간을 아직 선택하지 않은 경우 (space_num == 0)
 
             linearLayout_pick_space.visibility = View.VISIBLE
@@ -66,7 +66,7 @@ class Fragment_02_01 : Fragment() {
             linearLayout_pick_space.visibility = View.INVISIBLE
             linearLayout_space_selected.visibility = View.VISIBLE
 
-            val space_data = (context as MainActivity).helper.selectSingleSpace(space_num)
+            val space_data = (context as MainActivity).helper.selectSingleSpace(selected_space_id)
 
             selected_space_image.setImageBitmap(BitmapFactory.decodeByteArray(space_data?.space_image,0,space_data?.space_image!!.size))
             selected_space_name.text = "VALUES" + space_data.space_name
@@ -102,7 +102,7 @@ class Fragment_02_01 : Fragment() {
         }
 
         search_button.setOnClickListener {
-            if (space_num != 0) {
+            if (selected_space_id != 0) {
 
                 Log.d("테스트", "진입완료")
 
@@ -110,9 +110,17 @@ class Fragment_02_01 : Fragment() {
                     "fragment_02_01_ExhibitionAvailable",
                     selectStart!!,
                     selectEnd!!,
-                    space_num!!,
+                    selected_space_id!!,
                     "branding"
                 )
+
+                val bundle = Bundle()
+                bundle.putString("selectStart",selectStart)
+                bundle.putString("selectEnd",selectEnd)
+                bundle.putString("brand","brand")
+                bundle.putInt("space_id",selected_space_id)
+
+                view.findNavController().navigate(R.id.action_fragment_02_01_to_fragment_02_01_ExhibitionAvailable, bundle)
             }
         }
 
