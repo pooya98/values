@@ -181,7 +181,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
         val list = mutableListOf<Fragment_02_01_Address_Data>()
         // db 가져오기
-        val select = "select s_name,image,s_id from space where region=\'${spaceRegion}\'"
+        val select = "select image,s_name,s_id from space where region=\'${spaceRegion}\'"
 
         val rd = readableDatabase
 
@@ -507,9 +507,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
     }
 
 
-    fun compareDates(startDate:String,endDate:String,currentDate:String){
 
-    }
 
 
 

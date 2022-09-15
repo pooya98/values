@@ -33,8 +33,12 @@ class Fragment_04_01_02_badges : Fragment() ,View.OnClickListener{
         val binding = Fragment040102BadgesBinding.inflate(inflater, container,false)
 
         mBinding = binding
+        val recyclerView =  mBinding?.badgesRecyclerView
+        fillList()
+        val badgesAdapter = Fragment_04_01_02_badges_Adapter(badgesList)
 
-
+        recyclerView?.adapter = badgesAdapter
+        recyclerView?.layoutManager = GridLayoutManager(activity,3)
 
 
         return mBinding?.root
@@ -45,20 +49,7 @@ class Fragment_04_01_02_badges : Fragment() ,View.OnClickListener{
         super.onDestroyView()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        recyclerView = view?.findViewById(R.id.badgesRecyclerView)!!
 
-        fillList()
-        val badgesAdapter = Fragment_04_01_02_badges_Adapter(badgesList)
-        recyclerView.adapter = badgesAdapter
-        recyclerView.layoutManager = GridLayoutManager(activity,3)
-
-
-
-
-
-    }
 
     override fun onClick(v: View?) {
 

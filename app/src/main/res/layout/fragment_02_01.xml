@@ -225,62 +225,53 @@
 
                         </ImageView>
 
-                        <TextView
-                            android:id="@+id/pickedSpaceText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="2dp"
-                            android:gravity="center"
-                            android:text="전시공간 선택"
-                            android:textSize="15dp"></TextView>
-
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/fragment_02_01_space_selected"
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/selector_space"
                         android:orientation="horizontal"
                         android:paddingVertical="5dp"
                         android:paddingLeft="15dp"
                         android:paddingRight="5dp"
-                        android:background="@drawable/selector_checkbox_gray_to_purple"
-                        android:visibility="invisible">
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            app:cardCornerRadius="8dp"
-                            android:layout_gravity="center_vertical">
+                            android:layout_gravity="center_vertical"
+                            app:cardCornerRadius="8dp">
 
                             <ImageView
                                 android:id="@+id/fragment_02_01_imageview_space_image"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/image_exhibition"
-                                android:scaleType="centerCrop"></ImageView>
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/image_exhibition"></ImageView>
 
                         </androidx.cardview.widget.CardView>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="80dp"
-                            android:orientation="vertical"
-                            android:layout_marginLeft="20dp"
                             android:layout_gravity="center_vertical"
-                            android:gravity="center_vertical">
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/fragment_02_01_textview_space_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="VALUES경산"
-                                android:textSize="18dp"
                                 android:textColor="@color/dh_black"
+                                android:textSize="18dp"
                                 android:textStyle="bold">
 
                             </TextView>
@@ -290,8 +281,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="경상북도 경산시 "
-                                android:textSize="14dp"
                                 android:textColor="@color/dh_gray"
+                                android:textSize="14dp"
                                 android:textStyle="bold">
 
                             </TextView>
@@ -306,8 +297,8 @@
                             android:id="@+id/fragment_02_01_button_cancel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_cancel_gray"
-                            android:background="@color/transparance"></ImageButton>
+                            android:background="@color/transparance"
+                            android:src="@drawable/icon_cancel_gray"></ImageButton>
 
                     </LinearLayout>
 
