@@ -60,6 +60,19 @@ class Fragment_03_01 : Fragment() ,View.OnClickListener{
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
+
     override fun onClick(v: View?) {
 
         when(v?.id){

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.values.Activity.MainActivity
 import com.example.values.Adapter.Fragment_04_02_Adapter
 import com.example.values.DTO.Fragment_04_02_Data
 import com.example.values.R
@@ -63,6 +64,8 @@ class Fragment_04_02 : Fragment() {
 
     }
 
+
+
     fun fillList(){
         eventList.add(Fragment_04_02_Data("QR코드로 관람인증하고 커피도 받자","22.01.01-22.12.31","294","37"))
         eventList.add(Fragment_04_02_Data("무료강연 소감 작성하고 선물까지!","22.05.01-22.05.31","134","22"))
@@ -71,12 +74,25 @@ class Fragment_04_02 : Fragment() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
 
 
 
     override fun onDestroyView() {
         mBinding = null   //메모리에서 다시 날려주기위함
         super.onDestroyView()
+        eventList.clear()
     }
 
 

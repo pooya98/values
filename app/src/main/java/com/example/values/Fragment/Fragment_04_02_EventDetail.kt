@@ -38,5 +38,18 @@ class Fragment_04_02_EventDetail : Fragment() {
         return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        super.onResume()
+
+        (activity as MainActivity).hideLogoAndShowBackButton("참여형 이벤트")
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        (activity as MainActivity).hideLogoAndShowBackButton("참여형 이벤트")
+    }
+
 
 }

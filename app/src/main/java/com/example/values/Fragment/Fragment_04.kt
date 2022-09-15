@@ -43,6 +43,19 @@ class Fragment_04 : Fragment(), View.OnClickListener {
         return mBinding?.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
+
 
 
 

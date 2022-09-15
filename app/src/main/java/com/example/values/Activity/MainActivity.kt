@@ -276,7 +276,7 @@ class MainActivity : AppCompatActivity() {
         backButton.visibility = View.VISIBLE
         val backButtonArrow = findViewById<ImageView>(R.id.backArrow)
 
-        if(backButtonName=="최근 예매 확인"||backButtonName=="참여형 이벤트"){
+        if(backButtonName=="최근 예매 확인"){
             backButtonArrow.setImageResource(R.drawable.icon_left_white_arrow)
             backButtonText.setTextColor(Color.WHITE)
         }else{
