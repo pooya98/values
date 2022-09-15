@@ -25,6 +25,7 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/portfolio_cons"
                 android:layout_width="match_parent"
                 android:layout_height="174dp">
 
@@ -138,7 +139,7 @@
                     app:layout_constraintVertical_bias="0.547" />
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/pf_check1"
                     android:layout_width="112dp"
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
@@ -151,12 +152,12 @@
                     android:text="작품 목록"
                     android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
                     android:textSize="11dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/checkBox3"
-                    app:layout_constraintEnd_toStartOf="@+id/checkBox3"
-                    app:layout_constraintTop_toTopOf="@+id/checkBox3"></CheckBox>
+                    app:layout_constraintBottom_toBottomOf="@+id/pf_check2"
+                    app:layout_constraintEnd_toStartOf="@+id/pf_check2"
+                    app:layout_constraintTop_toTopOf="@+id/pf_check2"></CheckBox>
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/pf_check2"
                     android:layout_width="112dp"
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
@@ -173,7 +174,7 @@
                     app:layout_constraintStart_toStartOf="parent"></CheckBox>
 
                 <CheckBox
-                    android:id="@+id/checkBox4"
+                    android:id="@+id/pf_check3"
                     android:layout_width="112dp"
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="3dp"
@@ -185,9 +186,9 @@
                     android:text="프로필 공유"
                     android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
                     android:textSize="11dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/checkBox3"
-                    app:layout_constraintStart_toEndOf="@+id/checkBox3"
-                    app:layout_constraintTop_toTopOf="@+id/checkBox3"
+                    app:layout_constraintBottom_toBottomOf="@+id/pf_check2"
+                    app:layout_constraintStart_toEndOf="@+id/pf_check2"
+                    app:layout_constraintTop_toTopOf="@+id/pf_check2"
                     app:layout_constraintVertical_bias="0.0"></CheckBox>
 
                 <TextView
@@ -233,7 +234,7 @@
                     app:cardCornerRadius="2dp">
 
                     <TextView
-                        android:id="@+id/textView493"
+                        android:id="@+id/sellingGoodsCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -285,7 +286,7 @@
                     app:cardCornerRadius="2dp">
 
                     <TextView
-                        android:id="@+id/textView4c"
+                        android:id="@+id/allExhibitionCounts"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_gravity="center"

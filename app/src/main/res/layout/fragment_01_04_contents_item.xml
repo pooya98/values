@@ -7,45 +7,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/button_background_purple"
+        android:layout_marginVertical="15dp"
+        android:background="@drawable/fragment_04_02_events_edge"
         android:gravity="center"
-        android:layout_marginVertical="15dp">
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:cardCornerRadius="10dp"
+            android:layout_marginHorizontal="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginHorizontal="15dp">
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/fragment_01_04_item_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/fragment_01_04_image1"
                 android:scaleType="centerCrop"
-                android:src="@drawable/background_fragment_01_01_pg_item"
-                android:background="@drawable/imageview_round"></ImageView>
+                android:src="@drawable/fragment_01_04_image1"></ImageView>
 
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginVertical="5dp">
+            android:layout_marginVertical="5dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/fragment_01_04_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="기타 컨텐츠 리스트뷰 아이템의 메인 제목"
-                android:textSize="14dp"
-                android:textStyle="bold"
                 android:textColor="@color/white"
-                >
-            </TextView>
+                android:textSize="14dp"
+                android:textStyle="bold"></TextView>
 
             <View
                 android:layout_width="0dp"
@@ -53,29 +51,26 @@
                 android:layout_weight="1"></View>
 
             <TextView
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="10dp"
                 android:layout_marginRight="5dp"
-                android:text="₩"
-                android:textSize="16dp"
-                android:textColor="@color/dh_purple"
                 android:background="@drawable/background_white_round"
-                >
-            </TextView>
-            <TextView
                 android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:text="₩"
+                android:textColor="@color/dh_purple"
+                android:textSize="16dp"></TextView>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:background="@drawable/background_white_round"
+                android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:text="마감 D-1"
-                android:textSize="10dp"
-                android:textStyle="bold"
                 android:textColor="@color/dh_purple"
-                android:background="@drawable/background_white_round"
-                >
-            </TextView>
+                android:textSize="10dp"
+                android:textStyle="bold"></TextView>
 
 
         </LinearLayout>
@@ -91,8 +86,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="기타 컨텐츠 리스트뷰 아이템의 세부 내용 설명"
-                android:textSize="9dp"
-                android:textColor="#B3FFFFFF"></TextView>
+                android:textColor="#B3FFFFFF"
+                android:textSize="9dp"></TextView>
         </LinearLayout>
 
 

@@ -34,7 +34,7 @@ class Fragment_04 : Fragment(), View.OnClickListener {
         val user = helper.selectUser((activity as MainActivity).USER_ID)
 
         mBinding?.profileImage2?.setImageBitmap(BitmapFactory.decodeByteArray(user.user_Image,0,user.user_Image!!.size))
-
+        mBinding?.userName?.setText(user.user_name)
 
 
         mBinding?.myValuesButton?.setOnClickListener(this)

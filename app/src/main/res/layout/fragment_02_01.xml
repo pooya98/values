@@ -51,40 +51,43 @@
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox1"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
                             android:text="일러스트"
-                            android:textSize="13dp"
-                            android:button="@android:color/transparent"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox2"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
                             android:text="브랜딩"
-                            android:textSize="13dp"
-                            android:button="@android:color/transparent"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox3"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
-                            android:text="회화"
-                            android:textSize="13dp"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
                             android:button="@android:color/transparent"
+                            android:gravity="center"
+                            android:text="회화"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                     </LinearLayout>
 
@@ -97,40 +100,43 @@
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox4"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
                             android:text="영상"
-                            android:textSize="13dp"
-                            android:layout_weight="1"
-                            android:button="@android:color/transparent"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox5"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
                             android:text="사진"
-                            android:textSize="13dp"
-                            android:button="@android:color/transparent"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox6"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
-                            android:text="제품"
-                            android:textSize="13dp"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
                             android:button="@android:color/transparent"
+                            android:gravity="center"
+                            android:text="제품"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
 
                     </LinearLayout>
@@ -141,40 +147,43 @@
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox7"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
                             android:text="조형"
-                            android:textSize="13dp"
-                            android:button="@android:color/transparent"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox8"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
                             android:text="공예"
-                            android:textSize="13dp"
-                            android:button="@android:color/transparent"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                         <CheckBox
-                            android:gravity="center"
+                            android:id="@+id/checkBox9"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_marginHorizontal="3dp"
                             android:layout_weight="1"
-                            android:text="기타"
-                            android:textSize="13dp"
+                            android:background="@drawable/selector_checkbox_gray_to_purple"
                             android:button="@android:color/transparent"
+                            android:gravity="center"
+                            android:text="기타"
                             android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
-                            android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
+                            android:textSize="13dp"></CheckBox>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -333,6 +342,7 @@
                         android:layout_marginVertical="5dp"
                         android:clipToPadding="false"
                         android:scrollbarStyle="outsideOverlay"
+
                         app:picker_type="range" />
 
                 </LinearLayout>

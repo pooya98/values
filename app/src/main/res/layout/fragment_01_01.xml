@@ -385,7 +385,7 @@
                             android:id="@+id/textView43"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="branding"
+                            android:text="Branding"
                             android:textColor="@color/dh_black"
                             android:textSize="14dp"
                             android:textStyle="bold"
