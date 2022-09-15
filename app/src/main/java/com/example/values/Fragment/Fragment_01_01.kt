@@ -1,7 +1,7 @@
 package com.example.values.Fragment
 
-import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +10,9 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Spinner
-import androidx.navigation.NavController
-import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.values.Activity.MainActivity
-import com.example.values.Adapter.Fragment_01_01_branding_Adapter
-import com.example.values.Adapter.Fragment_01_01_illustration_Adapter
 import com.example.values.Adapter.Fragment_01_02_goods_Adapter
 import com.example.values.Adapter.Fragment_01_01_picture_Adapter
 import com.example.values.DTO.Goods_Data
@@ -62,7 +55,9 @@ class Fragment_01_01 : Fragment() {
 
         // 메인 썸네일 클릭 이벤트 리스터
         linear_lagout_main_thumbnail.setOnClickListener{
-            (activity as MainActivity).navigateToFragment("fragment_01_01_ExhibitionDetail")
+            val bundle = Bundle()
+            bundle.putInt("picture_id", 1)
+            (context as MainActivity).navigateToFragment("fragment_01_01_ExhibitionDetail", bundle)
         }
 
         return view
@@ -79,14 +74,17 @@ class Fragment_01_01 : Fragment() {
         super.onResume()
 
         (activity as MainActivity).hideBackButtonAndShowLogo()
-        set_branding_viewPager()
-        set_branding_viewPager_indicator()
-        set_illustration_viewPager()
-        set_illustration_viewPager_indicator()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("테스트", "onPause()")
     }
 
 
     private fun set_branding_viewPager(){
+
+        Log.d("viewpage 테스트", "set_branding_viewPager 호출")
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
         val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimen 파일이 없으면 생성해야함
         val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
@@ -95,10 +93,6 @@ class Fragment_01_01 : Fragment() {
         branding_viewpager?.setPageTransformer { page, position ->
             page.translationX = position * -offsetPx
         }
-
-        branding_viewpager?.offscreenPageLimit = 2
-        branding_viewpager?.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        branding_viewpager?.setCurrentItem(2)
 
         branding_viewpager?.setPageTransformer { page, position ->
 
@@ -111,7 +105,11 @@ class Fragment_01_01 : Fragment() {
         }
 
         val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
-        branding_viewpager?.adapter = Fragment_01_01_picture_Adapter(pictureList, (activity as MainActivity))
+        branding_viewpager?.adapter = Fragment_01_01_picture_Adapter(pictureList, requireContext())
+
+        branding_viewpager?.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        branding_viewpager?.offscreenPageLimit = 7
+        branding_viewpager?.setCurrentItem(4)
     }
 
     private fun set_branding_viewPager_indicator(){
@@ -128,10 +126,6 @@ class Fragment_01_01 : Fragment() {
             page.translationX = position * -offsetPx
         }
 
-        illustration_viewpager?.offscreenPageLimit = 2
-        illustration_viewpager?.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        illustration_viewpager?.setCurrentItem(2)
-
         illustration_viewpager?.setPageTransformer { page, position ->
 
             var v = 1-Math.abs(position)
@@ -144,6 +138,10 @@ class Fragment_01_01 : Fragment() {
 
         val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
         illustration_viewpager?.adapter = Fragment_01_01_picture_Adapter(pictureList, activity as MainActivity)
+
+        illustration_viewpager?.offscreenPageLimit = 2
+        illustration_viewpager?.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        illustration_viewpager?.setCurrentItem(4)
     }
 
     private fun set_illustration_viewPager_indicator(){

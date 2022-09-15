@@ -41,7 +41,7 @@ class Fragment_04_02_Adapter (private var datas:ArrayList<Fragment_04_02_Data>):
 
 
                 itemView.setOnClickListener{
-                        view->view.findNavController().navigate(R.id.action_fragment_04_02_to_fragment_04_02_QR)
+                        view->view.findNavController().navigate(R.id.action_fragment_04_02_to_fragment_04_02_EventDetail)
 
                 }
 

@@ -51,6 +51,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/checkbox_illustrate"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
@@ -63,6 +64,7 @@
                             android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
 
                         <CheckBox
+                            android:id="@+id/checkbox_branding"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
@@ -75,6 +77,7 @@
                             android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
 
                         <CheckBox
+                            android:id="@+id/checkbox_painting"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
@@ -97,6 +100,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/checkbox_video"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
@@ -109,6 +113,7 @@
                             android:background="@drawable/selector_checkbox_gray_to_purple"></CheckBox>
 
                         <CheckBox
+                            android:id="@+id/checkbox_photo"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_height="30dp"

@@ -6,230 +6,265 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.Fragment_01_01_Subscribe">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="15dp">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/stroke_gray_rounded_square"
-            android:paddingVertical="10dp"
-            android:paddingHorizontal="15dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="80dp">
 
-            <TextView
+
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="주문상품"
-                android:textSize="20dp"
-                android:textColor="@color/dh_black"
-                android:layout_marginBottom="20dp"
-                android:textStyle="bold"></TextView>
+                android:src="@drawable/image_exhibition"
+                android:adjustViewBounds="true"></ImageView>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="8dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/image_exhibition"
-                        android:scaleType="centerCrop"></ImageView>
-
-                </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="VALUES경산 전시관람권"
-                        android:textStyle="bold"
-                        android:textColor="@color/dh_black"
-                        android:textSize="16dp">
+                        android:orientation="horizontal">
 
-                    </TextView>
+                        <TextView
+                            android:id="@+id/fragment_01_01_ExhibitionDetail_picture_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="팝아트, 유화로 다시 태어나다! 재해석작 모음"
+                            android:textColor="@color/dh_black"
+                            android:textSize="16dp"
+                            android:textStyle="bold"></TextView>
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" ( A홀 )"
+                            android:textColor="@color/dh_purple"
+                            android:textSize="16dp"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="VALUES경산"
-                        android:textColor="@color/dh_gray"
-                        android:textSize="14dp">
-
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2022년 9월 10일 (토)"
-                        android:textColor="@color/dh_gray"
-                        android:textSize="14dp">
-
-                    </TextView>
-
-                    <TextView
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
                         android:layout_marginTop="10dp"
+                        android:background="#80959595"></View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="작품설명"
+                                android:textColor="@color/dh_black"
+                                android:textSize="12dp"
+                                android:textStyle="bold"></TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="접기"
+                                android:textColor="@color/dh_gray"
+                                android:textSize="10dp"
+                                android:textStyle="bold"></TextView>
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_up">
+
+                            </androidx.constraintlayout.utils.widget.ImageFilterView>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/fragment_01_01_ExhibitionDetail_picture_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="팝아트를 유화로 표현하여 기존 작가의 의도를 해석해 저의 방식으로 풀었습니다. 기존의 낮았던 채도를 형광으로 높이고, 기존 그림 속 인물의 상황표현을 과장했습니다. 저는 극단적인 표현과 유화의 입체감을 이용하여, 관람객들에게 있어서 보다 강한 메세지를 전달하고자 하였습니다. 굿즈도 많이 있으니 구경오세요! "
+                            android:textSize="11dp"></TextView>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#80959595"></View>
+
+
+                    <TextView
+                        android:layout_marginVertical="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dh_purple"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="06.13 - 06.20 / 6:00PM 철거 2층 A홀 - [일러스트]"></TextView>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#80959595"></View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="5dp">
+
+                        <LinearLayout
+                            android:clickable="true"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:paddingVertical="10dp"
+                            android:layout_marginRight="3dp"
+                            android:background="@drawable/button_background_ripple_gray_stroke">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_gray_card"></ImageView>
+
+                            <TextView
+                                android:layout_marginLeft="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="신용카드 결제"
+                                android:textSize="12dp"></TextView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:clickable="true"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:paddingVertical="10dp"
+                            android:layout_marginLeft="3dp"
+                            android:background="@drawable/button_background_ripple_gray_stroke">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_phone_gray"></ImageView>
+
+                            <TextView
+                                android:layout_marginLeft="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="휴대폰 결제"
+                                android:textSize="12dp"></TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:clickable="true"
+                        android:background="@drawable/button_background_yellow"
+                        android:gravity="center"
+                        android:paddingVertical="13dp"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="카카오페이로 결제"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/dh_black"
+                            ></TextView>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="결제 약관 동의"
+                        android:textColor="@color/dh_black"
+                        android:textStyle="bold"
+                        android:textSize="13dp"></TextView>
+
+                    <CheckBox
+                        android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10,0000원"
-                        android:textColor="@color/dh_purple"
-                        android:textSize="16dp"
-                        android:textStyle="bold">
+                        android:text="결제 약관에 동의합니다. "
+                        android:textSize="11dp"></CheckBox>
 
-                    </TextView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                    </View>
+
                 </LinearLayout>
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/stroke_gray_rounded_square"
-            android:paddingVertical="10dp"
-            android:paddingHorizontal="15dp"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="주문자 정보"
-                android:textSize="20dp"
-                android:textColor="@color/dh_black"
-                android:layout_marginBottom="20dp"
-                android:textStyle="bold">
-            </TextView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="주문자">
-
-                </TextView>
-
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="강승우"
-                    android:textStyle="bold"
-                    android:textColor="@color/dh_black">
-
-                </TextView>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="연락처">
-
-                </TextView>
-
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="010-5551-1294"
-                    android:textStyle="bold"
-                    android:textColor="@color/dh_black">
-
-                </TextView>
-
-            </LinearLayout>
-
-
-
         </LinearLayout>
+    </ScrollView>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/dh_purple"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+
+        <TextView
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/stroke_gray_rounded_square"
-            android:paddingVertical="10dp"
-            android:paddingHorizontal="15dp"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="포인트 / 할인"
-                android:textSize="20dp"
-                android:textColor="@color/dh_black"
-                android:layout_marginBottom="10dp"
-                android:textStyle="bold"></TextView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/stroke_gray_rounded_square"
-            android:paddingVertical="10dp"
-            android:paddingHorizontal="15dp"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="결제 수단"
-                android:textSize="20dp"
-                android:textColor="@color/dh_black"
-                android:layout_marginBottom="10dp"
-                android:textStyle="bold"></TextView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@drawable/button_background_purple"
-                android:paddingVertical="15dp"
-                android:text="10,000원 결제하기"
-                android:textColor="@color/dh_white"
-                android:textSize="16dp"
-                android:textStyle="bold"></Button>
-        </LinearLayout>
-
-
+            android:layout_height="match_parent"
+            android:text="3,000원 결제 대기 중"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/dh_white">
+        </TextView>
     </LinearLayout>
 
 </FrameLayout>

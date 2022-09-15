@@ -1,6 +1,7 @@
 package com.example.values.Activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -236,6 +237,10 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    fun StartQRActivity(){
+        startActivity(Intent(this,QrActivity::class.java))
     }
 
     fun hideLogoAndShowBackButton(backButtonName: String){

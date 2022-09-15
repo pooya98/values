@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_fragment_04_02_to_fragment_04_02_QR"
             app:destination="@id/fragment_04_02_QR" />
+        <action
+            android:id="@+id/action_fragment_04_02_to_fragment_04_02_EventDetail"
+            app:destination="@id/fragment_04_02_EventDetail" />
     </fragment>
     <fragment
         android:id="@+id/fragment_01_01_ExhibitionDetail"
@@ -106,5 +109,10 @@
             android:id="@+id/action_fragment_01_02_Shop_self2"
             app:destination="@id/fragment_01_02_Shop" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_04_02_EventDetail"
+        android:name="com.example.values.Fragment.Fragment_04_02_EventDetail"
+        android:label="fragment_04_02__event_detail"
+        tools:layout="@layout/fragment_04_02__event_detail" />
 
 </navigation>
