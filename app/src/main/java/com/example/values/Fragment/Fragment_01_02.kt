@@ -41,7 +41,9 @@ class Fragment_01_02 : Fragment() {
         set_illustration_viewPager_indicator(illustration_viewpager, illustration_indicator)
 
         linear_lagout_main_thumbnail.setOnClickListener{
-            (activity as MainActivity).navigateToFragment("fragment_01_02_Shop")
+            val bundle = Bundle()
+            bundle.putInt("picture_id", 1)
+            (context as MainActivity).navigateToFragment("fragment_01_01_ExhibitionDetail", bundle)
         }
 
         return view

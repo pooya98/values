@@ -22,9 +22,10 @@ import com.example.values.Fragment.Fragment_04_01_03
 import com.example.values.Fragment.Fragment_04_01_03_Report
 import com.example.values.R
 import androidx.navigation.ui.navigateUp
+import com.example.values.DTO.Exhibition_Data
 import java.util.logging.Handler
 
-class Fragment_04_01_03_Adapter (private var datas:ArrayList<Fragment_04_01_03_Data>):
+class Fragment_04_01_03_Adapter (private var datas:ArrayList<Exhibition_Data>):
     RecyclerView.Adapter<Fragment_04_01_03_Adapter.ViewHolder>() {
 
 
@@ -51,14 +52,13 @@ class Fragment_04_01_03_Adapter (private var datas:ArrayList<Fragment_04_01_03_D
             private val exhibitTitle: TextView = itemView.findViewById(R.id.myExhibitTitle)
             private val exhibitPeriod: TextView = itemView.findViewById(R.id.exhibitPeriodTextView)
             private val exhibitPlace: TextView = itemView.findViewById(R.id.exhibitPlaceTextView)
-            private val exhibitPayOrFree: TextView = itemView.findViewById(R.id.payORfreeTextView)
 
 
-            fun bind(item: Fragment_04_01_03_Data) {
-                exhibitTitle.text = item.exhibitTitle
-                exhibitPeriod.text = item.exhibitPeriod
-                exhibitPlace.text = item.exhibitPlace
-                exhibitPayOrFree.text = item.exhibitPayOrFree
+            fun bind(item: Exhibition_Data) {
+                exhibitTitle.text = "VALUES"+item.space_name+"점"
+                exhibitPeriod.text = item.exhibition_startDate + " - "+item.exhibition_endDate
+                exhibitPlace.text = "["+item.position_name+"]"
+
 
 
             }

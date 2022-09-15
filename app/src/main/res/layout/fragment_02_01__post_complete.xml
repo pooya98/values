@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.Fragment_02_01_PostComplete">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <ImageView
+            android:id="@+id/imageView30"
+            android:layout_width="284dp"
+            android:layout_height="272dp"
+            android:layout_marginBottom="16dp"
+            android:paddingTop="29dp"
+            android:src="@drawable/post_complete_texst"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView29"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-
-            android:text="전시 신청 완료!"
-            android:textColor="@color/dh_black"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <Button
-            android:layout_marginTop="30dp"
-            android:text="확인"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Button>
-
-
-
-    </LinearLayout>
+            android:layout_height="457dp"
+            android:layout_marginBottom="116dp"
+            android:paddingTop="47dp"
+            android:paddingRight="14dp"
+            android:src="@drawable/post_complete_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

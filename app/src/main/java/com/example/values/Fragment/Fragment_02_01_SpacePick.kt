@@ -48,6 +48,9 @@ class Fragment_02_01_SpacePick : Fragment() {
 
         initRecycler_city(recyclerview_city)
 
+        changeAddressList("경북")
+
+
         selectButton.setOnClickListener {
 
             if(fragment_02_01_SpaceAdapter.selectSpace!=null) {  //Null이 아닐시에만 선택완료버튼 처리.

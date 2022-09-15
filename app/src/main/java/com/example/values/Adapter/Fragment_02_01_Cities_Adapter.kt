@@ -16,7 +16,7 @@ import com.example.values.R
 class Fragment_02_01_Cities_Adapter(private val context: Fragment_02_01_SpacePick) : RecyclerView.Adapter<Fragment_02_01_Cities_Adapter.ViewHolder>(){
     var datas = mutableListOf<String>()
 
-    var selectPos = -1 //클릭 효과를 위해서 저장할 position
+    var selectPos = 0 //클릭 효과를 위해서 저장할 position
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

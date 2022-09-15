@@ -42,7 +42,9 @@ class Fragment_01_01 : Fragment() {
         set_branding_viewPager_indicator(branding_viewpager, branding_indicator)
         set_illustration_viewPager(illustration_viewpager)
         set_illustration_viewPager_indicator(illustration_viewpager, illustration_indicator)
+
         //set_main_spinner(main_spinner)
+
 
         // 메인 썸네일 클릭 이벤트 리스터
         linear_lagout_main_thumbnail.setOnClickListener{
@@ -79,10 +81,16 @@ class Fragment_01_01 : Fragment() {
 
         val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
 
+        Log.d("Fragment_01_01","listSize"+pictureList.size)
+
         branding_viewpager.setPageTransformer { page, position ->
             page.translationX = position * -offsetPx
 
+
+
             var v = 1-Math.abs(position)
+
+
 
             if(position<1f&&position>-1f){
 
@@ -95,15 +103,18 @@ class Fragment_01_01 : Fragment() {
                 page.alpha = 0.5f
             }
         }
-
         branding_viewpager.offscreenPageLimit = 2
-        branding_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList,activity as MainActivity)
+
+        branding_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, activity as MainActivity)
+
         branding_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        branding_viewpager.setCurrentItem(4)
+
+        branding_viewpager.setCurrentItem(2)
     }
 
     private fun set_branding_viewPager_indicator(branding_viewpager: ViewPager2, branding_indicator: SpringDotsIndicator){
-        branding_indicator.attachTo(branding_viewpager!!)
+        branding_indicator.attachTo(branding_viewpager)
+
     }
 
     private fun set_illustration_viewPager(illustration_viewpager: ViewPager2) {
@@ -113,14 +124,19 @@ class Fragment_01_01 : Fragment() {
         val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
         val offsetPx = screenWidth - pageMarginPx - pagerWidth
 
-        val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_Oldest()
+
 
         illustration_viewpager.setPageTransformer { page, position ->
             page.translationX = position * -offsetPx
 
+
+
             var v = 1-Math.abs(position)
 
+
+
             if(position<1f&&position>-1f){
+
 
                 page.scaleX=0.9f + v *0.1f
                 page.scaleY=0.9f + v *0.1f
@@ -132,14 +148,17 @@ class Fragment_01_01 : Fragment() {
             }
         }
 
+        val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
+        illustration_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, activity as MainActivity)
+
         illustration_viewpager.offscreenPageLimit = 2
-        illustration_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList,activity as MainActivity)
         illustration_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        illustration_viewpager.setCurrentItem(4)
+        illustration_viewpager.setCurrentItem(2)
     }
 
     private fun set_illustration_viewPager_indicator(illustration_viewpager: ViewPager2, illustration_indicator: SpringDotsIndicator){
-        illustration_indicator.attachTo(illustration_viewpager!!)
+        illustration_indicator.attachTo(illustration_viewpager)
+
     }
 
     private fun set_main_spinner(main_spinner: Spinner){
