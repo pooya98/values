@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.values.Activity.MainActivity
 import com.example.values.R
 
@@ -49,14 +51,20 @@ class Fragment_01_01_Purchase : Fragment() {
 
         button_pay01.setOnClickListener {
             (activity as MainActivity).helper.insertReservation(user_id!!, exhibition_id)
+            findNavController().popBackStack()
+            Toast.makeText(activity,"상품 구매가 완료되었습니다!",Toast.LENGTH_SHORT).show()
             Log.d("구매완료", "구매완료")
         }
         button_pay02.setOnClickListener {
             (activity as MainActivity).helper.insertReservation(user_id!!, exhibition_id)
+            findNavController().popBackStack()
+            Toast.makeText(activity,"상품 구매가 완료되었습니다!",Toast.LENGTH_SHORT).show()
             Log.d("구매완료", "구매완료")
         }
         button_pay03.setOnClickListener {
             (activity as MainActivity).helper.insertReservation(user_id!!, exhibition_id)
+            findNavController().popBackStack()
+            Toast.makeText(activity,"상품 구매가 완료되었습니다!",Toast.LENGTH_SHORT).show()
             Log.d("구매완료", "구매완료")
         }
         // Inflate the layout for this fragment
