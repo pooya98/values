@@ -23,7 +23,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         db?.execSQL("create table goods (g_id integer primary key, author_id integer, name text, detail text, price text, image blob,type integer, constraint author_id_fk foreign key(author_id) references user(u_id))")
         db?.execSQL("create table exhibition (e_id integer primary key, position_id integer, start_date text, end_date text,type text, constraint position_id_fk foreign key(position_id) references position(p_id))")
         db?.execSQL("create table picture (p_id integer primary key autoincrement, author_id integer, exhibition_id integer, name text, detail text, image text, type text, constraint author_id_fk foreign key(author_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
-        db?.execSQL("create table reservation (r_id integer primary key, user_id integer, exhibition_id integer, constraint user_id_fk foreign key(user_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
+        db?.execSQL("create table reservation (r_id integer primary key autoincrement, user_id integer, exhibition_id integer, constraint user_id_fk foreign key(user_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
 
     }
 
@@ -43,9 +43,6 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         //테이블에 변경사항이 있을 경우 호출됨.
         //SqliteHelper()의 생성자를 호출할 때 기존 데이터베이스와 version을 비교해서 더 높으면
         //호출된다.
-
-
-
     }
 
 
@@ -66,24 +63,16 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val wd = writableDatabase
         wd.insert("position",null,values)
         wd.close()
-
-
     }
 
-
-
-
     @SuppressLint("Range")   //Frgment_02_01_SpacePick
-    fun selectExhibtions(spaceId:Int, type: String): MutableList<Exhibition_Data> {
+    fun selectSingleExhibition(exhibition_id:Int): Exhibition_Data {
 
-        val list = mutableListOf<Exhibition_Data>()
+        var exhi_data : Exhibition_Data? = null
         // db 가져오기
-        val select = "select * from exhibition, space, position where (space.s_id = position.space_id) and (space.s_id ="+spaceId+") and (position.p_id = exhibition.position_id) and (exhibition.type=\""+type+"\")"
-
-
+        val select = "select * from exhibition, position, space where p_id = position_id and space_id = s_id and e_id = " + exhibition_id
 
         val rd = readableDatabase
-
 
         val cursor = rd.rawQuery(select,null)
         DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
@@ -97,13 +86,40 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
             val spaceName:String = cursor.getString(cursor.getColumnIndex("s_name"))
             val exhibitionType:String = cursor.getString(cursor.getColumnIndex("type"))
 
+            exhi_data = Exhibition_Data(exhibitionId, startDate, endDate,positionName,spaceName,exhibitionType )
+        }
+
+        cursor.close()
+        rd.close()
+
+        return exhi_data!!
+    }
 
 
 
 
+    @SuppressLint("Range")   //Frgment_02_01_SpacePick
+    fun selectExhibtions(spaceId:Int, type: String): MutableList<Exhibition_Data> {
+
+        val list = mutableListOf<Exhibition_Data>()
+        // db 가져오기
+        val select = "select * from exhibition, space, position where (space.s_id = position.space_id) and (space.s_id ="+spaceId+") and (position.p_id = exhibition.position_id) and (exhibition.type=\""+type+"\")"
+
+        val rd = readableDatabase
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+
+        while(cursor.moveToNext()){
+            val exhibitionId:Int = cursor.getInt(cursor.getColumnIndex("e_id"))
+            val startDate:String = cursor.getString(cursor.getColumnIndex("start_date"))
+            val endDate:String = cursor.getString(cursor.getColumnIndex("start_date"))
+            val positionName:String = cursor.getString(cursor.getColumnIndex("p_name"))
+            val spaceName:String = cursor.getString(cursor.getColumnIndex("s_name"))
+            val exhibitionType:String = cursor.getString(cursor.getColumnIndex("type"))
 
             list.add(Exhibition_Data(exhibitionId, startDate, endDate,positionName,spaceName,exhibitionType ))
-
         }
 
         cursor.close()
@@ -124,43 +140,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val wd = writableDatabase
         wd.insert("exhibition",null,values)
         wd.close()
-
-
     }
-
-
-
-
-//    @SuppressLint("Range")
-//    fun selectAddressBySpaceId(spaceId:Int): Fragment_02_01_Address_Data {
-//
-//        val list = mutableListOf<Fragment_02_01_Address_Data>()
-//        // db 가져오기
-//        val select = "select * from space where s_id="+spaceId
-//
-//        val rd = readableDatabase
-//
-//
-//        val cursor = rd.rawQuery(select,null)
-//        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
-//
-//        while(cursor.moveToNext()){
-//            val position = cursor.getString(cursor.getColumnIndex("position"))
-//            val image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image")) ?:null
-//            val address:String = cursor.getString(cursor.getColumnIndex("address"))
-//            val space_id:Int = cursor.getInt(cursor.getColumnIndex("s_id"))
-//
-//
-//
-////            list.add(Fragment_02_01_Address_Data(address,position,image,space_id))
-//        }
-//
-//        cursor.close()
-//        rd.close()
-//
-//        return list[0]
-//    }
-
 
 
 
@@ -182,8 +162,6 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
             val address:String = cursor.getString(cursor.getColumnIndex("s_name"))
             val space_id:Int = cursor.getInt(cursor.getColumnIndex("s_id"))
 
-
-
             list.add(Fragment_02_01_Address_Data(address,image,space_id))
         }
 
@@ -204,8 +182,6 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val wd = writableDatabase
         wd.insert("space",null,values)
         wd.close()
-
-
     }
 
 
@@ -222,8 +198,6 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val wd = writableDatabase
         wd.insert("goods",null,values)
         wd.close()
-
-
     }
 
 
@@ -314,21 +288,12 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val wd = writableDatabase
         wd.insert("user",null,values)
         wd.close()
-
-
     }
-
-
-
-
-
-
 
 
     //use id 로 사용자 조회 함수.
     @SuppressLint("Range")
     fun selectUser(user_id:Int):User_Data{
-
 
         // db 가져오기
         val select = "select * from user where u_id="+user_id
@@ -395,12 +360,13 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         Log.d("이미지 저장 테스트", "저장 완료")
     }
 
+
     //type에 따른 굿즈 조회 함수.
     @SuppressLint("Range")
     fun selectPicture(picture_id:Int): Picture_Data? {
 
         // db 가져오기
-        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id as user_id, user.name as u_name from picture, user where picture.author_id = user.u_id and picture.p_id = " + picture_id
+        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id as user_id, user.name as u_name, exhibition_id from picture, user where picture.author_id = user.u_id and picture.p_id = " + picture_id
 
         val rd = readableDatabase
 
@@ -417,8 +383,9 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
             val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
             val author_id:Int = cursor.getInt(cursor.getColumnIndex("user_id"))
             val author_name:String = cursor.getString(cursor.getColumnIndex("u_name"))
+            val exhibition_id:Int = cursor.getInt(cursor.getColumnIndex("exhibition_id"))
 
-            picture = Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name)
+            picture = Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name, exhibition_id)
         }
 
         cursor.close()
@@ -432,7 +399,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
         val list = arrayListOf<Picture_Data>()
         // db 가져오기
-        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id, user.name as u_name from picture, user where picture.author_id = user.u_id and author_id = "+userId+ ""
+        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id, user.name as u_name, exhibition_id from picture, user where picture.author_id = user.u_id and author_id = "+userId+ ""
 
         val rd = readableDatabase
 
@@ -448,8 +415,9 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
             val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
             val author_id:Int = cursor.getInt(cursor.getColumnIndex("u_id"))
             val author_name:String = cursor.getString(cursor.getColumnIndex("u_name"))
+            val exhibition_id:Int = cursor.getInt(cursor.getColumnIndex("exhibition_id"))
 
-            list.add(Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name))
+            list.add(Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name, exhibition_id))
         }
 
         cursor.close()
@@ -466,7 +434,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
         val list = arrayListOf<Picture_Data>()
         // db 가져오기
-        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id, user.name as u_name from picture, user where picture.author_id = user.u_id order by p_id desc limit 7"
+        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id, user.name as u_name, exhibition_id from picture, user where picture.author_id = user.u_id order by p_id desc limit 7"
 
         val rd = readableDatabase
 
@@ -482,8 +450,9 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
             val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
             val author_id:Int = cursor.getInt(cursor.getColumnIndex("u_id"))
             val author_name:String = cursor.getString(cursor.getColumnIndex("u_name"))
+            val exhibition_id:Int = cursor.getInt(cursor.getColumnIndex("exhibition_id"))
 
-            list.add(Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name))
+            list.add(Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name, exhibition_id))
         }
 
         cursor.close()
@@ -492,60 +461,48 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         return list
     }
 
-
-
-
-
-
     @SuppressLint("Range")
-    fun selectMemo():MutableList<Memo>{
-     val list = mutableListOf<Memo>()
+    fun selectPictureList_Oldest(): ArrayList<Picture_Data> {
 
-     val select = "select * from memo" //  = "select num,content,datetime from memo"
+        val list = arrayListOf<Picture_Data>()
+        // db 가져오기
+        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id, user.name as u_name, exhibition_id from picture, user where picture.author_id = user.u_id order by p_id asc limit 7"
 
-     val rd = readableDatabase
-     val cursor = rd.rawQuery(select,null)  //execSQL처럼 쿼리문을 실행하나 rawQuery는 cursor타입의 반환값을 가짐. cursor는 일종의 리스트.
-     while(cursor.moveToNext()){
-         val num = cursor.getLong(cursor.getColumnIndex("num"))
-         val content = cursor.getString(cursor.getColumnIndex("content"))
-         val datetime = cursor.getLong(cursor.getColumnIndex("datetime"))
+        val rd = readableDatabase
 
-         val memo = Memo(num,content,datetime)
-         list.add(memo)
-     }
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+        while(cursor.moveToNext()){
+
+            val p_id:Int = cursor.getInt(cursor.getColumnIndex("p_id"))
+            val picture_name:String = cursor.getString(cursor.getColumnIndex("p_name"))
+            val picture_detail:String = cursor.getString(cursor.getColumnIndex("detail"))
+            val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
+            val author_id:Int = cursor.getInt(cursor.getColumnIndex("u_id"))
+            val author_name:String = cursor.getString(cursor.getColumnIndex("u_name"))
+            val exhibition_id:Int = cursor.getInt(cursor.getColumnIndex("exhibition_id"))
+
+            list.add(Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name, exhibition_id))
+        }
+
         cursor.close()
         rd.close()
 
         return list
     }
 
-
-    //데이터 수정함수
-    fun updateMemo(memo:Memo){
-        val wd = writableDatabase
+    fun insertReservation(user_id: Int, exhibition_id: Int){
 
         val values = ContentValues()
-        values.put("content",memo.content)
-        values.put("datetime",memo.datetime)
-
-        wd.update("memo",values,"num = ${memo.num}",null)
-        wd.close()
-
-    }
-
-    //데이터 삭제함수
-
-    fun deleteMemo(memo:Memo){
+        values.put("user_id",user_id)
+        values.put("exhibition_id",exhibition_id)
         val wd = writableDatabase
-//        val delete = "delete from memo where num = ${memo.num}"
-//        wd.execSQL(delete)
-
-
-        wd.delete("memo","num = ${memo.num}",null)
+        wd.insert("reservation",null,values)
         wd.close()
-
-
     }
+
 
     //drawable 파일을 ByteArray로 변환하는 함수.
     fun drawableToByteArray(drawable: Drawable ) : ByteArray?{
@@ -559,13 +516,5 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
     }
 
-
-
-
-
-
 }
 
-
-
-data class Memo(var num:Long?,var content:String,var datetime:Long)

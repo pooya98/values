@@ -33,6 +33,7 @@ class Fragment_01_01_ExhibitionDetail : Fragment() {
         val picture_image = view.findViewById<ImageView>(R.id.fragment_01_01_ExhibitionDetail_picture_image)
         val picture_name = view.findViewById<TextView>(R.id.fragment_01_01_ExhibitionDetail_picture_name)
         val picture_detail = view.findViewById<TextView>(R.id.fragment_01_01_ExhibitionDetail_picture_detail)
+        val bottom_picture_image = view.findViewById<ImageView>(R.id.exhibition_detail_bottom_image)
 
         val subscribe_button = view.findViewById<Button>(R.id.fragment_01_01_ExhibitionDetail_button_subscribe)
         val purchase_button = view.findViewById<Button>(R.id.fragment_01_01_ExhibitionDetail_button_purchase)
@@ -47,6 +48,7 @@ class Fragment_01_01_ExhibitionDetail : Fragment() {
         author_image.setImageBitmap(BitmapFactory.decodeByteArray(author_data?.user_Image,0, author_data?.user_Image!!.size))
         author_name.setText(author_data.user_name)
         picture_image.setImageBitmap(BitmapFactory.decodeByteArray(picture_data.picture_image,0, picture_data.picture_image!!.size))
+        bottom_picture_image.setImageBitmap(BitmapFactory.decodeByteArray(picture_data.picture_image,0, picture_data.picture_image!!.size))
         picture_name.setText(picture_data.picture_name)
         picture_detail.setText(picture_data.picture_detail)
 
@@ -56,11 +58,18 @@ class Fragment_01_01_ExhibitionDetail : Fragment() {
         }
 
         subscribe_button.setOnClickListener{
+            val bundle = Bundle()
+            bundle.putInt("user_id", (activity as MainActivity).USER_ID)
+            bundle.putInt("exhibition_id", picture_data.exhibition_id)
             (activity as MainActivity).navigateToFragment("fragment_01_01_Subscribe")
         }
 
         purchase_button.setOnClickListener{
-            (activity as MainActivity).navigateToFragment("fragment_01_01_Purchase")
+            val bundle = Bundle()
+            bundle.putInt("user_id", (activity as MainActivity).USER_ID)
+            bundle.putInt("exhibition_id", picture_data.exhibition_id)
+            bundle.putInt("picture_id", picture_id)
+            (activity as MainActivity).navigateToFragment("fragment_01_01_Purchase", bundle)
         }
 
         return view

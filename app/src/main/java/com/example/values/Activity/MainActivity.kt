@@ -40,7 +40,7 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     val DB_NAME = "sqlite.sql"
-    val DB_VERSION = 190
+    val DB_VERSION = 193
     //UMZZI
     val USER_ID = 8
 
@@ -172,8 +172,8 @@ class MainActivity : AppCompatActivity() {
 
         when(destination){
             "fragment_01_01_ExhibitionDetail" -> navController.navigate(fragment_01_01_ExhibitionDetail, bundle)
-            "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
-            "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
+            "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe, bundle)
+            "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase, bundle)
             "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
             "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
             "fragment_04_01_04_Portfolio_Detail" -> navController.navigate(fragment_04_01_04_Portfolio_Detail)
@@ -333,6 +333,10 @@ class MainActivity : AppCompatActivity() {
         helper.insertUser(8,"yunsu",drawable2)
         helper.insertUser(9,"UMZZI",drawable3)
 
+        helper.insertUser(1,"지미나리", drawable2)
+        helper.insertUser(2,"ATOM", drawable3)
+        helper.insertUser(3,"이지예술", drawable1)
+
     }
 
 
@@ -374,16 +378,41 @@ class MainActivity : AppCompatActivity() {
 
     fun initPicture(){
 
-        val drawable_1 = getDrawable(R.drawable.goods_ill1)
+        val drawable_1 = getDrawable(R.drawable.picture_01)
+        val drawable_2 = getDrawable(R.drawable.picture_02)
+        val drawable_3 = getDrawable(R.drawable.picture_03)
+        val drawable_4 = getDrawable(R.drawable.picture_04)
+        val drawable_5 = getDrawable(R.drawable.picture_05)
+        val drawable_6 = getDrawable(R.drawable.picture_06)
+        val drawable_7 = getDrawable(R.drawable.picture_07)
+        val drawable_8 = getDrawable(R.drawable.picture_08)
+        val drawable_9 = getDrawable(R.drawable.picture_09)
+        val drawable_10 = getDrawable(R.drawable.picture_10)
+        val drawable_11 = getDrawable(R.drawable.picture_11)
+        val drawable_12 = getDrawable(R.drawable.picture_12)
+        val drawable_13 = getDrawable(R.drawable.picture_13)
+        val drawable_14 = getDrawable(R.drawable.picture_14)
+
+
+
         val text = "팝아트를 유화로 표현하여 기존 작가의 의도를 해석해 저의 방식으로 풀었습니다. 기존의 낮았던 채도를 형광으로 높이고, 기존 그림 속 인물의 상황표현을 과장했습니다. 저는 극단적인 표현과 유화의 입체감을 이용하여, 관람객들에게 있어서 보다 강한 메세지를 전달하고자 하였습니다. 굿즈도 많이 있으니 구경오세요!"
 
-        helper.insertPicture(1, 9, "my work1", drawable_1, text)
-        helper.insertPicture(1, 9, "my work2", drawable_1, text)
-        helper.insertPicture(1, 9, "my work3", drawable_1, text)
-        helper.insertPicture(1, 9, "my work4", drawable_1, text)
-        helper.insertPicture(1, 9, "my work5", drawable_1, text)
-        helper.insertPicture(1, 9, "my work6", drawable_1, text)
-        helper.insertPicture(1, 9, "my work7", drawable_1, text)
+        helper.insertPicture(1, 9, "팝아트", getDrawable(R.drawable.image_main_thumbnail), text)
+        helper.insertPicture(1, 2, "AniMals", drawable_8, text)
+        helper.insertPicture(2, 9, "STERING", drawable_9, text)
+        helper.insertPicture(3, 8, "시쿠나레", drawable_10, text)
+        helper.insertPicture(4, 9, "Heroes", drawable_11, text)
+        helper.insertPicture(1, 2, "윌슨 더 플립", drawable_12, text)
+        helper.insertPicture(2, 1, "캄 베어", drawable_13, text)
+        helper.insertPicture(3, 7, "타임 패러독스", drawable_14, text)
+
+        helper.insertPicture(1, 1, "NARD", drawable_1, text)
+        helper.insertPicture(2, 7, "안전 지킴이", drawable_4, text)
+        helper.insertPicture(3, 2, "이지풀 브랜딩", drawable_3, text)
+        helper.insertPicture(4, 1, "함덕사이", drawable_2, text)
+        helper.insertPicture(1, 3, "치키차카초코", drawable_5, text)
+        helper.insertPicture(2, 9, "BOICE", drawable_6, text)
+        helper.insertPicture(3, 2, "수소월드", drawable_7, text)
 
     }
 

@@ -7,6 +7,7 @@ data class Picture_Data(
     var picture_name:String?,
     var picture_detail:String,
     var author_id:Int,
-    var author_name:String
+    var author_name:String,
+    var exhibition_id: Int
 
 )
