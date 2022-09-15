@@ -72,6 +72,47 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
 
 
+    @SuppressLint("Range")   //Frgment_02_01_SpacePick
+    fun selectExhibtionsByUserId(userId:Int): ArrayList<Exhibition_Data> {
+
+        val list = arrayListOf<Exhibition_Data>()
+        // db 가져오기
+
+        val select = "select distinct e_id,start_date,end_date,p_name,s_name,exhibition.type from exhibition,  picture, position, space where ("+userId+" = picture.author_id) and (picture.exhibition_id = exhibition.e_id)and(exhibition.position_id = position.p_id)and(position.space_id = space.s_id)"
+
+
+        val rd = readableDatabase
+
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+
+        while(cursor.moveToNext()){
+            val exhibitionId:Int = cursor.getInt(cursor.getColumnIndex("e_id"))
+            val startDate:String = cursor.getString(cursor.getColumnIndex("start_date"))
+            val endDate:String = cursor.getString(cursor.getColumnIndex("end_date"))
+            val positionName:String = cursor.getString(cursor.getColumnIndex("p_name"))
+            val spaceName:String = cursor.getString(cursor.getColumnIndex("s_name"))
+            val exhibitionType:String = cursor.getString(cursor.getColumnIndex("exhibition.type"))
+
+
+
+
+
+
+            list.add(Exhibition_Data(exhibitionId, startDate, endDate,positionName,spaceName,exhibitionType ))
+
+        }
+
+        cursor.close()
+        rd.close()
+
+        return list
+    }
+
+
+
 
     @SuppressLint("Range")   //Frgment_02_01_SpacePick
     fun selectExhibtions(spaceId:Int, type: String): MutableList<Exhibition_Data> {
@@ -127,39 +168,6 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
 
     }
-
-
-
-
-//    @SuppressLint("Range")
-//    fun selectAddressBySpaceId(spaceId:Int): Fragment_02_01_Address_Data {
-//
-//        val list = mutableListOf<Fragment_02_01_Address_Data>()
-//        // db 가져오기
-//        val select = "select * from space where s_id="+spaceId
-//
-//        val rd = readableDatabase
-//
-//
-//        val cursor = rd.rawQuery(select,null)
-//        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
-//
-//        while(cursor.moveToNext()){
-//            val position = cursor.getString(cursor.getColumnIndex("position"))
-//            val image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image")) ?:null
-//            val address:String = cursor.getString(cursor.getColumnIndex("address"))
-//            val space_id:Int = cursor.getInt(cursor.getColumnIndex("s_id"))
-//
-//
-//
-////            list.add(Fragment_02_01_Address_Data(address,position,image,space_id))
-//        }
-//
-//        cursor.close()
-//        rd.close()
-//
-//        return list[0]
-//    }
 
 
 

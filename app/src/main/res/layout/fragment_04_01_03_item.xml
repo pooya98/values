@@ -36,25 +36,26 @@
         android:id="@+id/payORfreeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="301dp"
+        android:layout_marginEnd="16dp"
         android:text="유료/무료"
         android:textColor="#C89EF7"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/exhibitPlaceTextView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/exhibitPeriodTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/exhibitPeriodTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
         android:text="mm/yy - mm/yy"
         android:textColor="#C89EF7"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/exhibitPlaceTextView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/payORfreeTextView"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toEndOf="@+id/exhibitPlaceTextView" />
 
     <TextView
         android:id="@+id/exhibitPlaceTextView"
@@ -63,7 +64,7 @@
         android:layout_marginBottom="54dp"
         android:text="x층 y홀 - [z]"
         android:textColor="#C89EF7"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/myExhibitTitle" />

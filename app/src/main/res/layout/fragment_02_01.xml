@@ -42,6 +42,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -93,10 +94,10 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
+                        android:gravity="center"
 
                         android:orientation="horizontal">
 
@@ -189,21 +190,39 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_marginRight="5dp"
-                    android:gravity="right|center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="최대 2개까지 선택가능"
-                    android:textColor="@color/dh_purple"
-                    android:textSize="10dp"
-                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:text="전시 기간을 선택하세요"
+                    android:textColor="@color/dh_black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_calenderview">
+
+                    <com.andrewjapar.rangedatepicker.CalendarPicker
+                        android:id="@+id/calendar_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginHorizontal="18dp"
+                        android:layout_marginVertical="5dp"
+                        android:clipToPadding="false"
+                        android:scrollbarStyle="outsideOverlay"
+
+                        app:picker_type="range" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:text="전시 공간을 선택하세요"
                     android:textColor="@color/dh_black"
@@ -313,47 +332,12 @@
                     </LinearLayout>
 
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="15dp"
-                    android:text="전시 기간을 선택하세요"
-                    android:textColor="@color/dh_black"
-                    android:textSize="22dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_calenderview">
-
-                    <com.andrewjapar.rangedatepicker.CalendarPicker
-                        android:id="@+id/calendar_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:layout_marginHorizontal="18dp"
-                        android:layout_marginVertical="5dp"
-                        android:clipToPadding="false"
-                        android:scrollbarStyle="outsideOverlay"
-
-                        app:picker_type="range" />
-
-                </LinearLayout>
-
-
 
                 <View
                     android:id="@+id/view3"
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp" />
+                    android:layout_height="70dp" />
 
             </LinearLayout>
 

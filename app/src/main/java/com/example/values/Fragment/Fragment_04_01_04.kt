@@ -52,21 +52,19 @@ class Fragment_04_01_04 : Fragment() ,View.OnClickListener{
         var goodsCountText = mBinding?.sellingGoodsCount
         var exhibitionCountText = mBinding?.allExhibitionCounts
 
-        var user = (activity as MainActivity).helper.selectUser((activity as MainActivity).USER_ID)
-        var user_image = user.user_Image
-        var user_name = user.user_name
 
-
-        val author_id = arguments?.getString("author_id")
+        val author_id = arguments?.getInt("author_id")
+        val authorId : Int
 
         if(author_id!=null){
 
-
+            authorId = author_id
             check2?.visibility = View.INVISIBLE
             check3?.visibility = View.INVISIBLE
 
         }else{
 
+            authorId = (activity as MainActivity).USER_ID
             check2?.visibility = View.VISIBLE
             check3?.visibility = View.VISIBLE
 
@@ -74,11 +72,19 @@ class Fragment_04_01_04 : Fragment() ,View.OnClickListener{
 
 
 
+        var user = (activity as MainActivity).helper.selectUser(authorId)
+        var user_image = user.user_Image
+        var user_name = user.user_name
+
+
+
+
+
         profileImage?.setImageBitmap(BitmapFactory.decodeByteArray(user_image,0,user_image!!.size))
         profileUserName?.setText("'"+user_name+"'")
 
-        var userGoodsList = (activity as MainActivity).helper.selectGoodsByAuthor((activity as MainActivity).USER_ID)
-        var pictureList = (activity as MainActivity).helper.selectPictureList_byUserId((activity as MainActivity).USER_ID)
+        var userGoodsList = (activity as MainActivity).helper.selectGoodsByAuthor(authorId)
+        var pictureList = (activity as MainActivity).helper.selectPictureList_byUserId(authorId)
 
         goodsCountText?.setText(userGoodsList.size.toString())
         exhibitionCountText?.setText(pictureList.size.toString())
