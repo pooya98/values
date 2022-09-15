@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.values.Activity.MainActivity
-import com.example.values.Activity.USER_ID
+
 import com.example.values.Adapter.Fragment_04_01_02_badges_Adapter
 import com.example.values.Adapter.Fragment_04_01_04_portfolio2_Adapter
 import com.example.values.Adapter.Fragment_04_01_04_portfolio_Adapter
@@ -44,11 +44,11 @@ class Fragment_04_01_04 : Fragment() ,View.OnClickListener{
         var profileUserName = mBinding?.portfolioUserName
 
 
-        var user = (activity as MainActivity).helper.selectUser(USER_ID)
+        var user = (activity as MainActivity).helper.selectUser((activity as MainActivity).USER_ID)
         var user_image = user.user_Image
         var user_name = user.user_name
 
-        var userGoodsList = (activity as MainActivity).helper.selectGoodsByAuthor(USER_ID)
+        var userGoodsList = (activity as MainActivity).helper.selectGoodsByAuthor((activity as MainActivity).USER_ID)
 
         profileImage?.setImageBitmap(BitmapFactory.decodeByteArray(user_image,0,user_image!!.size))
         profileUserName?.setText("'"+user_name+"'")

@@ -36,7 +36,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         db?.execSQL("DROP TABLE IF EXISTS exhibition")
         db?.execSQL("DROP TABLE IF EXISTS position")
         db?.execSQL("DROP TABLE IF EXISTS space")
-        
+
         db?.execSQL("DROP TABLE IF EXISTS goods")
         db?.execSQL("DROP TABLE IF EXISTS user")
         onCreate(db)

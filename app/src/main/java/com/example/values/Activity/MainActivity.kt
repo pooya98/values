@@ -35,14 +35,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 
-val DB_NAME = "sqlite.sql"
-val DB_VERSION = 189
-//UMZZI
-val USER_ID = 9
 
 
 class MainActivity : AppCompatActivity() {
-
+    val DB_NAME = "sqlite.sql"
+    val DB_VERSION = 189
+    //UMZZI
+    val USER_ID = 9
 
     private lateinit var mBinding: ActivityMainBinding
      val helper = SqliteHelper(this, DB_NAME, DB_VERSION)
