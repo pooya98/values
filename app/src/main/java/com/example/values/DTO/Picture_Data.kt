@@ -6,6 +6,7 @@ data class Picture_Data(
     var picture_image:ByteArray?,
     var picture_name:String?,
     var picture_detail:String,
-    var author_id:Int
+    var author_id:Int,
+    var author_name:String
 
 )

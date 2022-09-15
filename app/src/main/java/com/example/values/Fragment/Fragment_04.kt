@@ -14,7 +14,6 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.values.Activity.MainActivity
-import com.example.values.Activity.USER_ID
 import com.example.values.R
 import com.example.values.databinding.Fragment04Binding
 
@@ -32,7 +31,7 @@ class Fragment_04 : Fragment(), View.OnClickListener {
 
         val helper = (activity as MainActivity).helper
 
-        val user = helper.selectUser(USER_ID)
+        val user = helper.selectUser((activity as MainActivity).USER_ID)
 
         mBinding?.profileImage2?.setImageBitmap(BitmapFactory.decodeByteArray(user.user_Image,0,user.user_Image!!.size))
 
