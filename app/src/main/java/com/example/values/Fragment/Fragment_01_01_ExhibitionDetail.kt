@@ -50,6 +50,10 @@ class Fragment_01_01_ExhibitionDetail : Fragment() {
         picture_name.setText(picture_data.picture_name)
         picture_detail.setText(picture_data.picture_detail)
 
+        author_image.setOnClickListener{
+            Log.d("check:","ClickText")
+            (activity as MainActivity).navigateToFragment("fragment_04_01_04", picture_data.author_id )
+        }
 
         subscribe_button.setOnClickListener{
             (activity as MainActivity).navigateToFragment("fragment_01_01_Subscribe")

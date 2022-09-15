@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1.45"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,170 +25,186 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/portfolio_cons"
                 android:layout_width="match_parent"
-                android:layout_height="290dp"
-                android:layout_gravity="fill_vertical"
-                android:layout_weight="1.45"
-                android:background="@drawable/fragment_04_01_04profile">
-
-                <LinearLayout
-                    android:id="@+id/LinearLayout_mod"
-                    android:layout_width="140dp"
-                    android:layout_height="41dp"
-                    android:layout_marginEnd="36dp"
-                    android:background="@drawable/button_background_ripple_white_stroke"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:translationZ="0dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/LinearLayout_share"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.723"
-                    app:layout_constraintStart_toEndOf="@+id/LinearLayout_share"
-                    app:layout_constraintTop_toTopOf="@+id/LinearLayout_share"
-                    app:layout_constraintVertical_bias="0.0">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="포트폴리오 수정하기"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13dp"
-                        android:textStyle="bold"></TextView>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/LinearLayout_share"
-                    android:layout_width="140dp"
-                    android:layout_height="41dp"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginBottom="28dp"
-                    android:background="@drawable/button_background_ripple_white_stroke"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="포트폴리오 공유하기"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13dp"
-                        android:textStyle="bold"></TextView>
-
-
-                </LinearLayout>
+                android:layout_height="174dp">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textView61"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Umzzi"
-                    android:textColor="@color/dh_white"
-                    android:textSize="19dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.496" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
                     android:text="예술가"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textColor="@color/dh_black"
+                    android:textSize="9sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
-                    app:layout_constraintEnd_toStartOf="@+id/textView4" />
+                    app:layout_constraintBottom_toBottomOf="@+id/textView62"
+                    app:layout_constraintStart_toEndOf="@+id/textView62"
+                    app:layout_constraintTop_toTopOf="@+id/textView62" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textView63"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="등급/베스트작가"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/dh_black"
                     android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView61"
+                    app:layout_constraintStart_toEndOf="@+id/textView61"
+                    app:layout_constraintTop_toTopOf="@+id/textView61"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="베스트작가 5회 / "
+                    android:textColor="@color/black"
+                    android:textSize="9sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.328"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView57"
+                    app:layout_constraintTop_toBottomOf="@+id/textView57" />
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 등급"
+                    android:textColor="@color/black"
+                    android:textSize="9sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView61"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView61"
+                    app:layout_constraintTop_toTopOf="@+id/textView61"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView58"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="님의"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/portfolio_userName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/portfolio_userName"
+                    app:layout_constraintTop_toTopOf="@+id/portfolio_userName"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="전시를 한 눈에 확인해 보세요"
+                    android:textColor="@color/dh_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/portfolio_userName"
+                    app:layout_constraintTop_toBottomOf="@+id/portfolio_userName" />
+
+                <TextView
+                    android:id="@+id/portfolio_userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:text="'UMZZI'"
+                    android:textColor="@color/dh_purple"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.315"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/portfolio_profileImage"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/image_noje"
+                    app:civ_border_color="@color/dh_purple"
+                    app:civ_border_width="3.2dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView56"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.638" />
+                    app:layout_constraintVertical_bias="0.547" />
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="5회"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
-                    app:layout_constraintStart_toEndOf="@+id/textView4" />
+                <CheckBox
+                    android:id="@+id/pf_check1"
+                    android:layout_width="112dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_checkbox_portfolio"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="작품 목록"
+                    android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
+                    android:textSize="11dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pf_check2"
+                    app:layout_constraintEnd_toStartOf="@+id/pf_check2"
+                    app:layout_constraintTop_toTopOf="@+id/pf_check2"></CheckBox>
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="팔로워"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                <CheckBox
+                    android:id="@+id/pf_check2"
+                    android:layout_width="112dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_checkbox_portfolio"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="프로필 수정"
+                    android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
+                    android:textSize="11dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.568"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView4"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintStart_toStartOf="parent"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/pf_check3"
+                    android:layout_width="112dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_checkbox_portfolio"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="프로필 공유"
+                    android:textColor="@drawable/selector_checkbox_text_gray_to_purple"
+                    android:textSize="11dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pf_check2"
+                    app:layout_constraintStart_toEndOf="@+id/pf_check2"
+                    app:layout_constraintTop_toTopOf="@+id/pf_check2"
+                    app:layout_constraintVertical_bias="0.0"></CheckBox>
 
                 <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="267"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
-                    app:layout_constraintStart_toEndOf="@+id/textView6" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="팔로잉"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    android:id="@+id/textView56"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="45dp"
+                    android:background="#E2E2E2"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="33dp"
+                    android:text="안녕하세요 예술작품 기존의 가치를 극대화하여 재해석하는 것을 좋아하는 작가입니다:)"
+                    android:textColor="@color/black"
+                    android:textSize="9sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.743"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView4"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="330"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
-                    app:layout_constraintStart_toEndOf="@+id/textView8" />
-
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -200,34 +216,35 @@
                 <TextView
                     android:id="@+id/textView412"
                     android:layout_width="wrap_content"
-                    android:layout_height="38dp"
+                    android:layout_height="32dp"
                     android:gravity="bottom"
-                    android:paddingLeft="13dp"
-                    android:text="전시중인 작품"
+                    android:paddingLeft="23dp"
+                    android:text="판매중인 굿즈"
                     android:textColor="@color/dh_black"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center|left"
-                    android:layout_marginLeft="7dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginBottom="0.5dp"
-                    app:cardBackgroundColor="#EFEFEF"
-                    app:cardCornerRadius="8dp">
+                    app:cardBackgroundColor="#ABABAB"
+                    app:cardCornerRadius="2dp">
 
                     <TextView
-                        android:id="@+id/textView493"
+                        android:id="@+id/sellingGoodsCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="1dp"
                         android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
+                        android:layout_marginBottom="1dp"
                         android:text="6"
-                        android:textSize="11sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="9sp" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
@@ -235,10 +252,11 @@
                 android:id="@+id/portfolioRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="2dp"
                 android:layout_weight="1.45"
                 android:scrollbarAlwaysDrawHorizontalTrack="false"
-                android:scrollbars="horizontal|vertical">
+                android:scrollbars="none">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -251,105 +269,37 @@
                 <TextView
                     android:id="@+id/textView464"
                     android:layout_width="wrap_content"
-                    android:layout_height="38dp"
+                    android:layout_height="25dp"
                     android:gravity="bottom"
-                    android:paddingLeft="13dp"
-                    android:text="작품"
+                    android:paddingLeft="25dp"
+                    android:text="전체 전시작품"
                     android:textColor="@color/dh_black"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center|left"
-                    android:layout_marginLeft="7dp"
-                    android:layout_marginBottom="0.5dp"
-                    app:cardBackgroundColor="#EFEFEF"
-                    app:cardCornerRadius="8dp">
+                    android:layout_marginLeft="4dp"
+                    app:cardBackgroundColor="#ABABAB"
+                    app:cardCornerRadius="2dp">
 
                     <TextView
-                        android:id="@+id/textView491"
+                        android:id="@+id/allExhibitionCounts"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="15dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="1dp"
                         android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:text="25"
-                        android:textSize="11sp" />
+                        android:layout_marginBottom="1dp"
+                        android:text="8"
+                        android:textColor="#FFFFFF"
+                        android:textSize="9sp" />
                 </androidx.cardview.widget.CardView>
+
             </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="9dp"
-                android:layout_weight="1.45">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|center_vertical"
-                    android:src="@drawable/icon_down_purple"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView47"
-                    app:layout_constraintStart_toEndOf="@+id/textView47"
-                    app:layout_constraintTop_toTopOf="@+id/textView47"></ImageView>
-
-                <TextView
-                    android:id="@+id/textView47"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|center_vertical"
-                    android:layout_marginEnd="44dp"
-                    android:text="최신순"
-                    android:textColor="@color/dh_purple"
-                    android:textSize="11dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.882"></TextView>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="13dp"
-                    android:background="@drawable/button_background_ripple_purple_stroke"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="2dp"
-                    android:paddingHorizontal="4dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:src="@drawable/icon_tune">
-
-                    </ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="4dp"
-                        android:text="필터"
-                        android:textColor="@color/dh_purple"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
-
-                    </TextView>
-
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/portfolioRecycler2"

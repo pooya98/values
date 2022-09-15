@@ -72,25 +72,27 @@ class Fragment_01_02 : Fragment() {
         val brandinglist : ArrayList<Goods_Data> = (activity as MainActivity).helper.selectGoods(1)
 
         Log.d("Fragment_01_02","listSize: "+brandinglist.size)
-//        var transform = CompositePageTransformer()
-//        transform.addTransformer
+
 
         branding_viewpager.setPageTransformer { page, position ->
+            page.translationX = position * -offsetPx
 
 
 
             var v = 1-Math.abs(position)
 
-//            if(v.equals(1)){
-//
-//            }
 
-            page.translationX = position * -offsetPx
 
-            page.scaleY = 0.85f + v * 0.15f   //페이지들 사이즈 조정 뷰.
-            page.scaleX = 0.85f + v * 0.15f
+            if(position<1f&&position>-1f){
 
-            page.alpha = 0.6f + v * 0.4f   //흐리게 만들기.
+                page.scaleX=0.9f + v *0.1f
+                page.scaleY=0.9f + v *0.1f
+                page.alpha=0.5f+ v*0.5f
+            }else{
+                page.scaleX = 0.9f
+                page.scaleY = 0.9f
+                page.alpha = 0.5f
+            }
         }
 
         branding_viewpager.offscreenPageLimit = 2
@@ -117,6 +119,23 @@ class Fragment_01_02 : Fragment() {
 
         illustration_viewpager.setPageTransformer { page, position ->
             page.translationX = position * -offsetPx
+
+
+
+            var v = 1-Math.abs(position)
+
+
+
+            if(position<1f&&position>-1f){
+
+                page.scaleX=0.9f + v *0.1f
+                page.scaleY=0.9f + v *0.1f
+                page.alpha=0.5f+ v*0.5f
+            }else{
+                page.scaleX = 0.9f
+                page.scaleY = 0.9f
+                page.alpha = 0.5f
+            }
         }
 
         illustration_viewpager.offscreenPageLimit = 2

@@ -39,7 +39,7 @@ class Fragment_02_01_Space_Adapter(private val context: Fragment_02_01_SpacePick
             Log.d("TESTTEST", button?.isEnabled.toString())
 
         }else{
-            holder.itemView.setBackgroundColor((Color.WHITE))
+            holder.itemView.setBackgroundColor((Color.parseColor("#00FFFFFF")))
         }
 
         holder.itemView.setOnClickListener{

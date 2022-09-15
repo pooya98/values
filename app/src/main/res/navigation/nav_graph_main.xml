@@ -109,10 +109,17 @@
             android:id="@+id/action_fragment_01_02_Shop_self2"
             app:destination="@id/fragment_01_02_Shop" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_04_02_EventDetail"
         android:name="com.example.values.Fragment.Fragment_04_02_EventDetail"
         android:label="fragment_04_02__event_detail"
         tools:layout="@layout/fragment_04_02__event_detail" />
+    <fragment
+        android:id="@+id/fragment_04_01_042"
+        android:name="com.example.values.Fragment.Fragment_04_01_04"
+        android:label="fragment_04_01_04"
+        tools:layout="@layout/fragment_04_01_04" />
+
 
 </navigation>

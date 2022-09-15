@@ -21,6 +21,7 @@ import com.example.values.databinding.Fragment0201Binding
 import com.example.values.databinding.Fragment02Binding
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Fragment_02_01 : Fragment() {
 
@@ -46,12 +47,41 @@ class Fragment_02_01 : Fragment() {
         val linearLayout_space_selected = view.findViewById<LinearLayout>(R.id.fragment_02_01_space_selected)
         val search_button = view.findViewById<Button>(R.id.fragment_02_01_Search_Button)
         val cancel_button = view.findViewById<ImageButton>(R.id.fragment_02_01_button_cancel)
-
         val selected_space_image = view.findViewById<ImageView>(R.id.fragment_02_01_imageview_space_image)
         val selected_space_name = view.findViewById<TextView>(R.id.fragment_02_01_textview_space_name)
         val selected_space_address = view.findViewById<TextView>(R.id.fragment_02_01_textview_address)
 
+
+
+        var checkedTypeList : ArrayList<String>
+        val check1 = view?.findViewById<CheckBox>(R.id.checkBox1)
+        val check2 = view?.findViewById<CheckBox>(R.id.checkBox2)
+        val check3 = view?.findViewById<CheckBox>(R.id.checkBox3)
+        val check4 = view?.findViewById<CheckBox>(R.id.checkBox4)
+        val check5 = view?.findViewById<CheckBox>(R.id.checkBox5)
+        val check6 = view?.findViewById<CheckBox>(R.id.checkBox6)
+        val check7 = view?.findViewById<CheckBox>(R.id.checkBox7)
+        val check8 = view?.findViewById<CheckBox>(R.id.checkBox8)
+        val check9 = view?.findViewById<CheckBox>(R.id.checkBox9)
+
+        check1?.setOnCheckedChangeListener(CheckBoxListener())
+        check2?.setOnCheckedChangeListener(CheckBoxListener())
+        check3?.setOnCheckedChangeListener(CheckBoxListener())
+        check4?.setOnCheckedChangeListener(CheckBoxListener())
+        check5?.setOnCheckedChangeListener(CheckBoxListener())
+        check6?.setOnCheckedChangeListener(CheckBoxListener())
+        check7?.setOnCheckedChangeListener(CheckBoxListener())
+        check8?.setOnCheckedChangeListener(CheckBoxListener())
+        check9?.setOnCheckedChangeListener(CheckBoxListener())
+
+
+
+
+
         val cal : CalendarPicker = view.findViewById(R.id.calendar_view)
+
+
+
 
         selected_space_id = get_space_num()
 
@@ -127,6 +157,35 @@ class Fragment_02_01 : Fragment() {
         return view
     }
 
+    fun check(){
+
+
+
+        val check1 = view?.findViewById<CheckBox>(R.id.checkBox1)
+        val check2 = view?.findViewById<CheckBox>(R.id.checkBox2)
+        val check3 = view?.findViewById<CheckBox>(R.id.checkBox3)
+        val check4 = view?.findViewById<CheckBox>(R.id.checkBox4)
+        val check5 = view?.findViewById<CheckBox>(R.id.checkBox5)
+        val check6 = view?.findViewById<CheckBox>(R.id.checkBox6)
+        val check7 = view?.findViewById<CheckBox>(R.id.checkBox7)
+        val check8 = view?.findViewById<CheckBox>(R.id.checkBox8)
+        val check9 = view?.findViewById<CheckBox>(R.id.checkBox9)
+
+        check1?.isChecked = false;
+        check2?.isChecked = false;
+        check3?.isChecked = false;
+        check4?.isChecked = false;
+        check5?.isChecked = false;
+        check6?.isChecked = false;
+        check7?.isChecked = false;
+        check8?.isChecked = false;
+        check9?.isChecked = false;
+
+
+
+
+    }
+
 
     override fun onStart() {
         super.onStart()
@@ -160,5 +219,23 @@ class Fragment_02_01 : Fragment() {
 
         return sharedPreference?.getString("space_id", "").toString().toInt()
     }
+
+
+    inner class CheckBoxListener : CompoundButton.OnCheckedChangeListener{
+        override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+
+            if(buttonView!!.isChecked){
+                check()
+                buttonView.isChecked = true
+            }
+
+
+        }
+
+
+    }
+
+
+
 
 }

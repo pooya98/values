@@ -36,12 +36,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 
+
+
 class MainActivity : AppCompatActivity() {
-
     val DB_NAME = "sqlite.sql"
-    val DB_VERSION = 13
-
-    val USER_ID = 9 //UMZZI
+    val DB_VERSION = 190
+    //UMZZI
+    val USER_ID = 8
 
     private lateinit var mBinding: ActivityMainBinding
      val helper = SqliteHelper(this, DB_NAME, DB_VERSION)
@@ -53,13 +54,17 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-////        초기 유저 , 굿즈 더미 삽입.
+
+        //        초기 유저 , 굿즈 더미 삽입.
+
         initUsers()
         initGoods()
         initSpaces()
         initPositions()
         initExhibitions()
+
         initPicture()
+
 
 
         val user = helper.selectUser(USER_ID)
@@ -166,16 +171,32 @@ class MainActivity : AppCompatActivity() {
         val navController = host.navController
 
         when(destination){
-            "fragment_01_01_ExhibitionDetail" -> navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail, bundle)
+            "fragment_01_01_ExhibitionDetail" -> navController.navigate(fragment_01_01_ExhibitionDetail, bundle)
             "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
             "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
             "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
             "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
             "fragment_04_01_04_Portfolio_Detail" -> navController.navigate(fragment_04_01_04_Portfolio_Detail)
-            "fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post" -> navController.navigate(action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post)
+
 
         }
     }
+    fun navigateToFragment(destination: String, author_id: Int){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+
+        when(destination){
+            "fragment_04_01_04" -> {
+                val bundle = Bundle()
+
+                bundle.putInt("author_id",author_id)
+
+                navController.navigate(fragment_04_01_042,bundle)
+            }
+        }
+    }
+
+
 
     fun navigateToFragment(destination: String,goodsData: Goods_Data){
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
@@ -317,12 +338,15 @@ class MainActivity : AppCompatActivity() {
 
     fun initSpaces(){
 
-        val drawable1 = getDrawable(R.drawable.user1_profile)
+        val drawable1 = getDrawable(R.drawable.space1)
+        val drawable2 = getDrawable(R.drawable.space2)
+        val drawable3 = getDrawable(R.drawable.space3)
+        val drawable4 = getDrawable(R.drawable.space4)
 
         helper.insertSpace(1,"경북","경산",drawable1)
-        helper.insertSpace(2,"대전","안동",drawable1)
-        helper.insertSpace(3,"경북","포항",drawable1)
-        helper.insertSpace(4,"경북","경주",drawable1)
+        helper.insertSpace(2,"대전","둔산",drawable2)
+        helper.insertSpace(3,"경북","포항",drawable3)
+        helper.insertSpace(4,"경북","경주",drawable2)
 
 
     }

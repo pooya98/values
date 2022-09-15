@@ -28,12 +28,15 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS picture")
-        db?.execSQL("DROP TABLE IF EXISTS reservation")
-        db?.execSQL("DROP TABLE IF EXISTS exhibition")
 
+
+        db?.execSQL("DROP TABLE IF EXISTS reservation")
+
+        db?.execSQL("DROP TABLE IF EXISTS picture")
+        db?.execSQL("DROP TABLE IF EXISTS exhibition")
         db?.execSQL("DROP TABLE IF EXISTS position")
         db?.execSQL("DROP TABLE IF EXISTS space")
+
         db?.execSQL("DROP TABLE IF EXISTS goods")
         db?.execSQL("DROP TABLE IF EXISTS user")
         onCreate(db)
@@ -166,7 +169,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
         val list = mutableListOf<Fragment_02_01_Address_Data>()
         // db 가져오기
-        val select = "select s_name,image,s_id from space where region=\'${spaceRegion}\'"
+        val select = "select image,s_name,s_id from space where region=\'${spaceRegion}\'"
 
         val rd = readableDatabase
 
@@ -425,6 +428,40 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
     }
 
     @SuppressLint("Range")
+    fun selectPictureList_byUserId(userId:Int): ArrayList<Picture_Data> {
+
+        val list = arrayListOf<Picture_Data>()
+        // db 가져오기
+        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id, user.name as u_name from picture, user where picture.author_id = user.u_id and author_id = "+userId+ ""
+
+        val rd = readableDatabase
+
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+        while(cursor.moveToNext()){
+
+            val p_id:Int = cursor.getInt(cursor.getColumnIndex("p_id"))
+            val picture_name:String = cursor.getString(cursor.getColumnIndex("p_name"))
+            val picture_detail:String = cursor.getString(cursor.getColumnIndex("detail"))
+            val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
+            val author_id:Int = cursor.getInt(cursor.getColumnIndex("u_id"))
+            val author_name:String = cursor.getString(cursor.getColumnIndex("u_name"))
+
+            list.add(Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name))
+        }
+
+        cursor.close()
+        rd.close()
+
+        return list
+    }
+
+
+
+
+    @SuppressLint("Range")
     fun selectPictureList_latest(): ArrayList<Picture_Data> {
 
         val list = arrayListOf<Picture_Data>()
@@ -523,9 +560,7 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
     }
 
 
-    fun compareDates(startDate:String,endDate:String,currentDate:String){
 
-    }
 
 
 

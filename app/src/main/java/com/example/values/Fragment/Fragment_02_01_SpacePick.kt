@@ -80,6 +80,7 @@ class Fragment_02_01_SpacePick : Fragment() {
 
 
         datas.apply {
+            add("경북")
             add("서울")
             add("세종")
             add("인천")
@@ -94,7 +95,6 @@ class Fragment_02_01_SpacePick : Fragment() {
             add("충남")
             add("전북")
             add("전남")
-            add("경북")
             add("경남")
             add("제주")
 
