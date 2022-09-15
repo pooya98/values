@@ -10,12 +10,9 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Spinner
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.values.Activity.MainActivity
-import com.example.values.Adapter.Fragment_01_02_goods_Adapter
 import com.example.values.Adapter.Fragment_01_01_picture_Adapter
-import com.example.values.DTO.Goods_Data
 import com.example.values.DTO.Picture_Data
 import com.example.values.R
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
@@ -46,13 +43,15 @@ class Fragment_01_01 : Fragment() {
         set_illustration_viewPager(illustration_viewpager)
         set_illustration_viewPager_indicator(illustration_viewpager, illustration_indicator)
 
-        set_main_spinner(main_spinner)
+        //set_main_spinner(main_spinner)
+
 
         // 메인 썸네일 클릭 이벤트 리스터
         linear_lagout_main_thumbnail.setOnClickListener{
             val bundle = Bundle()
             bundle.putInt("picture_id", 1)
             (context as MainActivity).navigateToFragment("fragment_01_01_ExhibitionDetail", bundle)
+
         }
 
         return view
@@ -71,21 +70,17 @@ class Fragment_01_01 : Fragment() {
         (activity as MainActivity).hideBackButtonAndShowLogo()
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.d("테스트", "onPause()")
-    }
-
 
     private fun set_branding_viewPager(branding_viewpager: ViewPager2){
 
-        Log.d("viewpage 테스트", "set_branding_viewPager 호출")
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
+
         val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimen 파일이 없으면 생성해야함
         val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
         val offsetPx = screenWidth - pageMarginPx - pagerWidth
 
         val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
+
         Log.d("Fragment_01_01","listSize"+pictureList.size)
 
         branding_viewpager.setPageTransformer { page, position ->
@@ -119,13 +114,16 @@ class Fragment_01_01 : Fragment() {
 
     private fun set_branding_viewPager_indicator(branding_viewpager: ViewPager2, branding_indicator: SpringDotsIndicator){
         branding_indicator.attachTo(branding_viewpager)
+
     }
 
     private fun set_illustration_viewPager(illustration_viewpager: ViewPager2) {
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
+
         val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimen 파일이 없으면 생성해야함
         val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
         val offsetPx = screenWidth - pageMarginPx - pagerWidth
+
 
 
         illustration_viewpager.setPageTransformer { page, position ->
@@ -139,6 +137,7 @@ class Fragment_01_01 : Fragment() {
 
             if(position<1f&&position>-1f){
 
+
                 page.scaleX=0.9f + v *0.1f
                 page.scaleY=0.9f + v *0.1f
                 page.alpha=0.5f+ v*0.5f
@@ -148,6 +147,7 @@ class Fragment_01_01 : Fragment() {
                 page.alpha = 0.5f
             }
         }
+
         val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
         illustration_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, activity as MainActivity)
 
@@ -158,6 +158,7 @@ class Fragment_01_01 : Fragment() {
 
     private fun set_illustration_viewPager_indicator(illustration_viewpager: ViewPager2, illustration_indicator: SpringDotsIndicator){
         illustration_indicator.attachTo(illustration_viewpager)
+
     }
 
     private fun set_main_spinner(main_spinner: Spinner){

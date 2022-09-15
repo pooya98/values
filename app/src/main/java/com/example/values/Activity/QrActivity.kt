@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -33,6 +35,12 @@ class QrActivity : AppCompatActivity() {
 
         if(::codeScanner.isInitialized){
             codeScanner.startPreview()
+        }
+
+        val close_button = findViewById<ImageButton>(R.id.close_button)
+
+        close_button.setOnClickListener {
+            finish()
         }
     }
 

@@ -35,7 +35,6 @@ class Fragment_01_02 : Fragment() {
         val linear_lagout_main_thumbnail = view.findViewById<LinearLayout>(R.id.fragment_01_02_LinearLayout_main_thumbnail)
 
 
-
         set_branding_viewPager(branding_viewpager)
         set_branding_viewPager_indicator(branding_viewpager, branding_indicator)
         set_illustration_viewPager(illustration_viewpager)
