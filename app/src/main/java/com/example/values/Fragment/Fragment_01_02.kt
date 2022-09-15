@@ -51,13 +51,11 @@ class Fragment_01_02 : Fragment() {
     override fun onStart() {
         super.onStart()
         super.onResume()
-        Log.d("Fragment_01_02","onStartTest")
         (activity as MainActivity).hideBackButtonAndShowLogo()
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("Fragment_01_02","onResumeTest")
         (activity as MainActivity).hideBackButtonAndShowLogo()
     }
 

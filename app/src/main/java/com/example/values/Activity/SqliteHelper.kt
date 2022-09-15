@@ -22,28 +22,18 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         db?.execSQL("create table position (p_id integer primary key,p_name text,space_id integer, constraint space_id_fk foreign key(space_id) references space(s_id))")
         db?.execSQL("create table goods (g_id integer primary key, author_id integer, name text, detail text, price text, image blob,type integer, constraint author_id_fk foreign key(author_id) references user(u_id))")
         db?.execSQL("create table exhibition (e_id integer primary key, position_id integer, start_date text, end_date text,type text, constraint position_id_fk foreign key(position_id) references position(p_id))")
-        db?.execSQL("create table picture (p_id integer primary key, author_id integer, exhibition_id integer, name text, detail text, image text, constraint author_id_fk foreign key(author_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
+        db?.execSQL("create table picture (p_id integer primary key autoincrement, author_id integer, exhibition_id integer, name text, detail text, image text, type text, constraint author_id_fk foreign key(author_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
         db?.execSQL("create table reservation (r_id integer primary key, user_id integer, exhibition_id integer, constraint user_id_fk foreign key(user_id) references user(u_id), constraint exhibition_id_fk foreign key(exhibition_id) references exhibition(e_id))")
-
-//        db?.execSQL("insert into user (u_id, name, image) values (1, '강승우', 'NULL')")
-//        db?.execSQL("insert into user (u_id, name, image) values (2, '금윤수', 'NULL')")
-//        db?.execSQL("insert into user (u_id, name, image) values (3, '김대희', 'NULL')")
-
-
-//        val umzziImage = ContentValues()
-//        umzziImage.put("image",drawableToByteArray(R.drawable.irene))
-//        val n : Int = R.drawable.irene
-//        db?.execSQL("insert into user (u_id, name, image) values (4, 'UMZZI', n)")
 
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS space")
-        db?.execSQL("DROP TABLE IF EXISTS exhibition")
         db?.execSQL("DROP TABLE IF EXISTS picture")
         db?.execSQL("DROP TABLE IF EXISTS reservation")
+        db?.execSQL("DROP TABLE IF EXISTS exhibition")
 
-
+        db?.execSQL("DROP TABLE IF EXISTS position")
+        db?.execSQL("DROP TABLE IF EXISTS space")
         db?.execSQL("DROP TABLE IF EXISTS goods")
         db?.execSQL("DROP TABLE IF EXISTS user")
         onCreate(db)
@@ -86,7 +76,6 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         val list = mutableListOf<Exhibition_Data>()
         // db 가져오기
         val select = "select * from exhibition, space, position where (space.s_id = position.space_id) and (space.s_id ="+spaceId+") and (position.p_id = exhibition.position_id) and (exhibition.type=\""+type+"\")"
-        val select2 = "select * from position inner join space on position.space_id = space.s_id inner join exhibition on position.p_id = exhibition.position_id"
 
 
 
@@ -388,10 +377,9 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         return space_data
     }
 
-    fun insertPicture(id: Int, exhibition_id: Int, author_id: Int, pic_name: String, pic_image: Drawable?, pic_detail: String){
+    fun insertPicture(exhibition_id: Int, author_id: Int, pic_name: String, pic_image: Drawable?, pic_detail: String){
 
         val values = ContentValues()
-        values.put("p_id",id)
         values.put("author_id",author_id)
         values.put("exhibition_id",exhibition_id)
         values.put("name",pic_name)
@@ -408,9 +396,8 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
     @SuppressLint("Range")
     fun selectPicture(picture_id:Int): Picture_Data? {
 
-        val list = arrayListOf<Goods_Data>()
         // db 가져오기
-        val select = "select * from picture where p_id="+picture_id
+        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id as user_id, user.name as u_name from picture, user where picture.author_id = user.u_id and picture.p_id = " + picture_id
 
         val rd = readableDatabase
 
@@ -422,13 +409,13 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
         while(cursor.moveToNext()){
 
             val p_id:Int = cursor.getInt(cursor.getColumnIndex("p_id"))
-            val picture_name:String = cursor.getString(cursor.getColumnIndex("name"))
+            val picture_name:String = cursor.getString(cursor.getColumnIndex("p_name"))
             val picture_detail:String = cursor.getString(cursor.getColumnIndex("detail"))
             val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
-            val author_id:Int = cursor.getInt(cursor.getColumnIndex("author_id"))
+            val author_id:Int = cursor.getInt(cursor.getColumnIndex("user_id"))
+            val author_name:String = cursor.getString(cursor.getColumnIndex("u_name"))
 
-
-            picture = Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id)
+            picture = Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name)
         }
 
         cursor.close()
@@ -436,6 +423,39 @@ class SqliteHelper(context: MainActivity, name:String, version:Int) : SQLiteOpen
 
         return picture
     }
+
+    @SuppressLint("Range")
+    fun selectPictureList_latest(): ArrayList<Picture_Data> {
+
+        val list = arrayListOf<Picture_Data>()
+        // db 가져오기
+        val select = "select picture.p_id , picture.name as p_name, picture.detail, picture.image, user.u_id, user.name as u_name from picture, user where picture.author_id = user.u_id order by p_id desc limit 7"
+
+        val rd = readableDatabase
+
+
+        val cursor = rd.rawQuery(select,null)
+        DatabaseUtils.dumpCursor(cursor) //데이터 베이스 확인.
+
+        while(cursor.moveToNext()){
+
+            val p_id:Int = cursor.getInt(cursor.getColumnIndex("p_id"))
+            val picture_name:String = cursor.getString(cursor.getColumnIndex("p_name"))
+            val picture_detail:String = cursor.getString(cursor.getColumnIndex("detail"))
+            val picture_image:ByteArray? = cursor.getBlob(cursor.getColumnIndex("image"))?:null
+            val author_id:Int = cursor.getInt(cursor.getColumnIndex("u_id"))
+            val author_name:String = cursor.getString(cursor.getColumnIndex("u_name"))
+
+            list.add(Picture_Data(p_id, picture_image, picture_name, picture_detail, author_id, author_name))
+        }
+
+        cursor.close()
+        rd.close()
+
+        return list
+    }
+
+
 
 
 

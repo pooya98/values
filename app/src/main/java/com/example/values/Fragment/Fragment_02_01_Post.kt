@@ -19,8 +19,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
-import com.example.values.Activity.DB_NAME
-import com.example.values.Activity.DB_VERSION
 import com.example.values.Activity.MainActivity
 import com.example.values.Activity.SqliteHelper
 import com.example.values.Adapter.Fragment_02_01_Post_Adapter
@@ -44,7 +42,7 @@ class Fragment_02_01_Post : Fragment() {
         val view = inflater.inflate(R.layout.fragment_02_01__post, container, false)
 
 
-        var editText_author_id = view.findViewById<EditText>(R.id.post_author_name)
+        var editText_author_name = view.findViewById<EditText>(R.id.post_author_name)
         var editText_picture_name = view.findViewById<EditText>(R.id.post_picture_name)
         var editText_picture_detail = view.findViewById<EditText>(R.id.post_picture_detail)
 
@@ -52,7 +50,13 @@ class Fragment_02_01_Post : Fragment() {
         imageView_picture_image = view.findViewById<ImageView>(R.id.post_picture_image)
         var button_post = view.findViewById<Button>(R.id.post_button_post)
 
+        val user_id = (activity as MainActivity).USER_ID
         val exhibition_id = arguments?.getInt("exhibition_id")
+        val user_name = (activity as MainActivity).helper.selectUser(user_id).user_name.toString()
+
+        editText_author_name.setText(user_name)
+        editText_author_name.isClickable = false
+        editText_author_name.isFocusable = false
 
 
         button_image_upload.setOnClickListener {
@@ -66,8 +70,7 @@ class Fragment_02_01_Post : Fragment() {
 
 
         button_post.setOnClickListener {
-            var picture_id = 4
-            var author_id = editText_author_id.text.toString().toInt()
+            var author_id = user_id
             var picture_name = editText_picture_name.text.toString()
             var picture_detail = editText_picture_detail.text.toString()
             var exhibition_id = exhibition_id
@@ -76,7 +79,6 @@ class Fragment_02_01_Post : Fragment() {
 
             if (exhibition_id != null) {
                 (activity as MainActivity).helper.insertPicture(
-                    picture_id,
                     exhibition_id,
                     author_id,
                     picture_name,

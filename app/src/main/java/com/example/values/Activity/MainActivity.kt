@@ -34,14 +34,13 @@ import com.example.values.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
-val DB_NAME = "sqlite.sql"
-val DB_VERSION = 12
-
-//UMZZI
-val USER_ID = 9
-
 
 class MainActivity : AppCompatActivity() {
+
+    val DB_NAME = "sqlite.sql"
+    val DB_VERSION = 13
+
+    val USER_ID = 9 //UMZZI
 
     private lateinit var mBinding: ActivityMainBinding
      val helper = SqliteHelper(this, DB_NAME, DB_VERSION)
@@ -53,12 +52,13 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-//        초기 유저 , 굿즈 더미 삽입.
-//        initUsers()
-//        initGoods()
-//        initSpaces()
-//        initPositions()
-//        initExhibitions()
+////        초기 유저 , 굿즈 더미 삽입.
+        initUsers()
+        initGoods()
+        initSpaces()
+        initPositions()
+        initExhibitions()
+        initPicture()
 
 
         val user = helper.selectUser(USER_ID)
@@ -150,6 +150,22 @@ class MainActivity : AppCompatActivity() {
 
         when(destination){
             "fragment_01_01_ExhibitionDetail" -> navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail)
+            "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
+            "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
+            "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
+            "fragment_01_02_Shop" -> navController.navigate(action_fragment_01_to_fragment_01_02_Shop)
+            "fragment_04_01_04_Portfolio_Detail" -> navController.navigate(fragment_04_01_04_Portfolio_Detail)
+            "fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post" -> navController.navigate(action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post)
+
+        }
+    }
+
+    fun navigateToFragment(destination: String, bundle: Bundle){
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
+        val navController = host.navController
+
+        when(destination){
+            "fragment_01_01_ExhibitionDetail" -> navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail, bundle)
             "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
             "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
             "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
@@ -324,6 +340,21 @@ class MainActivity : AppCompatActivity() {
         helper.insertExhibitions(3,1,"09/26/2022","10/03/2022","branding")
         helper.insertExhibitions(4,1,"10/06/2022","10/12/2022","branding")
 
+
+    }
+
+    fun initPicture(){
+
+        val drawable_1 = getDrawable(R.drawable.goods_ill1)
+        val text = "팝아트를 유화로 표현하여 기존 작가의 의도를 해석해 저의 방식으로 풀었습니다. 기존의 낮았던 채도를 형광으로 높이고, 기존 그림 속 인물의 상황표현을 과장했습니다. 저는 극단적인 표현과 유화의 입체감을 이용하여, 관람객들에게 있어서 보다 강한 메세지를 전달하고자 하였습니다. 굿즈도 많이 있으니 구경오세요!"
+
+        helper.insertPicture(1, 9, "my work1", drawable_1, text)
+        helper.insertPicture(1, 9, "my work2", drawable_1, text)
+        helper.insertPicture(1, 9, "my work3", drawable_1, text)
+        helper.insertPicture(1, 9, "my work4", drawable_1, text)
+        helper.insertPicture(1, 9, "my work5", drawable_1, text)
+        helper.insertPicture(1, 9, "my work6", drawable_1, text)
+        helper.insertPicture(1, 9, "my work7", drawable_1, text)
 
     }
 
