@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Spinner
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.values.Activity.MainActivity
 import com.example.values.Adapter.Fragment_01_01_picture_Adapter
@@ -26,6 +27,8 @@ class Fragment_01_01 : Fragment() {
         val view = inflater.inflate(R.layout.fragment_01_01, container, false)
         // Inflate the layout for this fragment
 
+
+
         val branding_viewpager = view.findViewById<ViewPager2>(R.id.fragment01_01_branding_viewpager)
         val illustration_viewpager = view.findViewById<ViewPager2>(R.id.fragment01_01_illustration_viewpager)
         val branding_indicator = view.findViewById<SpringDotsIndicator>(R.id.fragment01_01_branding_indicator)
@@ -33,11 +36,15 @@ class Fragment_01_01 : Fragment() {
         val main_spinner = view.findViewById<Spinner>(R.id.fragment_01_01_main_spinner)
         val linear_lagout_main_thumbnail = view.findViewById<LinearLayout>(R.id.LinearLayout_main_thumbnail)
 
+
+//         brandList =  (activity as MainActivity).helper.selectPictureList_latest()
         val filter_button = view.findViewById<LinearLayout>(R.id.fragment_01_01_filter_button)
         val search_button = view.findViewById<ImageButton>(R.id.fragment_01_01_search_button)
 
 
         // viewPager 설정
+
+
         set_branding_viewPager(branding_viewpager)
         set_branding_viewPager_indicator(branding_viewpager, branding_indicator)
         set_illustration_viewPager(illustration_viewpager)
@@ -71,6 +78,9 @@ class Fragment_01_01 : Fragment() {
     }
 
 
+
+
+
     private fun set_branding_viewPager(branding_viewpager: ViewPager2){
 
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
@@ -79,7 +89,8 @@ class Fragment_01_01 : Fragment() {
         val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
         val offsetPx = screenWidth - pageMarginPx - pagerWidth
 
-        val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
+        var pictureList:ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
+
 
         Log.d("Fragment_01_01","listSize"+pictureList.size)
 
@@ -105,11 +116,11 @@ class Fragment_01_01 : Fragment() {
         }
         branding_viewpager.offscreenPageLimit = 2
 
-        branding_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, activity as MainActivity)
+        branding_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, (activity as MainActivity))
 
         branding_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-        branding_viewpager.setCurrentItem(2)
+        branding_viewpager.setCurrentItem(3)
     }
 
     private fun set_branding_viewPager_indicator(branding_viewpager: ViewPager2, branding_indicator: SpringDotsIndicator){
@@ -153,7 +164,7 @@ class Fragment_01_01 : Fragment() {
 
         illustration_viewpager.offscreenPageLimit = 2
         illustration_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        illustration_viewpager.setCurrentItem(2)
+        illustration_viewpager.setCurrentItem(3)
     }
 
     private fun set_illustration_viewPager_indicator(illustration_viewpager: ViewPager2, illustration_indicator: SpringDotsIndicator){
@@ -173,4 +184,6 @@ class Fragment_01_01 : Fragment() {
             main_spinner.adapter = adapter
         }
     }
+
+
 }

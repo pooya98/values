@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.values.Activity.MainActivity
 import com.example.values.DTO.Picture_Data
@@ -86,6 +87,11 @@ class Fragment_01_01_ExhibitionDetail : Fragment() {
         super.onResume()
 
         (activity as MainActivity).hideLogoAndShowBackButton("진행중인 전시")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
     }
 
 }

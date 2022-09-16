@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
@@ -27,6 +28,7 @@ import com.example.values.DTO.Exhibition_Data
 import com.example.values.DTO.Fragment_01_02_shop_goods_data
 import com.example.values.DTO.Fragment_02_01_Address_Data
 import com.example.values.DTO.Goods_Data
+import com.example.values.Fragment.Fragment_01
 import com.example.values.Fragment.Fragment_01_02
 import com.example.values.Fragment.Fragment_01_02_Shop
 import com.example.values.R
@@ -40,9 +42,11 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     val DB_NAME = "sqlite.sql"
-    val DB_VERSION = 193
+    val DB_VERSION = 195
     //UMZZI
     val USER_ID = 8
+
+
 
     private lateinit var mBinding: ActivityMainBinding
      val helper = SqliteHelper(this, DB_NAME, DB_VERSION)
@@ -57,13 +61,13 @@ class MainActivity : AppCompatActivity() {
 
         //        초기 유저 , 굿즈 더미 삽입.
 
-        initUsers()
-        initGoods()
-        initSpaces()
-        initPositions()
-        initExhibitions()
-
-        initPicture()
+//        initUsers()
+//        initGoods()
+//        initSpaces()
+//        initPositions()
+//        initExhibitions()
+//
+//        initPicture()
 
 
 
@@ -150,12 +154,17 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+
     fun navigateToFragment(destination: String){
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
         val navController = host.navController
 
+
+
+
         when(destination){
-            "fragment_01_01_ExhibitionDetail" -> navController.navigate(action_fragment_01_to_fragment_01_01_ExhibitionDetail)
+            "fragment_01_01_ExhibitionDetail" -> navController.navigate(fragment_01_01_ExhibitionDetail)
             "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe)
             "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase)
             "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
@@ -167,11 +176,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun navigateToFragment(destination: String, bundle: Bundle){
+
+
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
         val navController = host.navController
 
+
+
         when(destination){
-            "fragment_01_01_ExhibitionDetail" -> navController.navigate(fragment_01_01_ExhibitionDetail, bundle)
+            "fragment_01_01_ExhibitionDetail" -> {
+
+
+
+//                navController.navigate(R.id.fragment_01)
+
+                navController.navigate( fragment_01_01_ExhibitionDetail, bundle)}
             "fragment_01_01_Subscribe" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe, bundle)
             "fragment_01_01_Purchase" -> navController.navigate(action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase, bundle)
             "fragment_02_01_SpacePick" -> navController.navigate(fragment_02_01_SpacePick)
@@ -199,6 +218,8 @@ class MainActivity : AppCompatActivity() {
 
 
     fun navigateToFragment(destination: String,goodsData: Goods_Data){
+
+
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment
         val navController = host.navController
         Log.d("title2",goodsData.goods_name)
@@ -206,6 +227,7 @@ class MainActivity : AppCompatActivity() {
         when(destination){
             "fragment_01_02_Shop" ->{
                 val bundle = Bundle()
+
 
                 bundle.putString("price",goodsData.goods_price)
                 bundle.putByteArray("mainview",goodsData.goods_image)
@@ -415,5 +437,6 @@ class MainActivity : AppCompatActivity() {
         helper.insertPicture(3, 2, "수소월드", drawable_7, text)
 
     }
+
 
 }

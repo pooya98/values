@@ -81,9 +81,10 @@
                                 android:id="@+id/fragment_01_01_search_button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:background="@drawable/ripple_unbounded"
                                 android:gravity="right"
                                 android:src="@drawable/icon_search"
-                                android:background="@drawable/ripple_unbounded">
+                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
 
                             </ImageButton>
 
@@ -97,7 +98,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
 
                             </Spinner>
 
@@ -118,11 +120,12 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/button_background_ripple_purple_stroke"
+                                    android:clickable="true"
                                     android:gravity="center"
                                     android:orientation="horizontal"
                                     android:padding="2dp"
                                     android:paddingHorizontal="4dp"
-                                    android:clickable="true">
+                                    tools:ignore="TouchTargetSizeCheck">
 
                                     <ImageView
                                         android:layout_width="15dp"
