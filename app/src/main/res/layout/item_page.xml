@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/on01_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="범죄 온상 이미지의 원인"
+        android:textColor="@color/dh_purple"
+        android:textSize="20dp"
+        android:textStyle="bold">
+    </TextView>
+
+    <TextView
+        android:id="@+id/on01_2"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지역문화 발전 방해의 원인"
+        android:textColor="@color/dh_purple"
+        android:textSize="20dp"
+        android:textStyle="bold">
+    </TextView>
+
+    <TextView
+        android:id="@+id/on01_3"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="바로,"
+        android:textColor="@color/dh_purple"
+        android:textSize="30dp"
+        android:textStyle="bold">
+    </TextView>
+
+    <TextView
+        android:id="@+id/on01_4"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="폐건물!"
+        android:textColor="@color/dh_purple"
+        android:textSize="40dp"
+        android:textStyle="bold">
+    </TextView>
+
+
+
+</LinearLayout>

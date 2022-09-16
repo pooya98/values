@@ -159,7 +159,7 @@ class Fragment_01_01 : Fragment() {
             }
         }
 
-        val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_latest()
+        val pictureList : ArrayList<Picture_Data> = (activity as MainActivity).helper.selectPictureList_Oldest()
         illustration_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, activity as MainActivity)
 
         illustration_viewpager.offscreenPageLimit = 2

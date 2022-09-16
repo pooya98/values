@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -48,6 +49,8 @@ class Fragment_01 : Fragment(), View.OnClickListener {
         mBinding?.fragment01Radio2?.setOnClickListener(this)
         mBinding?.fragment01Radio3?.setOnClickListener(this)
         mBinding?.fragment01Radio4?.setOnClickListener(this)
+
+        navController.navigate(R.id.fragment_01_01)
 
         // Inflate the layout for this fragment
         return mBinding?.root

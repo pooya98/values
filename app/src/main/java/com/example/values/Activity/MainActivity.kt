@@ -61,15 +61,12 @@ class MainActivity : AppCompatActivity() {
 
         //        초기 유저 , 굿즈 더미 삽입.
 
-//        initUsers()
-//        initGoods()
-//        initSpaces()
-//        initPositions()
-//        initExhibitions()
-//
-//        initPicture()
-
-
+        initUsers()
+        initGoods()
+        initSpaces()
+        initPositions()
+        initExhibitions()
+        initPicture()
 
         val user = helper.selectUser(USER_ID)
         val mainUserProfile = findViewById<ImageView>(R.id.main_userProfile)
@@ -95,6 +92,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         setupBottomNavMenu(navController)
+
+        StartOnBoardingActivity()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -284,6 +283,10 @@ class MainActivity : AppCompatActivity() {
 
     fun StartQRActivity(){
         startActivity(Intent(this,QrActivity::class.java))
+    }
+
+    fun StartOnBoardingActivity(){
+        startActivity(Intent(this,OnBoarding::class.java))
     }
 
     fun hideLogoAndShowBackButton(backButtonName: String){
