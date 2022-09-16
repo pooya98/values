@@ -6,13 +6,19 @@
     app:startDestination="@+id/fragment_01">
 
     <fragment
+        android:id="@+id/fragment_01_01"
+        android:name="com.example.values.Fragment.Fragment_01_01"
+        android:label="fragment_01_01"
+        tools:layout="@layout/fragment_01_01">
+        <action
+            android:id="@+id/action_fragment_01_01_to_fragment_01_01_ExhibitionDetail"
+            app:destination="@id/fragment_01_01_ExhibitionDetail" />
+    </fragment>
+    <fragment
         android:id="@+id/fragment_01"
         android:name="com.example.values.Fragment.Fragment_01"
         android:label="fragment_01"
         tools:layout="@layout/fragment_01" >
-        <action
-            android:id="@+id/action_fragment_01_to_fragment_01_01_ExhibitionDetail"
-            app:destination="@id/fragment_01_01_ExhibitionDetail" />
         <action
             android:id="@+id/action_fragment_01_to_fragment_01_02_Shop"
             app:destination="@id/fragment_01_02_Shop" />
@@ -120,6 +126,11 @@
         android:name="com.example.values.Fragment.Fragment_04_01_04"
         android:label="fragment_04_01_04"
         tools:layout="@layout/fragment_04_01_04" />
+    <fragment
+        android:id="@+id/fragment_01_022"
+        android:name="com.example.values.Fragment.Fragment_01_02"
+        android:label="fragment_01_02"
+        tools:layout="@layout/fragment_01_02" />
 
 
 </navigation>

@@ -52,12 +52,14 @@ class Fragment_04_01_03_Adapter (private var datas:ArrayList<Exhibition_Data>):
             private val exhibitTitle: TextView = itemView.findViewById(R.id.myExhibitTitle)
             private val exhibitPeriod: TextView = itemView.findViewById(R.id.exhibitPeriodTextView)
             private val exhibitPlace: TextView = itemView.findViewById(R.id.exhibitPlaceTextView)
+            private val exhibitType: TextView = itemView.findViewById(R.id.myExhibitType)
 
 
             fun bind(item: Exhibition_Data) {
                 exhibitTitle.text = "VALUES"+item.space_name+"점"
                 exhibitPeriod.text = item.exhibition_startDate + " - "+item.exhibition_endDate
                 exhibitPlace.text = "["+item.position_name+"]"
+                exhibitType.text = "  -  "+item.exhibition_type
 
 
 
