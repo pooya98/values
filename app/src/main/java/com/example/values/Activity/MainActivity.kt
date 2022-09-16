@@ -40,7 +40,7 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     val DB_NAME = "sqlite.sql"
-    val DB_VERSION = 193
+    val DB_VERSION = 194
     //UMZZI
     val USER_ID = 8
 
@@ -57,14 +57,14 @@ class MainActivity : AppCompatActivity() {
 
         //        초기 유저 , 굿즈 더미 삽입.
 
-        initUsers()
-        initGoods()
-        initSpaces()
-        initPositions()
-        initExhibitions()
-
-        initPicture()
-
+//        initUsers()
+//        initGoods()
+//        initSpaces()
+//        initPositions()
+//        initExhibitions()
+//
+//        initPicture()
+//
 
 
         val user = helper.selectUser(USER_ID)

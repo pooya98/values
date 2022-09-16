@@ -18,7 +18,7 @@ import com.example.values.R
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 
 class Fragment_01_01 : Fragment() {
-
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,14 +60,21 @@ class Fragment_01_01 : Fragment() {
     override fun onStart() {
         super.onStart()
         super.onResume()
-
+        Log.d("onstart","start!@!@@@!@!@!!@")
         (activity as MainActivity).hideBackButtonAndShowLogo()
     }
 
     override fun onResume() {
         super.onResume()
-
+        Log.d("onResume", "resume!@@@@@@@@!!")
         (activity as MainActivity).hideBackButtonAndShowLogo()
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        Log.d("onDestroy:", "destroY!!!!!!!!!!!!!")
     }
 
 
@@ -105,7 +112,7 @@ class Fragment_01_01 : Fragment() {
         }
         branding_viewpager.offscreenPageLimit = 2
 
-        branding_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, activity as MainActivity)
+        branding_viewpager.adapter = Fragment_01_01_picture_Adapter(pictureList, (activity as MainActivity))
 
         branding_viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
