@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_4_2"
+    app:startDestination="@id/fragment_04_01_01">
+
+    <fragment
+        android:id="@+id/fragment_04_01_01"
+        android:name="com.example.values.Fragment.Fragment_04_01_01"
+        android:label="fragment_04_01_01"
+        tools:layout="@layout/fragment_04_01_01" />
+    <fragment
+        android:id="@+id/fragment_04_01_02"
+        android:name="com.example.values.Fragment.Fragment_04_01_02"
+        android:label="fragment_04_01_02"
+        tools:layout="@layout/fragment_04_01_02" >
+        <action
+            android:id="@+id/action_fragment_04_01_02_to_fragment_04_01_02_badges"
+            app:destination="@id/fragment_04_01_02_badges"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_04_01_03"
+        android:name="com.example.values.Fragment.Fragment_04_01_03"
+        android:label="fragment_04_01_03"
+        tools:layout="@layout/fragment_04_01_03" >
+        <action
+            android:id="@+id/action_fragment_04_01_03_to_fragment_04_01_03_Report"
+            app:destination="@id/fragment_04_01_03_Report"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_04_01_03_Report"
+        android:name="com.example.values.Fragment.Fragment_04_01_03_Report"
+        android:label="fragment_04_01_03_report"
+        tools:layout="@layout/fragment_04_01_03_report" />
+    <fragment
+        android:id="@+id/fragment_04_01_04"
+        android:name="com.example.values.Fragment.Fragment_04_01_04"
+        android:label="fragment_04_01_04"
+        tools:layout="@layout/fragment_04_01_04" />
+    <fragment
+        android:id="@+id/fragment_04_01_02_badges"
+        android:name="com.example.values.Fragment.Fragment_04_01_02_badges"
+        android:label="fragment_04_01_02_badges"
+        tools:layout="@layout/fragment_04_01_02_badges" />
+</navigation>

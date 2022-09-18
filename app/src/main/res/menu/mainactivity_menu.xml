@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- MainActivity 하단 네비게이션 바 -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/fragment_01"
+        android:icon="@drawable/bottom_home2"
+        android:title="@string/title_01" />
+
+    <item
+        android:id="@id/fragment_02"
+        android:icon="@drawable/bottom_displaying"
+        android:title="@string/title_02"/>
+
+    <item
+        android:id="@id/fragment_03"
+        android:icon="@drawable/bottom_ticketing"
+        android:title="@string/title_03"/>
+
+    <item
+        android:id="@id/fragment_04"
+        android:icon="@drawable/bottom_all"
+        android:title="@string/title_04"/>
+</menu>

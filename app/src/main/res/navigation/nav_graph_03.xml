@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_03"
+    app:startDestination="@id/fragment_03_01">
+
+    <fragment
+        android:id="@+id/fragment_03_01"
+        android:name="com.example.values.Fragment.Fragment_03_01"
+        android:label="fragment_03_01"
+        tools:layout="@layout/fragment_03_01" >
+        <action
+            android:id="@+id/action_fragment_03_01_to_fragment_03_01_ticket"
+            app:destination="@id/fragment_03_01_ticket" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_03_01_ticket"
+        android:name="com.example.values.Fragment.Fragment_03_01_ticket"
+        android:label="fragment_03_01_ticket"
+        tools:layout="@layout/fragment_03_01_ticket" />
+</navigation>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/values01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/on03_1"
+            android:layout_marginHorizontal="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VALUES,"
+            android:textColor="@color/dh_purple"
+            android:textSize="30dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/on03_2"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="폐건물을 공공문화공간으로 "
+            android:textColor="@color/dh_purple"
+            android:textSize="26dp"
+            android:textStyle="bold">
+        </TextView>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/values02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/on03_3"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VALUES에서"
+            android:textColor="@color/dh_purple"
+            android:textSize="30dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/on03_4"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여러분의 예술적 가치를"
+            android:textColor="@color/dh_purple"
+            android:textSize="30dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/on03_5"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마음껏 나눠주세요."
+            android:textColor="@color/dh_purple"
+            android:textSize="30dp"
+            android:textStyle="bold">
+        </TextView>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/spaceLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="13dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="3.5dp"
+            app:cardCornerRadius="8dp">
+
+            <ImageView
+                android:id="@+id/space_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_space"></ImageView>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/space_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="6dp"
+                    android:text="VALUES경산 "
+                    android:textColor="@color/dh_black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/textView65"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="남은 공간"
+                    android:textColor="@color/dh_black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView66"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="14"
+                    android:textColor="@color/dh_purple"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:paddingLeft="6dp"
+                    android:text="5개 홀 / 180개 리뷰"
+                    android:textColor="@color/dh_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    app:srcCompat="@drawable/icon_space_time" />
+
+                <TextView
+                    android:id="@+id/space_detail_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연중무휴 09:00 - 22:00"
+                    android:textColor="#666666"
+                    android:textSize="10sp"></TextView>
+
+                <ImageView
+                    android:id="@+id/imageView28"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="97dp"
+                    app:srcCompat="@drawable/icon_heart" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    app:srcCompat="@drawable/icon_space_map" />
+
+                <TextView
+                    android:id="@+id/space_detail_address2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경북 경산시 사랑로 12길 34"
+                    android:textColor="@color/dh_purple"
+                    android:textSize="10sp"></TextView>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="11dp"
+                    app:srcCompat="@drawable/icon_space_call" />
+
+                <TextView
+                    android:id="@+id/space_detail_address3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="053-812-3456"
+                    android:textColor="@color/dh_purple"
+                    android:textSize="10sp"></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:background="#4D959595"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></View>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

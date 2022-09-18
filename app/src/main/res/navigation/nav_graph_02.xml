@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_02"
+    app:startDestination="@id/fragment_02_01">
+
+    <fragment
+        android:id="@+id/fragment_02_01"
+        android:name="com.example.values.Fragment.Fragment_02_01"
+        android:label="fragment_02_01"
+        tools:layout="@layout/fragment_02_01" >
+        <action
+            android:id="@+id/action_fragment_02_01_to_fragment_02_01_ExhibitionAvailable"
+            app:destination="@id/fragment_02_01_ExhibitionAvailable" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_02_02"
+        android:name="com.example.values.Fragment.Fragment_02_02"
+        android:label="fragment_02_02"
+        tools:layout="@layout/fragment_02_02" />
+    <fragment
+        android:id="@+id/fragment_02_03"
+        android:name="com.example.values.Fragment.Fragment_02_03"
+        android:label="fragment_02_03"
+        tools:layout="@layout/fragment_02_03" />
+    <fragment
+        android:id="@+id/fragment_02_01_ExhibitionAvailable"
+        android:name="com.example.values.Fragment.Fragment_02_01_ExhibitionAvailable"
+        android:label="fragment_02_01__exhibition_available"
+        tools:layout="@layout/fragment_02_01__exhibition_available" >
+        <action
+            android:id="@+id/action_fragment_02_01_ExhibitionAvailable_to_fragment_02_01_Post"
+            app:destination="@id/fragment_02_01_Post" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_02_01_Post"
+        android:name="com.example.values.Fragment.Fragment_02_01_Post"
+        android:label="fragment_02_01__post"
+        tools:layout="@layout/fragment_02_01__post" >
+        <action
+            android:id="@+id/action_fragment_02_01_Post_to_fragment_02_01_PostComplete"
+            app:destination="@id/fragment_02_01_PostComplete" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_02_01_PostComplete"
+        android:name="com.example.values.Fragment.Fragment_02_01_PostComplete"
+        android:label="fragment_02_01__post_complete"
+        tools:layout="@layout/fragment_02_01__post_complete" />
+</navigation>

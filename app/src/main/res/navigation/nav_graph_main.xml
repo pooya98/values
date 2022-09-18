@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@+id/fragment_01">
+
+    <fragment
+        android:id="@+id/fragment_01_01"
+        android:name="com.example.values.Fragment.Fragment_01_01"
+        android:label="fragment_01_01"
+        tools:layout="@layout/fragment_01_01">
+        <action
+            android:id="@+id/action_fragment_01_01_to_fragment_01_01_ExhibitionDetail"
+            app:destination="@id/fragment_01_01_ExhibitionDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_01"
+        android:name="com.example.values.Fragment.Fragment_01"
+        android:label="fragment_01"
+        tools:layout="@layout/fragment_01" >
+        <action
+            android:id="@+id/action_fragment_01_to_fragment_01_02_Shop"
+            app:destination="@id/fragment_01_02_Shop" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_02"
+        android:name="com.example.values.Fragment.Fragment_02"
+        android:label="fragment_02"
+        tools:layout="@layout/fragment_02" >
+        <action
+            android:id="@+id/action_fragment_02_to_fragment_02_01_SpacePick"
+            app:destination="@id/fragment_02_01_SpacePick" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_03"
+        android:name="com.example.values.Fragment.Fragment_03"
+        android:label="fragment_03"
+        tools:layout="@layout/fragment_03" />
+    <fragment
+        android:id="@+id/fragment_04"
+        android:name="com.example.values.Fragment.Fragment_04"
+        android:label="fragment_04"
+        tools:layout="@layout/fragment_04" >
+        <action
+            android:id="@+id/action_fragment_04_to_fragment_04_01"
+            app:destination="@id/fragment_04_01" />
+        <action
+            android:id="@+id/action_fragment_04_to_fragment_04_02"
+            app:destination="@id/fragment_04_02" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_04_01"
+        android:name="com.example.values.Fragment.Fragment_04_01"
+        android:label="fragment_04_01"
+        tools:layout="@layout/fragment_04_01" />
+    <fragment
+        android:id="@+id/fragment_04_02"
+        android:name="com.example.values.Fragment.Fragment_04_02"
+        android:label="fragment_04_02"
+        tools:layout="@layout/fragment_04_02" >
+        <action
+            android:id="@+id/action_fragment_04_02_to_fragment_04_02_QR"
+            app:destination="@id/fragment_04_02_QR" />
+        <action
+            android:id="@+id/action_fragment_04_02_to_fragment_04_02_EventDetail"
+            app:destination="@id/fragment_04_02_EventDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_01_01_ExhibitionDetail"
+        android:name="com.example.values.Fragment.Fragment_01_01_ExhibitionDetail"
+        android:label="fragment_01_01__exhibition_detail"
+        tools:layout="@layout/fragment_01_01__exhibition_detail" >
+        <action
+            android:id="@+id/action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Subscribe"
+            app:destination="@id/fragment_01_01_Subscribe" />
+        <action
+            android:id="@+id/action_fragment_01_01_ExhibitionDetail_to_fragment_01_01_Purchase"
+            app:destination="@id/fragment_01_01_Purchase" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_01_01_Subscribe"
+        android:name="com.example.values.Fragment.Fragment_01_01_Subscribe"
+        android:label="fragment_01_01__subscribe"
+        tools:layout="@layout/fragment_01_01__subscribe" />
+    <fragment
+        android:id="@+id/fragment_01_01_Purchase"
+        android:name="com.example.values.Fragment.Fragment_01_01_Purchase"
+        android:label="Fragment_01_01_Purchase" />
+    <fragment
+        android:id="@+id/fragment_04_01_04_Portfolio_Detail"
+        android:name="com.example.values.Fragment.Fragment_04_01_04_Portfolio_Detail"
+        android:label="fragment_04_01_04_portfolio_detail"
+        tools:layout="@layout/fragment_04_01_04_portfolio_detail" />
+    <fragment
+        android:id="@+id/fragment_04_02_QR"
+        android:name="com.example.values.Fragment.Fragment_04_02_QR"
+        android:label="fragment_04_02_qr"
+        tools:layout="@layout/fragment_04_02_qr" />
+
+    <fragment
+        android:id="@+id/fragment_02_01_SpacePick"
+        android:name="com.example.values.Fragment.Fragment_02_01_SpacePick"
+        android:label="fragment_02_01__space_pick"
+        tools:layout="@layout/fragment_02_01__space_pick" />
+    <fragment
+        android:id="@+id/fragment_01_02_Shop"
+        android:name="com.example.values.Fragment.Fragment_01_02_Shop"
+        android:label="fragment_01_02__shop"
+        tools:layout="@layout/fragment_01_02__shop" >
+        <action
+            android:id="@+id/action_fragment_01_02_Shop_self"
+            app:destination="@id/fragment_01_02_Shop" />
+        <action
+            android:id="@+id/action_fragment_01_02_Shop_self2"
+            app:destination="@id/fragment_01_02_Shop" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_04_02_EventDetail"
+        android:name="com.example.values.Fragment.Fragment_04_02_EventDetail"
+        android:label="fragment_04_02__event_detail"
+        tools:layout="@layout/fragment_04_02__event_detail" />
+    <fragment
+        android:id="@+id/fragment_04_01_042"
+        android:name="com.example.values.Fragment.Fragment_04_01_04"
+        android:label="fragment_04_01_04"
+        tools:layout="@layout/fragment_04_01_04" />
+    <fragment
+        android:id="@+id/fragment_01_022"
+        android:name="com.example.values.Fragment.Fragment_01_02"
+        android:label="fragment_01_02"
+        tools:layout="@layout/fragment_01_02" />
+
+
+</navigation>

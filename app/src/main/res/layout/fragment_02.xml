@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fragment_02 [프래그먼트02. '전시하기' 화면]-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.Fragment_02">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- 상단 부분 (상단 네비게이션 바) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp">
+
+            <!-- 상단 네비게이션 바 -->
+            <RadioGroup
+                android:id="@+id/fragment02_radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:background="@drawable/stroke_top_navi">
+
+                <!-- 네이게이션 1번째 버튼(전시+굿즈) -->
+                <RadioButton
+                    android:id="@+id/fragment02_radio1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/selector_top_navi_button_background"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="전시+굿즈"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/selector_top_navi_button_text" />
+
+                <!-- 네이게이션 2번째 버튼(굿즈만) -->
+                <RadioButton
+                    android:id="@+id/fragment02_radio2"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/selector_top_navi_button_background"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="굿즈만"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/selector_top_navi_button_text" />
+
+                <!-- 네이게이션 3번째 버튼(기타 컨텐츠) -->
+                <RadioButton
+                    android:id="@+id/fragment02_radio3"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/selector_top_navi_button_background"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="기타 컨텐츠"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/selector_top_navi_button_text" />
+
+            </RadioGroup>
+
+
+
+        </LinearLayout>
+
+        <!-- 중하단부 (프레임레이아웃) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="18">
+            <!-- Fragment_01 프레임레이아웃 -->
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment02_FrameLayout"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph_02">
+
+            </androidx.fragment.app.FragmentContainerView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
