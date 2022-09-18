@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -22,7 +21,7 @@
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="시민들을 위한, 시민들에 의한 "
+        android:text="시민들이 창조해내가는,"
         android:textColor="@color/dh_purple"
         android:textSize="30dp"
         android:textStyle="bold">
@@ -33,7 +32,18 @@
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="문화공간이 된다면?"
+        android:text="시민들이 즐기는,"
+        android:textColor="@color/dh_purple"
+        android:textSize="30dp"
+        android:textStyle="bold">
+    </TextView>
+
+    <TextView
+        android:id="@+id/on02_4"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="'공공문화공간' 이 된다면?"
         android:textColor="@color/dh_purple"
         android:textSize="30dp"
         android:textStyle="bold">

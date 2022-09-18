@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -13,31 +12,20 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import com.example.values.DTO.Exhibition_Data
-import com.example.values.DTO.Fragment_01_02_shop_goods_data
 import com.example.values.DTO.Fragment_02_01_Address_Data
 import com.example.values.DTO.Goods_Data
-import com.example.values.Fragment.Fragment_01
-import com.example.values.Fragment.Fragment_01_02
-import com.example.values.Fragment.Fragment_01_02_Shop
 import com.example.values.R
 import com.example.values.R.id.*
 import com.example.values.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,22 +46,35 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
+        var onboarding_flag = false
 
-        //        초기 유저 , 굿즈 더미 삽입.
+        val pref = getSharedPreferences("isFirst", MODE_PRIVATE)
+        val first = pref.getBoolean("isFirst", false)
+        if (first == false) {
+            Log.d("Is first Time?", "first")
+            val editor = pref.edit()
+            editor.putBoolean("isFirst", true)
+            editor.commit()
+            //앱 최초 실행시 하고 싶은 작업
 
-        initUsers()
-        initGoods()
-        initSpaces()
-        initPositions()
-        initExhibitions()
-        initPicture()
+            initUsers()
+            initGoods()
+            initSpaces()
+            initPositions()
+            initExhibitions()
+            initPicture()
+
+            onboarding_flag = true
+
+        } else {
+            Log.d("Is first Time?", "not first")
+        }
+
 
         val user = helper.selectUser(USER_ID)
         val mainUserProfile = findViewById<ImageView>(R.id.main_userProfile)
 
         mainUserProfile.setImageBitmap(BitmapFactory.decodeByteArray(user.user_Image,0,user.user_Image!!.size))
-
-
 
         val host: NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.Main_FrameLayout) as NavHostFragment?
@@ -93,7 +94,10 @@ class MainActivity : AppCompatActivity() {
 
         setupBottomNavMenu(navController)
 
-        StartOnBoardingActivity()
+        if (onboarding_flag == true){
+            onboarding_flag = false
+            StartOnBoardingActivity()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

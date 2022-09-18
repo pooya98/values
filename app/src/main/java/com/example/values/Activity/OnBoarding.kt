@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.values.Adapter.ViewPagerFragmentAdapter
 import com.example.values.R
+import com.riseup.viewpager.fragment.fragment_four
 import com.riseup.viewpager.fragment.fragment_one
 import com.riseup.viewpager.fragment.fragment_three
 import com.riseup.viewpager.fragment.fragment_two
@@ -30,6 +31,7 @@ class OnBoarding : AppCompatActivity() {
         fragmentList.add(fragment_one())
         fragmentList.add(fragment_two())
         fragmentList.add(fragment_three())
+        fragmentList.add(fragment_four())
 
         viewPager.adapter = ViewPagerFragmentAdapter(this, fragmentList)
         viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -47,11 +49,17 @@ class OnBoarding : AppCompatActivity() {
             if (position == 0){
                 position++
                 viewPager.currentItem = position
-            }else if(position == 1){
+            }
+            else if(position == 1){
                 position++
                 viewPager.currentItem = position
+            }
+            else if(position == 2){
                 button_next.setText("시작하기")
-            }else{
+                position++
+                viewPager.currentItem = position
+            }
+            else{
                 finish()
             }
         }
@@ -68,7 +76,7 @@ class OnBoarding : AppCompatActivity() {
     }
 
     private fun addToList() {
-        for (item in 1..3) {
+        for (item in 1..4) {
             data.add("item $item")
         }
     }
